@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    style="@style/TileCardView"
-    >
+    xmlns:tools="http://schemas.android.com/tools"
+    android:stateListAnimator="@animator/card_clicked"
+    style="@style/TileCardView">
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
+        style="@style/TileInnerLayout"
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="?attr/selectableItemBackground"
@@ -12,19 +15,11 @@
 
         <ImageView
             android:id="@+id/tile_image"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="25dp"
-            android:src="@drawable/ic_baseline_directions_bus_24"/>
+            style="@style/TileIconImageView"
+            android:src="@drawable/ic_baseline_directions_bus_24" />
+
         <TextView
             android:id="@+id/title_textview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="bottom|center_horizontal"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:fontFamily="@font/lato"
-            android:layout_marginBottom="16dp"
-            android:textAlignment="center"/>
-    </LinearLayout>
+            style="@style/TileTitleTextView"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 </androidx.cardview.widget.CardView>

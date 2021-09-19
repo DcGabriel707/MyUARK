@@ -44,6 +44,7 @@
         android:layout_marginEnd="0dp"
         android:theme="@style/LatoTextViewStyle"
         android:background="@color/red"
+        app:itemRippleColor="@color/white"
         app:itemIconTint="@drawable/nav_selector"
         app:labelVisibilityMode="unlabeled"
         app:layout_constraintBottom_toBottomOf="parent"

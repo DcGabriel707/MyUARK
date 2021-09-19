@@ -9,12 +9,15 @@
     <color name="white">#FFFFFFFF</color>
     <color name="red">#9D2235</color>
     <color name="darkRed">#611327</color>
-    <color name="gray">#F2F2F4</color>
+    <color name="gray">#9DC9D5</color>
     <color name="darkerGray">#655765</color>
     <color name="teal">#3F7F7F</color>
     <color name="blueGray">#2B5269</color>
-
-
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="light_blue_900">#FF01579B</color>
+    <color name="light_blue_A200">#FF40C4FF</color>
+    <color name="light_blue_A400">#FF00B0FF</color>
+    <color name="black_overlay">#66000000</color>
 
 
 </resources>
