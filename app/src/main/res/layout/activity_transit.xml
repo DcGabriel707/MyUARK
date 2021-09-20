@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.dcgabriel.myuark.ui.TransitActivity">
+    tools:context="com.dcgabriel.myuark.TransitActivity">
 
     <WebView
         android:id="@+id/transit_webview"

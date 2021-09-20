@@ -1,13 +1,18 @@
-package com.dcgabriel.myuark.ui.Classes
+package com.dcgabriel.myuark.ui.Student
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.dcgabriel.myuark.ui.model.DummyData
+import com.dcgabriel.myuark.ui.model.TileItem
 
-class ClassesViewModel : ViewModel() {
+class StudentViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is dashboard Fragment"
     }
     val text: LiveData<String> = _text
+
+    fun getTiles() : List<TileItem> = DummyData.getStudentTiles()
+
 }

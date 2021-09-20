@@ -13,9 +13,9 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.dcgabriel.myuark.ui.Classes.ClassesFragment"
+        android:name="com.dcgabriel.myuark.ui.Student.StudentFragment"
         android:label="@string/title_classes"
-        tools:layout="@layout/fragment_classes" />
+        tools:layout="@layout/fragment_student" />
 
     <fragment
         android:id="@+id/navigation_notifications"

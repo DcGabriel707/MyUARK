@@ -1,4 +1,4 @@
-package com.dcgabriel.myuark.ui
+package com.dcgabriel.myuark
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="LatoTextViewStyle" parent="android:Widget.TextView">
-        <item name="android:fontFamily">@font/lato</item>
-    </style>
-
     <style name="SimpleCardView">
         <item name="android:foreground">?attr/selectableItemBackground</item>
         <item name="cardCornerRadius">16dp</item>
@@ -31,23 +27,45 @@
 
     <style name="TileIconImageView">
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_height">0dp</item>
         <item name="android:layout_marginLeft">8dp</item>
         <item name="android:layout_marginRight">8dp</item>
-        <item name="android:layout_marginTop">18dp</item>
-        <item name="android:layout_marginBottom">12dp</item>
+        <item name="android:layout_marginTop">8dp</item>
         <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
     </style>
 
-    <style name="TileTitleTextView">
+    <style name="LatoFont">
+        <item name="fontFamily">@font/lato</item>
+    </style>
+
+    <style name="TileTitleTextView" parent="LatoFont">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginBottom">8dp</item>
         <item name="fontFamily">@font/lato</item>
-        <item name="android:gravity">bottom|center_horizontal</item>
+        <item name="android:gravity">center</item>
         <item name="android:textAlignment">center</item>
         <item name="android:textSize">15sp</item>
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TileHeaderTextView" parent="LatoFont">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="fontFamily">@font/lato</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/red</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="MyRecyclerView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:paddingTop">81dp</item>
+        <item name="android:paddingBottom">81dp</item>
+        <item name="android:clipToPadding">false</item>
     </style>
 
     <style name="Widget.Theme.MyApplication.ActionBar.Fullscreen" parent="Widget.AppCompat.ActionBar">

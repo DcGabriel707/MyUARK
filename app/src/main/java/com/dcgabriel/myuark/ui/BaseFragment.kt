@@ -1,8 +1,27 @@
 package com.dcgabriel.myuark.ui
 
 import androidx.fragment.app.Fragment
+import com.dcgabriel.myuark.MainActivity
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 
 open class BaseFragment : Fragment()  {
-    val disposables = CompositeDisposable()
+
+    protected val disposables = CompositeDisposable()
+    protected lateinit var adapter: TileAdapter
+
+
+    protected fun initSubscriptions() {
+        disposables.add(adapter.clickEvents()
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe {
+                (activity as MainActivity?)!!.onClick(it)
+            })
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        disposables.dispose()
+    }
+
 }
