@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <style name="OuterLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
     <style name="SimpleCardView">
         <item name="android:foreground">?attr/selectableItemBackground</item>
         <item name="cardCornerRadius">16dp</item>
@@ -22,7 +27,6 @@
         <item name="android:layout_marginTop">8dp</item>
         <item name="android:layout_marginBottom">8dp</item>
     </style>
-
 
 
     <style name="ImageViewInCard">
@@ -95,6 +99,20 @@
         <item name="android:paddingTop">81dp</item>
         <item name="android:paddingBottom">81dp</item>
         <item name="android:clipToPadding">false</item>
+    </style>
+
+    <style name="FloatingActionButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">bottom|end</item>
+        <item name="android:layout_margin">16dp</item>
+        <item name="android:backgroundTint">@color/red</item>
+        <item name="tint">@color/white</item>
+        <item name="iconGravity">end</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="iconTint">@color/white</item>
+
+
     </style>
 
     <style name="Widget.Theme.MyApplication.ActionBar.Fullscreen" parent="Widget.AppCompat.ActionBar">

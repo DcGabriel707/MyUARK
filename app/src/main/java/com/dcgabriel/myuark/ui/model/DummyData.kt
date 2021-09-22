@@ -10,7 +10,7 @@ object DummyData {
                 2,
                 R.drawable.ic_baseline_directions_bus_24,
                 TileItem.Action.WEB_VIEW,
-                null, TileItem.Type.ICON_TITLE
+                "https://uark.passiogo.com/", TileItem.Type.ICON_TITLE
             ),
             TileItem(
                 "Parking",
@@ -25,55 +25,62 @@ object DummyData {
                 1,
 
                 R.drawable.ic_baseline_home_work_24,
-                TileItem.Action.WEB_LINK,
+                TileItem.Action.WEB_VIEW,
                 "https://housing.uark.edu/", TileItem.Type.ICON_TITLE
             ),
             TileItem(
                 "Dining",
                 2,
                 R.drawable.ic_baseline_fastfood_24,
-                TileItem.Action.WEB_LINK,
+                TileItem.Action.WEB_VIEW,
                 "https://dineoncampus.com/razorbacks/",
                 TileItem.Type.ICON_TITLE
-            ),
-            TileItem(
-                "Map",
-                1,
-                R.drawable.ic_baseline_place_24,
-                TileItem.Action.WEB_VIEW,
-                "",
-                TileItem.Type.ICON_TITLE
-            ),
-            TileItem(
-                "Events",
-                1,
-                R.drawable.ic_baseline_event_24,
-                TileItem.Action.APP_VIEW,
-                "",
-                TileItem.Type.ICON_TITLE
-            ),
-            TileItem(
-                "UREC",
-                1,
-                R.mipmap.ic_channel,
-                TileItem.Action.WEB_LINK,
-                "https://urec.uark.edu/",
-                TileItem.Type.LOGO
             ),
 
             TileItem(
                 "Pat Walker Health Center",
                 2,
                 R.drawable.ic_baseline_health_and_safety_24,
-                TileItem.Action.WEB_LINK,
+                TileItem.Action.WEB_VIEW,
                 "https://health.uark.edu/",
                 TileItem.Type.ICON_TITLE
             ),
             TileItem(
+                "Map",
+                1,
+                R.drawable.ic_baseline_place_24,
+                TileItem.Action.WEB_LINK,
+                "https://campusmaps.uark.edu/",
+                TileItem.Type.ICON_TITLE
+            ),
+            TileItem(
+                "Events",
+                1,
+                R.drawable.ic_baseline_event_24,
+                TileItem.Action.WEB_LINK,
+                "https://calendars.uark.edu/",
+                TileItem.Type.ICON_TITLE
+            ),
+            TileItem("News",
+                2,
+                R.drawable.ic_baseline_feed_24,
+                TileItem.Action.APP_VIEW,
+                "https://news.uark.edu/", TileItem.Type.ICON_TITLE
+            ),
+            TileItem(
+                "UREC",
+                1,
+                R.mipmap.ic_channel,
+                TileItem.Action.WEB_VIEW,
+                "https://urec.uark.edu/",
+                TileItem.Type.LOGO
+            ),
+
+            TileItem(
                 "UATV",
                 1,
                 R.mipmap.ic_uatv,
-                TileItem.Action.WEB_LINK,
+                TileItem.Action.WEB_VIEW,
                 "https://uatvonline.net/",
                 TileItem.Type.LOGO
             ),
@@ -81,7 +88,7 @@ object DummyData {
                 "ASG",
                 1,
                 R.mipmap.ic_asg,
-                TileItem.Action.WEB_LINK,
+                TileItem.Action.WEB_VIEW,
                 "https://asg.uark.edu/",
                 TileItem.Type.LOGO
             ),
@@ -90,14 +97,14 @@ object DummyData {
                 "UAPD",
                 1,
                 R.mipmap.ic_uapd,
-                TileItem.Action.WEB_LINK,
+                TileItem.Action.WEB_VIEW,
                 "https://uapd.uark.edu/",
                 TileItem.Type.LOGO
             ),
             TileItem("Multicultural Center",
                 1,
                 R.mipmap.ic_mc,
-                TileItem.Action.WEB_LINK,
+                TileItem.Action.WEB_VIEW,
                 "https://multicultural.uark.edu/",
                 TileItem.Type.ICON_TITLE
             )

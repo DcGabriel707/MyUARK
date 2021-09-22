@@ -6,7 +6,7 @@ import retrofit2.http.GET;
 
 interface NewsService {
 
-    @GET("apiv2/articles/SearchArticle?top=10")
+    @GET("apiv2/articles/SearchArticle?\$orderby=publishDate+desc&\$top=30")
     fun getRecentNews() : Call<List<NewsArticle>>
 
 

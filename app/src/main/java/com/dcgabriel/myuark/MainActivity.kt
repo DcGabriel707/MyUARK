@@ -96,6 +96,8 @@ class MainActivity : AppCompatActivity() {
             performWebIntent(item.url)
         } else if (item.action == TileItem.Action.WEB_VIEW) {
             openWebView(item.url)
+        } else if (item.action == TileItem.Action.APP_VIEW) {
+            openActivity()
         }
     }
 
@@ -108,9 +110,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun openWebView(url: String?) {
-        val intent = Intent(this, NewsActivity::class.java)
+        val intent = Intent(this, WebViewActivity::class.java)
+            .putExtra(Constants.EXTRA_URL, url)
         startActivity(intent)
 
+    }
+
+    //wip
+    private fun openActivity(){
+        val intent = Intent(this, NewsActivity::class.java)
+
+        startActivity(intent)
     }
 
     override fun onDestroy() {

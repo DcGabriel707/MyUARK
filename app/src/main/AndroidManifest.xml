@@ -16,7 +16,7 @@
             android:name="com.dcgabriel.myuark.NewsActivity"
             android:exported="true" />
         <activity
-            android:name="com.dcgabriel.myuark.TransitActivity"
+            android:name="com.dcgabriel.myuark.WebViewActivity"
             android:exported="true" />
         <activity
             android:name="com.dcgabriel.myuark.MainActivity"
