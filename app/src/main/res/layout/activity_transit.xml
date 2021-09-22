@@ -13,14 +13,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/sample_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TEXTY TEXT"
-        app:layout_constraintBottom_toBottomOf="@+id/transit_webview"
-        app:layout_constraintEnd_toEndOf="@+id/transit_webview"
-        app:layout_constraintStart_toStartOf="@+id/transit_webview"
-        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

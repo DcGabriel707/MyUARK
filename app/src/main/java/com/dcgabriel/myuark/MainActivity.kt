@@ -108,8 +108,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun openWebView(url: String?) {
-//        val intent = Intent()
-//        startActivity(intent)
+        val intent = Intent(this, NewsActivity::class.java)
+        startActivity(intent)
+
     }
 
     override fun onDestroy() {
