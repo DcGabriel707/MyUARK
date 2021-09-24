@@ -1,7 +1,8 @@
 package com.dcgabriel.myuark.ui
 
 import androidx.fragment.app.Fragment
-import com.dcgabriel.myuark.MainActivity
+import com.dcgabriel.myuark.ui.Adapters.TileAdapter
+import com.dcgabriel.myuark.ui.Main.MainActivity
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 

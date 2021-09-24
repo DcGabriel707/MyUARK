@@ -13,13 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
-            android:name="com.dcgabriel.myuark.NewsActivity"
+            android:name="com.dcgabriel.myuark.ui.News.NewsActivity"
             android:exported="true" />
         <activity
-            android:name="com.dcgabriel.myuark.WebViewActivity"
+            android:name="com.dcgabriel.myuark.ui.WebViewActivity"
             android:exported="true" />
         <activity
-            android:name="com.dcgabriel.myuark.MainActivity"
+            android:name="com.dcgabriel.myuark.ui.Main.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:windowSoftInputMode="adjustPan">

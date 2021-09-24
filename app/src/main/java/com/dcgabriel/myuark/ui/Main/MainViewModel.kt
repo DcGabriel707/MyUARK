@@ -1,4 +1,4 @@
-package com.dcgabriel.myuark
+package com.dcgabriel.myuark.ui.Main
 
 import androidx.lifecycle.ViewModel
 import com.dcgabriel.myuark.ui.model.DummyData

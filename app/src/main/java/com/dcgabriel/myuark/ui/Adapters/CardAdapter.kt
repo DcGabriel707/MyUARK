@@ -1,23 +1,14 @@
-package com.dcgabriel.myuark
+package com.dcgabriel.myuark.ui.Adapters
 
 import android.content.Context
-import android.text.Html
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.res.ResourcesCompat
 import androidx.core.text.HtmlCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.dcgabriel.myuark.ui.TileAdapter
 import com.dcgabriel.myuark.ui.model.NewsArticle
-import com.dcgabriel.myuark.ui.model.TileItem
 import com.example.myuark.databinding.NewsItemBinding
-import com.example.myuark.databinding.TileItemBinding
 import com.squareup.picasso.Picasso
-import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.subjects.PublishSubject
-import java.util.concurrent.TimeUnit
 
 class CardAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
     private var items: MutableList<NewsArticle> = mutableListOf()

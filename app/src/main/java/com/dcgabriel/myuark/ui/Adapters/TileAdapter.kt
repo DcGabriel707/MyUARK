@@ -1,7 +1,6 @@
-package com.dcgabriel.myuark.ui
+package com.dcgabriel.myuark.ui.Adapters
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,8 +10,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myuark.databinding.TileItemBinding
 import com.dcgabriel.myuark.ui.model.TileItem
-import com.dcgabriel.myuark.ui.model.TileItem.*
 import com.dcgabriel.myuark.ui.model.TileItem.Type.*
+import com.example.myuark.databinding.WidgetItemBinding
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.subjects.PublishSubject
 import java.util.concurrent.TimeUnit
@@ -28,13 +27,15 @@ class TileAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHold
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding = TileItemBinding.inflate(inflater, parent, false)
+        val tileBinding = TileItemBinding.inflate(inflater, parent, false)
+        val widgetBinding = WidgetItemBinding.inflate(inflater, parent, false)
 
         return when(viewType){
-            ICON_TITLE.ordinal -> IconTitleViewHolder(binding)
-            TEXT.ordinal -> TextViewHolder(binding)
-            LOGO.ordinal -> LogoViewHolder(binding)
-            else -> TextViewHolder(binding)
+            ICON_TITLE.ordinal -> IconTitleViewHolder(tileBinding)
+            TEXT.ordinal -> TextViewHolder(tileBinding)
+            LOGO.ordinal -> LogoViewHolder(tileBinding)
+            WIDGET.ordinal -> WidgetViewHolder(widgetBinding)
+            else -> TextViewHolder(tileBinding)
         }
     }
 
@@ -44,6 +45,7 @@ class TileAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHold
             ICON_TITLE -> (holder as IconTitleViewHolder).bindData(item)
             TEXT -> (holder as TextViewHolder).bindData(item)
             LOGO -> (holder as LogoViewHolder).bindData(item)
+            WIDGET -> (holder as WidgetViewHolder).bindData(item)
             else -> (holder as TextViewHolder).bindData(item)
         }
     }
@@ -55,6 +57,7 @@ class TileAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHold
             IMAGE -> IMAGE.ordinal
             IMAGE_TEXT -> IMAGE_TEXT.ordinal
             TEXT -> TEXT.ordinal
+            WIDGET -> WIDGET.ordinal
             else -> TEXT.ordinal
         }
     }
@@ -124,5 +127,17 @@ class TileAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHold
         }
     }
 
+    inner class WidgetViewHolder(var binding: WidgetItemBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bindData(item: TileItem){
+            setVisibility()
+            binding.titleTextview.text = item.title
+            binding.root.setOnClickListener{
+                    view -> clickEvents.onNext(item)
+            }
+        }
+
+        fun setVisibility(){
+        }
+    }
 
 }

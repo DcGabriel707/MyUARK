@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/OuterLayout"
-    tools:context="com.dcgabriel.myuark.WebViewActivity">
+    tools:context="com.dcgabriel.myuark.ui.WebViewActivity">
 
     <WebView
         android:id="@+id/webview"

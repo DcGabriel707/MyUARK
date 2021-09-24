@@ -1,4 +1,4 @@
-package com.dcgabriel.myuark
+package com.dcgabriel.myuark.ui
 
 import android.os.Bundle
 import android.view.View
@@ -6,6 +6,7 @@ import android.webkit.WebChromeClient
 import android.webkit.WebSettings
 import android.webkit.WebView
 import androidx.appcompat.app.AppCompatActivity
+import com.dcgabriel.myuark.ui.model.Constants
 import com.example.myuark.databinding.ActivityWebviewBinding
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 

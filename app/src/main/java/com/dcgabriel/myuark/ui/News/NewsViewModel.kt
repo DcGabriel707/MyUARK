@@ -1,4 +1,4 @@
-package com.dcgabriel.myuark
+package com.dcgabriel.myuark.ui.News
 
 import android.util.Log
 import androidx.lifecycle.ViewModel

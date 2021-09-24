@@ -1,4 +1,4 @@
-package com.dcgabriel.myuark
+package com.dcgabriel.myuark.ui.Adapters
 
 import android.content.Context
 import android.view.LayoutInflater

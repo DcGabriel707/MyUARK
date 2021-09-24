@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.dcgabriel.myuark.ui.BaseFragment
 import com.example.myuark.databinding.FragmentCampusBinding
-import com.dcgabriel.myuark.ui.TileAdapter
+import com.dcgabriel.myuark.ui.Adapters.TileAdapter
 
 class CampusFragment : BaseFragment() {
 

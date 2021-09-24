@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.dcgabriel.myuark.ui.Contacts.ContactsFragment"
+        android:name="com.dcgabriel.myuark.ui.Explore.ExploreFragment"
         android:label="@string/title_contacts"
-        tools:layout="@layout/fragment_contacts" />
+        tools:layout="@layout/fragment_explore" />
 </navigation>

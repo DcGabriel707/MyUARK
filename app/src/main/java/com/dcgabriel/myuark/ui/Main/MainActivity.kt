@@ -1,4 +1,4 @@
-package com.dcgabriel.myuark
+package com.dcgabriel.myuark.ui.Main
 
 import android.content.Context
 import android.content.Intent
@@ -12,7 +12,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.dcgabriel.myuark.ui.TileAdapter
+import com.dcgabriel.myuark.ui.model.Constants
+import com.dcgabriel.myuark.ui.News.NewsActivity
+import com.dcgabriel.myuark.ui.WebViewActivity
+import com.dcgabriel.myuark.ui.Adapters.TileAdapter
 import com.dcgabriel.myuark.ui.model.TileItem
 import com.example.myuark.R
 import com.example.myuark.databinding.ActivityMainBinding
@@ -96,6 +99,8 @@ class MainActivity : AppCompatActivity() {
             performWebIntent(item.url)
         } else if (item.action == TileItem.Action.WEB_VIEW) {
             openWebView(item.url)
+        } else if (item.action == TileItem.Action.APP_VIEW) {
+            openActivity()
         } else if (item.action == TileItem.Action.APP_VIEW) {
             openActivity()
         }

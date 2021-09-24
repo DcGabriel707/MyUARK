@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/WidgetCardView">
+    <androidx.appcompat.widget.LinearLayoutCompat
+        style="@style/TileInnerLayout"
+        android:orientation="vertical">
+        <TextView
+            style="@style/NewsHeaderTextView"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_weight="4"
+            android:maxLines="4"
+            android:text="Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."/>
+        <TextView
+            android:id="@+id/title_textview"
+            style="@style/TileTitleTextView"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:text="News"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.cardview.widget.CardView>

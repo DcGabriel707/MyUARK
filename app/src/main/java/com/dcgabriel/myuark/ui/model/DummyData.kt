@@ -49,7 +49,7 @@ object DummyData {
                 "Map",
                 1,
                 R.drawable.ic_baseline_place_24,
-                TileItem.Action.WEB_LINK,
+                TileItem.Action.WEB_VIEW,
                 "https://campusmaps.uark.edu/",
                 TileItem.Type.ICON_TITLE
             ),
@@ -67,47 +67,6 @@ object DummyData {
                 TileItem.Action.APP_VIEW,
                 "https://news.uark.edu/", TileItem.Type.ICON_TITLE
             ),
-            TileItem(
-                "UREC",
-                1,
-                R.mipmap.ic_channel,
-                TileItem.Action.WEB_VIEW,
-                "https://urec.uark.edu/",
-                TileItem.Type.LOGO
-            ),
-
-            TileItem(
-                "UATV",
-                1,
-                R.mipmap.ic_uatv,
-                TileItem.Action.WEB_VIEW,
-                "https://uatvonline.net/",
-                TileItem.Type.LOGO
-            ),
-            TileItem(
-                "ASG",
-                1,
-                R.mipmap.ic_asg,
-                TileItem.Action.WEB_VIEW,
-                "https://asg.uark.edu/",
-                TileItem.Type.LOGO
-            ),
-
-            TileItem(
-                "UAPD",
-                1,
-                R.mipmap.ic_uapd,
-                TileItem.Action.WEB_VIEW,
-                "https://uapd.uark.edu/",
-                TileItem.Type.LOGO
-            ),
-            TileItem("Multicultural Center",
-                1,
-                R.mipmap.ic_mc,
-                TileItem.Action.WEB_VIEW,
-                "https://multicultural.uark.edu/",
-                TileItem.Type.ICON_TITLE
-            )
         )
         )
         return list
@@ -182,9 +141,74 @@ object DummyData {
                 "https://success.uark.edu/",
                 TileItem.Type.ICON_TITLE
             ),
-            )
+        )
         )
 
+
+        return list
+    }
+
+    fun getExploreTiles() : List<TileItem> {
+        var list = ArrayList<TileItem>()
+        list.addAll(listOf(
+            TileItem(
+                "Events",
+                3,
+                R.mipmap.ic_channel,
+                TileItem.Action.WEB_VIEW,
+                "https://urec.uark.edu/",
+                TileItem.Type.WIDGET
+            ),
+            TileItem(
+                "News",
+                3,
+                R.mipmap.ic_channel,
+                TileItem.Action.WEB_VIEW,
+                "https://urec.uark.edu/",
+                TileItem.Type.WIDGET
+            ),
+            TileItem(
+                "UREC",
+                2,
+                R.mipmap.ic_channel,
+                TileItem.Action.WEB_VIEW,
+                "https://urec.uark.edu/",
+                TileItem.Type.LOGO
+            ),
+
+            TileItem(
+                "UATV",
+                2,
+                R.mipmap.ic_uatv,
+                TileItem.Action.WEB_VIEW,
+                "https://uatvonline.net/",
+                TileItem.Type.LOGO
+            ),
+            TileItem(
+                "ASG",
+                2,
+                R.mipmap.ic_asg,
+                TileItem.Action.WEB_VIEW,
+                "https://asg.uark.edu/",
+                TileItem.Type.LOGO
+            ),
+
+            TileItem(
+                "UAPD",
+                2,
+                R.mipmap.ic_uapd,
+                TileItem.Action.WEB_VIEW,
+                "https://uapd.uark.edu/",
+                TileItem.Type.LOGO
+            ),
+            TileItem("Multicultural Center",
+                2,
+                R.mipmap.ic_mc,
+                TileItem.Action.WEB_VIEW,
+                "https://multicultural.uark.edu/",
+                TileItem.Type.ICON_TITLE
+            ),
+        ))
 
         return list
     }

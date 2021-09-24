@@ -15,7 +15,6 @@ package com.dcgabriel.myuark.ui.model
         APP_LINK,
         WEB_VIEW,
         APP_VIEW,
-        WIDGET,
 
     }
 
@@ -24,6 +23,7 @@ package com.dcgabriel.myuark.ui.model
         LOGO,
         IMAGE,
         IMAGE_TEXT,
-        TEXT
+        TEXT,
+        WIDGET,
     }
 }
