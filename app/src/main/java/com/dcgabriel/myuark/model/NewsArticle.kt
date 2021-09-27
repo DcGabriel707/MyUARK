@@ -1,4 +1,4 @@
-package com.dcgabriel.myuark.ui.model
+package com.dcgabriel.myuark.model
 
 import com.google.gson.annotations.SerializedName
 

@@ -1,6 +1,6 @@
 package com.dcgabriel.myuark.Networking
 
-import com.dcgabriel.myuark.ui.model.NewsArticle
+import com.dcgabriel.myuark.model.NewsArticle
 import retrofit2.Call;
 import retrofit2.http.GET;
 

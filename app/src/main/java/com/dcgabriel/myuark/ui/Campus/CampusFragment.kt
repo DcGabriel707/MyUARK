@@ -9,7 +9,9 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.dcgabriel.myuark.ui.BaseFragment
 import com.example.myuark.databinding.FragmentCampusBinding
 import com.dcgabriel.myuark.ui.Adapters.TileAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class CampusFragment : BaseFragment() {
 
     private lateinit var campusViewModel: CampusViewModel
@@ -29,15 +31,24 @@ class CampusFragment : BaseFragment() {
 
     }
 
-    fun handleGridLayout(){
+    override fun initSubscriptions(){
+        super.initSubscriptions()
+        disposables.add(campusViewModel.liveNewsData()
+            .subscribe(){
+                adapter.setWidgetData(it)
+            })
 
-        val col = 3
+    }
+    private fun handleGridLayout(){
+
+        val col = 6
         val gridlayoutManager = GridLayoutManager(context, col)
         adapter = TileAdapter(requireContext())
         binding.campusRecyclerview.layoutManager = gridlayoutManager
         binding.campusRecyclerview.adapter = adapter
         gridlayoutManager.spanSizeLookup = adapter.getColSize
         adapter.setData(campusViewModel.getTiles())
+        adapter.setWidgetData(campusViewModel.dummyNewsArticle)
     }
 
 

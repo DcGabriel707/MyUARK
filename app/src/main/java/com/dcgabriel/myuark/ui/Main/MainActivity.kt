@@ -12,18 +12,20 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.dcgabriel.myuark.ui.model.Constants
+import com.dcgabriel.myuark.model.Constants
 import com.dcgabriel.myuark.ui.News.NewsActivity
 import com.dcgabriel.myuark.ui.WebViewActivity
 import com.dcgabriel.myuark.ui.Adapters.TileAdapter
-import com.dcgabriel.myuark.ui.model.TileItem
+import com.dcgabriel.myuark.model.TileItem
 import com.example.myuark.R
 import com.example.myuark.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.jakewharton.rxbinding4.widget.textChanges
+import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -42,6 +44,7 @@ class MainActivity : AppCompatActivity() {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         navView.setupWithNavController(navController)
+        navView.selectedItemId = R.id.navigation_home
 
         initRecyclerview()
         initSubscription()
@@ -60,8 +63,6 @@ class MainActivity : AppCompatActivity() {
             .subscribe {
                 adapter.setData(viewModel.queryTile(it))
             }
-
-
         )
     }
 
@@ -95,14 +96,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onClick(item: TileItem) {
-        if (item.action == TileItem.Action.WEB_LINK) {
-            performWebIntent(item.url)
-        } else if (item.action == TileItem.Action.WEB_VIEW) {
-            openWebView(item.url)
-        } else if (item.action == TileItem.Action.APP_VIEW) {
-            openActivity()
-        } else if (item.action == TileItem.Action.APP_VIEW) {
-            openActivity()
+        when (item.action) {
+            TileItem.Action.WEB_LINK -> performWebIntent(item.url)
+            TileItem.Action.WEB_VIEW -> openWebView(item.url)
+            TileItem.Action.APP_VIEW -> openActivity(item.destination)
         }
     }
 
@@ -122,8 +119,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     //wip
-    private fun openActivity(){
-        val intent = Intent(this, NewsActivity::class.java)
+    private fun openActivity(destination: String?){
+        lateinit var intent: Intent
+        when (destination) {
+            Constants.ACTIVITY_NEWS -> intent = Intent(this, NewsActivity::class.java)
+            else -> intent = Intent(this, NewsActivity::class.java)
+        }
 
         startActivity(intent)
     }

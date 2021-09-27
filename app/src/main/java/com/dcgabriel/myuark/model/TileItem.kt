@@ -1,4 +1,4 @@
-package com.dcgabriel.myuark.ui.model
+package com.dcgabriel.myuark.model
 
  class TileItem(
     val title: String = "This is a title",
@@ -6,7 +6,9 @@ package com.dcgabriel.myuark.ui.model
     val image: Int?,
     val action: TileItem.Action,
     val url: String?,
-    val type: TileItem.Type
+    val type: TileItem.Type,
+    val destination : String? = null,
+    val subtext: String? = null
 
 ) {
 

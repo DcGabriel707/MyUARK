@@ -6,8 +6,10 @@ import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dcgabriel.myuark.ui.Adapters.CardAdapter
 import com.example.myuark.databinding.ActivityNewsBinding
+import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 
+@AndroidEntryPoint
 class NewsActivity : AppCompatActivity() {
     private val viewModel: NewsViewModel by viewModels()
     private lateinit var adapter: CardAdapter
@@ -36,6 +38,11 @@ class NewsActivity : AppCompatActivity() {
         adapter = CardAdapter(this)
         binding.newsRecyclerview.layoutManager = layoutManager
         binding.newsRecyclerview.adapter = adapter
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        disposables.dispose()
     }
 
 }

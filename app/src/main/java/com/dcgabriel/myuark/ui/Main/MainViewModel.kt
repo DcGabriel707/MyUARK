@@ -1,22 +1,26 @@
 package com.dcgabriel.myuark.ui.Main
 
 import androidx.lifecycle.ViewModel
-import com.dcgabriel.myuark.ui.model.DummyData
-import com.dcgabriel.myuark.ui.model.TileItem
+import com.dcgabriel.myuark.model.DummyData
+import com.dcgabriel.myuark.model.TileItem
 
 class MainViewModel : ViewModel() {
 
-    fun getAllTiles() = DummyData.getStudentTiles() + DummyData.getCampusTiles()
+    fun getAllTiles() = DummyData.getStudentTiles() + DummyData.getCampusTiles() + DummyData.getExploreTiles()
+    fun getOtherTiles() = DummyData.otherTiles()
 
     fun queryTile(string: String) : List<TileItem>{
         val allTiles = getAllTiles()
-
         val results = mutableListOf<TileItem>()
-        for (item in allTiles){
 
-            if(item.title.contains(string,true) && string.isNotEmpty())
+        for (item in allTiles){
+             if(item.title.contains(string,true) && string.isNotEmpty())
                 results.add(item)
         }
+
+        if (results.isEmpty())
+            for (item in getOtherTiles())
+                results.add(item)
         return results
     }
 

@@ -4,13 +4,18 @@
     <androidx.appcompat.widget.LinearLayoutCompat
         style="@style/TileInnerLayout"
         android:orientation="vertical">
-        <TextView
+       <TextSwitcher
+            android:id="@+id/subtitle_textview"
             style="@style/NewsHeaderTextView"
-            android:gravity="center"
-            android:layout_gravity="center"
             android:layout_weight="4"
-            android:maxLines="4"
-            android:text="Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."/>
+            android:maxLines="4">
+        <TextView
+            style="@style/NewsHeaderTextView" />
+        <TextView
+
+            style="@style/NewsHeaderTextView" />
+    </TextSwitcher>
+
         <TextView
             android:id="@+id/title_textview"
             style="@style/TileTitleTextView"

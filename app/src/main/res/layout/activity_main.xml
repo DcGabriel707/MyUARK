@@ -101,6 +101,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/search_recyclerview"
+        android:layout_height="match_parent"
         android:paddingLeft="32dp"
         android:paddingRight="32dp"
         style="@style/MyRecyclerView"

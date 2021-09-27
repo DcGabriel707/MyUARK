@@ -8,11 +8,11 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable
 
 open class BaseFragment : Fragment()  {
 
-    protected val disposables = CompositeDisposable()
+     val disposables = CompositeDisposable()
     protected lateinit var adapter: TileAdapter
 
 
-    protected fun initSubscriptions() {
+    protected open fun initSubscriptions() {
         disposables.add(adapter.clickEvents()
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe {

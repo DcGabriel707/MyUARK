@@ -3,8 +3,8 @@ package com.dcgabriel.myuark.ui.Student
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.dcgabriel.myuark.ui.model.DummyData
-import com.dcgabriel.myuark.ui.model.TileItem
+import com.dcgabriel.myuark.model.DummyData
+import com.dcgabriel.myuark.model.TileItem
 
 class StudentViewModel : ViewModel() {
 

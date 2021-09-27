@@ -1,22 +1,24 @@
 package com.dcgabriel.myuark.Networking
 
 import android.util.Log
-import com.dcgabriel.myuark.ui.model.NewsArticle
+import com.dcgabriel.myuark.model.NewsArticle
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.subjects.PublishSubject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import javax.inject.Inject
 
-class CallApi {
-    private val newsSubject: PublishSubject<List<NewsArticle>> = PublishSubject.create()
+
+class CallApi @Inject constructor(val newsService: NewsService)   {
+private val newsSubject: PublishSubject<List<NewsArticle>> = PublishSubject.create()
 
     fun newsResult(): Observable<List<NewsArticle>> = newsSubject
 
     fun callNews(){
-        val api = Clients.newsApi().getRecentNews()
+        val news = newsService.getRecentNews()
         var success = false
-        api.enqueue( object : Callback<List<NewsArticle>> {
+        news.enqueue( object : Callback<List<NewsArticle>> {
 
             override fun onResponse(call: Call<List<NewsArticle>>?, response: Response<List<NewsArticle>>?) {
 

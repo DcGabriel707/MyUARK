@@ -1,11 +1,8 @@
 package com.dcgabriel.myuark.ui.Adapters
 
-import android.content.Context
-import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.dcgabriel.myuark.ui.model.TileItem
-import com.example.myuark.databinding.TileItemBinding
+import com.dcgabriel.myuark.model.TileItem
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.subjects.PublishSubject
 import java.util.concurrent.TimeUnit
