@@ -16,7 +16,7 @@ import com.dcgabriel.myuark.model.Constants
 import com.dcgabriel.myuark.ui.News.NewsActivity
 import com.dcgabriel.myuark.ui.WebViewActivity
 import com.dcgabriel.myuark.ui.Adapters.TileAdapter
-import com.dcgabriel.myuark.model.TileItem
+import com.dcgabriel.myuark.model.tiles.TileItem
 import com.example.myuark.R
 import com.example.myuark.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView

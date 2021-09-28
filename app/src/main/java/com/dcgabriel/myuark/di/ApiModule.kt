@@ -1,41 +1,54 @@
 package com.dcgabriel.myuark.di
 
 import com.dcgabriel.myuark.Networking.CallApi
+import com.dcgabriel.myuark.Networking.EventsService
 import com.dcgabriel.myuark.Networking.NewsService
-import com.dcgabriel.myuark.model.NewsArticle
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.simplexml.SimpleXmlConverterFactory
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 class ApiModule {
 
-    @Provides
-    fun provideBaseUrl() = "https://campusdata.uark.edu/"
+    //todo create only one instance of retrofit
+
 
     @Provides
     @Singleton
-    fun provideRetrofit(BASE_URL: String): Retrofit =
-        Retrofit.Builder()
-            .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl(BASE_URL)
-            .build()
-
-    @Provides
-    @Singleton
-    fun provideNewsService(retrofit: Retrofit): NewsService = retrofit.create(NewsService::class.java)
-
-    @Provides
-    @Singleton
-    fun provideCallApi(newsService: NewsService): CallApi {
-        return CallApi(newsService)
+    fun provideNewsService(): NewsService {
+        val retrofit =
+            Retrofit.Builder()
+                .addConverterFactory(GsonConverterFactory.create())
+                .baseUrl("https://campusdata.uark.edu/")
+                .build()
+        return retrofit.create(NewsService::class.java)
     }
+
+    @Provides
+    @Singleton
+    fun provideEventsService(): EventsService {
+        val retrofit =
+            Retrofit.Builder()
+                .addConverterFactory(SimpleXmlConverterFactory.create())
+                .baseUrl("https://calendars.uark.edu/")
+                .build()
+        return retrofit.create(EventsService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideCallApi(newsService: NewsService, eventsService: EventsService): CallApi {
+        return CallApi(newsService, eventsService)
+    }
+
+
+
 
 
 }

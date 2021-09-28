@@ -1,5 +1,6 @@
-package com.dcgabriel.myuark.model
+package com.dcgabriel.myuark.model.tiles
 
+import com.dcgabriel.myuark.model.Constants
 import com.example.myuark.R
 
 object DummyData {
@@ -89,7 +90,8 @@ object DummyData {
                     TileItem.Action.WEB_VIEW,
                     "https://uapd.uark.edu/",
                     TileItem.Type.ICON_TITLE
-                ),TileItem(
+                ),
+                TileItem(
                     "Full Circle Food Pantry",
                     2,
                     R.drawable.ic_baseline_food_bank_24,
@@ -150,7 +152,7 @@ object DummyData {
                 TileItem(
                     "Handshake",
                     1,
-                    R.mipmap.ic_handshake,
+                    R.drawable.handshake,
                     TileItem.Action.WEB_LINK,
                     "https://uark.joinhandshake.com/",
                     TileItem.Type.ICON_TITLE
@@ -178,7 +180,8 @@ object DummyData {
                     TileItem.Action.WEB_LINK,
                     "https://success.uark.edu/",
                     TileItem.Type.ICON_TITLE
-                ),TileItem(
+                ),
+                TileItem(
                     "Degree Programs",
                     1,
                     R.drawable.ic_outline_school_24_outline,

@@ -2,7 +2,7 @@ package com.dcgabriel.myuark.ui.Adapters
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.dcgabriel.myuark.model.TileItem
+import com.dcgabriel.myuark.model.tiles.TileItem
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.subjects.PublishSubject
 import java.util.concurrent.TimeUnit

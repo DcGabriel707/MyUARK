@@ -2,7 +2,7 @@ package com.dcgabriel.myuark.ui.News
 
 import androidx.lifecycle.ViewModel
 import com.dcgabriel.myuark.Networking.CallApi
-import com.dcgabriel.myuark.model.NewsArticle
+import com.dcgabriel.myuark.model.news.NewsArticle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.rxjava3.core.Observable
 import javax.inject.Inject

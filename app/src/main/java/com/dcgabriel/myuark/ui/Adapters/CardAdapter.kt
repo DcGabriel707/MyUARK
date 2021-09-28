@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.text.HtmlCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.dcgabriel.myuark.model.NewsArticle
+import com.dcgabriel.myuark.model.news.NewsArticle
 import com.example.myuark.databinding.NewsItemBinding
 import com.squareup.picasso.Picasso
 import io.reactivex.rxjava3.core.Observable

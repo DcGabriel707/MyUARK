@@ -2,8 +2,8 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/ListCardView"
-    android:layout_marginLeft="28dp"
-    android:layout_marginRight="28dp"
+    android:layout_marginLeft="21dp"
+    android:layout_marginRight="21dp"
     android:layout_height="wrap_content"
     android:stateListAnimator="@animator/card_clicked"
     app:cardElevation="8dp">

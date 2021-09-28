@@ -1,27 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:backgroundTint="@color/red"
     style="@style/WidgetCardView">
-    <androidx.appcompat.widget.LinearLayoutCompat
+
+    <ImageView
+        android:id="@+id/bg_image"
+        app:tint="@color/red"
+        android:tintMode="multiply"
+        android:scaleType="centerCrop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/inner_layout"
         style="@style/TileInnerLayout"
         android:orientation="vertical">
-       <TextSwitcher
+
+        <TextSwitcher
             android:id="@+id/subtitle_textview"
             style="@style/NewsHeaderTextView"
             android:layout_weight="4"
-            android:maxLines="4">
-        <TextView
-            style="@style/NewsHeaderTextView" />
-        <TextView
+            android:maxLines="4"
+            app:layout_constraintBottom_toTopOf="@+id/title_textview"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            style="@style/NewsHeaderTextView" />
-    </TextSwitcher>
+            <TextView style="@style/NewsHeaderTextView" />
+
+            <TextView
+
+                style="@style/NewsHeaderTextView" />
+        </TextSwitcher>
 
         <TextView
             android:id="@+id/title_textview"
             style="@style/TileTitleTextView"
-            android:layout_weight="1"
             android:layout_gravity="center"
-            android:text="News"/>
-    </androidx.appcompat.widget.LinearLayoutCompat>
+            android:textColor="@color/white"
+            android:layout_weight="1"
+            android:text="News"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

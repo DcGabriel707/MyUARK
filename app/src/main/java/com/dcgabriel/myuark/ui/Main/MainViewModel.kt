@@ -1,8 +1,8 @@
 package com.dcgabriel.myuark.ui.Main
 
 import androidx.lifecycle.ViewModel
-import com.dcgabriel.myuark.model.DummyData
-import com.dcgabriel.myuark.model.TileItem
+import com.dcgabriel.myuark.model.tiles.DummyData
+import com.dcgabriel.myuark.model.tiles.TileItem
 
 class MainViewModel : ViewModel() {
 

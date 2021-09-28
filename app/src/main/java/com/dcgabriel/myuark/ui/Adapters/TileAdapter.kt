@@ -8,11 +8,12 @@ import android.widget.LinearLayout
 import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.dcgabriel.myuark.model.NewsArticle
-import com.dcgabriel.myuark.model.TileItem
-import com.dcgabriel.myuark.model.TileItem.Type.*
+import com.dcgabriel.myuark.model.news.NewsArticle
+import com.dcgabriel.myuark.model.tiles.TileItem
+import com.dcgabriel.myuark.model.tiles.TileItem.Type.*
 import com.example.myuark.databinding.TileItemBinding
 import com.example.myuark.databinding.WidgetItemBinding
+import com.squareup.picasso.Picasso
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.subjects.PublishSubject
@@ -143,13 +144,19 @@ class TileAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHold
 
     inner class WidgetViewHolder(var binding: WidgetItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
+        lateinit var currNews : NewsArticle
         fun bindData(item: TileItem) {
+            currNews = news[Random.nextInt(news.size)]
             setVisibility()
             binding.titleTextview.text = item.title
             //binding.subtitleTextview.setText(newsArticle.headline)
             binding.root.setOnClickListener { view ->
                 clickEvents.onNext(item)
             }
+
+            Picasso.get()
+                .load("https://campusdata.uark.edu/resources/images/articles/" + currNews.imageUrl)
+                .into(binding.bgImage)
 
             binding.subtitleTextview.setInAnimation(mContext, android.R.anim.slide_in_left)
             updateWidget()
@@ -160,7 +167,7 @@ class TileAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHold
                 .take(10)
                 .buffer(1)
                 .subscribe {
-                    binding.subtitleTextview.setText(news[Random.nextInt(news.size)].headline)
+                    binding.subtitleTextview.setText(currNews.headline)
                 }
 
         }
