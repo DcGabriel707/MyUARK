@@ -12,9 +12,10 @@ object DummyData {
                     "Events",
                     3,
                     R.mipmap.ic_channel,
-                    TileItem.Action.WEB_VIEW,
+                    TileItem.Action.APP_VIEW,
                     "https://calendars.uark.edu/",
-                    TileItem.Type.WIDGET
+                    TileItem.Type.WIDGET,
+                    Constants.ACTIVITY_EVENTS
                 ),
                 TileItem(
                     "News",

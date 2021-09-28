@@ -14,7 +14,7 @@ import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.subjects.PublishSubject
 import java.util.concurrent.TimeUnit
 
-class CardAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class NewsAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private var items: MutableList<NewsArticle> = mutableListOf()
     private val clickEvents = PublishSubject.create<NewsArticle>()
     private val mContext = context
@@ -27,20 +27,13 @@ class CardAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHold
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = NewsItemBinding.inflate(inflater, parent, false)
-
         return NewsViewHolder(binding)
-//        return when(viewType){
-//        }
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val item = items[position]
-
         (holder as NewsViewHolder).bindData(item)
-//        when (item.type){
-//        }
     }
-
 
     override fun getItemCount(): Int {
         return items.size
@@ -83,4 +76,5 @@ class CardAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHold
         fun setVisibility() {
         }
     }
+
 }

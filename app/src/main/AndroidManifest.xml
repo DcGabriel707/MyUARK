@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
+            android:name="com.dcgabriel.myuark.ui.Events.EventsActivity"
+            android:exported="true" />
+        <activity
             android:name="com.dcgabriel.myuark.ui.News.NewsActivity"
             android:exported="true" />
         <activity

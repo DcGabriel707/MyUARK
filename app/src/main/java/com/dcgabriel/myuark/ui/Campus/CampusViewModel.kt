@@ -3,6 +3,7 @@ package com.dcgabriel.myuark.ui.Campus
 import androidx.lifecycle.ViewModel
 import com.dcgabriel.myuark.Networking.CallApi
 import com.dcgabriel.myuark.model.events.CalendarEvent
+import com.dcgabriel.myuark.model.events.RssItem
 import com.dcgabriel.myuark.model.tiles.DummyData
 import com.dcgabriel.myuark.model.news.NewsArticle
 import com.dcgabriel.myuark.model.tiles.TileItem
@@ -21,7 +22,7 @@ class CampusViewModel @Inject constructor(val api: CallApi) : ViewModel() {
     fun getTiles() : List<TileItem> = DummyData.getCampusTiles()
 
     fun liveNewsData(): Observable<List<NewsArticle>> = api.newsResult()
-    fun liveEventsData(): Observable<List<CalendarEvent>> = api.eventsResult()
+    fun liveEventsData(): Observable<List<RssItem>> = api.eventsResult()
 
     val dummyNewsArticle = mutableListOf<NewsArticle>(
         NewsArticle(0,"","","","","")

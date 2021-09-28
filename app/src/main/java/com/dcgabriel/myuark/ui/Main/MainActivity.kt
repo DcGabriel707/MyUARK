@@ -17,6 +17,7 @@ import com.dcgabriel.myuark.ui.News.NewsActivity
 import com.dcgabriel.myuark.ui.WebViewActivity
 import com.dcgabriel.myuark.ui.Adapters.TileAdapter
 import com.dcgabriel.myuark.model.tiles.TileItem
+import com.dcgabriel.myuark.ui.Events.EventsActivity
 import com.example.myuark.R
 import com.example.myuark.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -27,7 +28,6 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivityMainBinding
     private val disposables = CompositeDisposable()
     private lateinit var adapter: TileAdapter
@@ -123,6 +123,7 @@ class MainActivity : AppCompatActivity() {
         lateinit var intent: Intent
         when (destination) {
             Constants.ACTIVITY_NEWS -> intent = Intent(this, NewsActivity::class.java)
+            Constants.ACTIVITY_EVENTS -> intent = Intent(this, EventsActivity::class.java)
             else -> intent = Intent(this, NewsActivity::class.java)
         }
 

@@ -3,6 +3,7 @@ package com.dcgabriel.myuark.Networking
 import android.util.Log
 import com.dcgabriel.myuark.model.events.CalendarEvent
 import com.dcgabriel.myuark.model.events.RssFeed
+import com.dcgabriel.myuark.model.events.RssItem
 import com.dcgabriel.myuark.model.news.NewsArticle
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.subjects.PublishSubject
@@ -14,10 +15,10 @@ import javax.inject.Inject
 
 class CallApi @Inject constructor(val newsService: NewsService, val eventsService: EventsService)   {
 private val newsSubject: PublishSubject<List<NewsArticle>> = PublishSubject.create()
-private val eventsSubject: PublishSubject<List<CalendarEvent>> = PublishSubject.create()
+private val eventsSubject: PublishSubject<List<RssItem>> = PublishSubject.create()
 
     fun newsResult(): Observable<List<NewsArticle>> = newsSubject
-    fun eventsResult(): Observable<List<CalendarEvent>> = eventsSubject
+    fun eventsResult(): Observable<List<RssItem>> = eventsSubject
 
     fun callNews(){
         val news = newsService.getRecentNews()

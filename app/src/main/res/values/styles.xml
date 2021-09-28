@@ -19,6 +19,16 @@
         <item name="android:padding">8dp</item>
     </style>
 
+    <style name="CardItemInnerLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_margin">16dp</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
+
     <style name="ListCardView" parent="SimpleCardView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_marginLeft">11dp</item>
@@ -81,24 +91,32 @@
         <item name="android:textSize">24sp</item>
     </style>
 
+    <style name="CardHeaderTextView" parent="HeaderTextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:inputType">textMultiLine</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="TileTitleTextView" parent="SecondaryText">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="NewsHeaderTextView" parent="HeaderTextView">
+
+
+    <style name="cardSecondaryText" parent="SecondaryText">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textColor">@color/white</item>
-        <item name="android:layout_gravity">center</item>
-        <item name="android:gravity">center</item>
     </style>
 
-    <style name="NewsBriefTextView" parent="SecondaryText">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-    </style>
+
+
+
 
     <style name="MyRecyclerView">
         <item name="android:layout_width">match_parent</item>

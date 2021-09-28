@@ -19,7 +19,8 @@
 
         <TextSwitcher
             android:id="@+id/subtitle_textview"
-            style="@style/NewsHeaderTextView"
+            style="@style/CardHeaderTextView"
+
             android:layout_weight="4"
             android:maxLines="4"
             app:layout_constraintBottom_toTopOf="@+id/title_textview"
@@ -27,11 +28,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <TextView style="@style/NewsHeaderTextView" />
+            <TextView style="@style/CardHeaderTextView"
+                android:textColor="@color/white"/>
 
             <TextView
-
-                style="@style/NewsHeaderTextView" />
+                android:textColor="@color/white"
+                style="@style/CardHeaderTextView" />
         </TextSwitcher>
 
         <TextView

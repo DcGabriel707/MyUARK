@@ -1,25 +1,30 @@
-package com.dcgabriel.myuark.ui.News
+package com.dcgabriel.myuark.ui.Events
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.dcgabriel.myuark.ui.Adapters.EventsAdapter
 import com.dcgabriel.myuark.ui.Adapters.NewsAdapter
+import com.dcgabriel.myuark.ui.News.NewsViewModel
+import com.example.myuark.R
+import com.example.myuark.databinding.ActivityEventsBinding
 import com.example.myuark.databinding.ActivityNewsBinding
 import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 
 @AndroidEntryPoint
-class NewsActivity : AppCompatActivity() {
-    private val viewModel: NewsViewModel by viewModels()
-    private lateinit var adapter: NewsAdapter
-    private lateinit var binding: ActivityNewsBinding
+class EventsActivity : AppCompatActivity() {
+    private val viewModel: EventsViewModel by viewModels()
+    private lateinit var adapter: EventsAdapter
+    private lateinit var binding: ActivityEventsBinding
     private val disposables = CompositeDisposable()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding =  ActivityNewsBinding.inflate(layoutInflater)
+        binding =  ActivityEventsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         initSubscription()
@@ -27,17 +32,18 @@ class NewsActivity : AppCompatActivity() {
     }
 
     private fun initSubscription() {
-        disposables.add(viewModel.liveNewsData()
+        disposables.add(viewModel.liveEventsData()
             .subscribe(){
                 adapter.setData(it)
+                Toast.makeText(this, "size=" + it.size, Toast.LENGTH_SHORT).show()
             })
     }
 
     private fun initRecyclerView() {
         val layoutManager = LinearLayoutManager(this)
-        adapter = NewsAdapter(this)
-        binding.newsRecyclerview.layoutManager = layoutManager
-        binding.newsRecyclerview.adapter = adapter
+        adapter = EventsAdapter(this)
+        binding.eventsRecyclerview.layoutManager = layoutManager
+        binding.eventsRecyclerview.adapter = adapter
     }
 
     override fun onDestroy() {
