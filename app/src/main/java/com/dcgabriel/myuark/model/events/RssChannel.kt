@@ -11,10 +11,10 @@ class RssChannel(
     var title: String? = null,
 
     @field:ElementList(name = "item", inline = true, required = false)
-    var item: List<RssItem>? = null
+    var items: List<RssItem>? = null
 ) {
 
     override fun toString(): String {
-        return "Channel [item=$item]"
+        return "Channel [item=$items]"
     }
 }

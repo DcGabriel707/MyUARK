@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.text.HtmlCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.dcgabriel.myuark.model.events.CalendarEvent
+import com.dcgabriel.myuark.model.events.RssFeed
 import com.dcgabriel.myuark.model.events.RssItem
 import com.dcgabriel.myuark.model.news.NewsArticle
 import com.example.myuark.databinding.EventsItemBinding
@@ -42,8 +42,8 @@ class EventsAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHo
         return items.size
     }
 
-    fun setData(list: List<RssItem>) {
-        items = list.toMutableList()
+    fun setData(feed: RssFeed) {
+        items = feed.channel!!.items!!.toMutableList()
         notifyDataSetChanged()
     }
 
@@ -52,8 +52,10 @@ class EventsAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHo
         fun bindData(item: RssItem) {
             Log.d("---------9rfrf----", "events=" + item.title)
 
-            binding.headerTextview.text =item.title
-            binding.descriptionTextview.text = item.description
+            binding.headerTextview.text =
+                HtmlCompat.fromHtml(item.title.toString(), HtmlCompat.FROM_HTML_MODE_COMPACT)
+            binding.descriptionTextview.text =
+                HtmlCompat.fromHtml(item.description.toString(), HtmlCompat.FROM_HTML_MODE_COMPACT)
 
             binding.root.setOnClickListener { view ->
                 clickEvents.onNext(item)

@@ -15,10 +15,10 @@ import javax.inject.Inject
 
 class CallApi @Inject constructor(val newsService: NewsService, val eventsService: EventsService)   {
 private val newsSubject: PublishSubject<List<NewsArticle>> = PublishSubject.create()
-private val eventsSubject: PublishSubject<List<RssItem>> = PublishSubject.create()
+private val eventsSubject: PublishSubject<RssFeed> = PublishSubject.create()
 
     fun newsResult(): Observable<List<NewsArticle>> = newsSubject
-    fun eventsResult(): Observable<List<RssItem>> = eventsSubject
+    fun eventsResult(): Observable<RssFeed> = eventsSubject
 
     fun callNews(){
         val news = newsService.getRecentNews()
@@ -43,7 +43,7 @@ private val eventsSubject: PublishSubject<List<RssItem>> = PublishSubject.create
             override fun onResponse(call: Call<RssFeed>?, response: Response<RssFeed>?) {
                 if(response?.isSuccessful()!!) {
                     Log.d("-------------", "events=" + response.body()!!)
-                    //eventsSubject.onNext(response.body()!!)
+                    eventsSubject.onNext(response.body()!!)
                 } else {
                     Log.d("-------------error",response.errorBody().toString() )
                 }

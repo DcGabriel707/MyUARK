@@ -14,6 +14,7 @@
             android:id="@+id/image"
             style="@style/NewsImageView"
             android:maxHeight="60dp"
+            android:visibility="gone"
             android:scaleType="center"
             android:src="@drawable/ic_baseline_directions_bus_24"
             app:layout_constraintEnd_toEndOf="parent"
@@ -23,19 +24,9 @@
         <TextView
             android:id="@+id/header_textview"
             style="@style/CardHeaderTextView"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:textAlignment="viewStart"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/image" />
-
-        <TextView
-            android:id="@+id/brief_textview"
-            style="@style/cardSecondaryText"
-            android:layout_marginTop="8dp"
-            android:text="This is a brief description of the news"
-            android:textAlignment="viewStart"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/header_textview" />
 
         <TextView
             android:id="@+id/description_textview"
@@ -47,7 +38,7 @@
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/brief_textview" />
+            app:layout_constraintTop_toBottomOf="@+id/header_textview" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

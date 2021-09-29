@@ -8,9 +8,11 @@ import android.widget.LinearLayout
 import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.dcgabriel.myuark.model.events.RssItem
 import com.dcgabriel.myuark.model.news.NewsArticle
 import com.dcgabriel.myuark.model.tiles.TileItem
 import com.dcgabriel.myuark.model.tiles.TileItem.Type.*
+import com.dcgabriel.myuark.ui.Campus.CampusFragment
 import com.example.myuark.databinding.TileItemBinding
 import com.example.myuark.databinding.WidgetItemBinding
 import com.squareup.picasso.Picasso
@@ -23,6 +25,7 @@ import kotlin.random.Random
 class TileAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private var items: MutableList<TileItem> = mutableListOf()
     private var news: MutableList<NewsArticle> = mutableListOf()
+    private var events: MutableList<RssItem> = mutableListOf()
     private val clickEvents = PublishSubject.create<TileItem>()
     private val mContext = context
 
@@ -76,8 +79,9 @@ class TileAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHold
         notifyDataSetChanged()
     }
 
-    fun setWidgetData(newsList: List<NewsArticle>) {
+    fun setWidgetData(newsList: List<NewsArticle>, eventsList: List<RssItem>) {
         news = newsList.toMutableList()
+        events = eventsList.toMutableList()
         notifyDataSetChanged()
     }
 
@@ -144,19 +148,18 @@ class TileAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHold
 
     inner class WidgetViewHolder(var binding: WidgetItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        lateinit var currNews : NewsArticle
+        lateinit var currNews: NewsArticle
+        lateinit var currEvent: RssItem
+        lateinit var tileTitle: String
         fun bindData(item: TileItem) {
-            currNews = news[Random.nextInt(news.size)]
+            tileTitle = item.title
             setVisibility()
+
             binding.titleTextview.text = item.title
-            //binding.subtitleTextview.setText(newsArticle.headline)
             binding.root.setOnClickListener { view ->
                 clickEvents.onNext(item)
             }
 
-            Picasso.get()
-                .load("https://campusdata.uark.edu/resources/images/articles/" + currNews.imageUrl)
-                .into(binding.bgImage)
 
             binding.subtitleTextview.setInAnimation(mContext, android.R.anim.slide_in_left)
             updateWidget()
@@ -164,12 +167,26 @@ class TileAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHold
 
         fun updateWidget() {
             Observable.interval(0, 7, TimeUnit.SECONDS, AndroidSchedulers.mainThread())
-                .take(10)
-                .buffer(1)
+                .take(1)
+                .debounce(3,TimeUnit.SECONDS)
                 .subscribe {
-                    binding.subtitleTextview.setText(currNews.headline)
-                }
 
+                    //todo: temporary. must fix
+                    if (news.isNotEmpty())
+                        currNews = news[Random.nextInt(news.size)]
+                    if (events.isNotEmpty())
+                        currEvent = events[Random.nextInt(events.size)]
+                    if (news.isNotEmpty())
+                        Picasso.get()
+                            .load("https://campusdata.uark.edu/resources/images/articles/" + currNews.imageUrl)
+                            .into(binding.bgImage)
+
+                    if (events.isNotEmpty() && news.isNotEmpty())
+                        when (tileTitle) {
+                            "News" -> binding.subtitleTextview.setText(currNews.headline)
+                            "Events" -> binding.subtitleTextview.setText(currEvent.title)
+                        }
+                }
         }
 
         fun setVisibility() {

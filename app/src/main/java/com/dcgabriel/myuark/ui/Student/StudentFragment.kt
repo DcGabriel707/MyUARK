@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.ItemTouchHelper
 import com.dcgabriel.myuark.ui.BaseFragment
 import com.dcgabriel.myuark.ui.Adapters.TileAdapter
 import com.example.myuark.databinding.FragmentStudentBinding
@@ -36,6 +37,8 @@ class StudentFragment : BaseFragment() {
         binding.studentRecyclerview.adapter = adapter
         gridlayoutManager.spanSizeLookup = adapter.getColSize
         adapter.setData(studentViewModel.getTiles())
+        val touchHelper = ItemTouchHelper(itemTouchHelperCallback)
+        touchHelper.attachToRecyclerView(binding.studentRecyclerview)
     }
 
 }

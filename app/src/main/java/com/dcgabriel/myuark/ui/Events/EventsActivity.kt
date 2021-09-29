@@ -2,6 +2,7 @@ package com.dcgabriel.myuark.ui.Events
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -35,7 +36,8 @@ class EventsActivity : AppCompatActivity() {
         disposables.add(viewModel.liveEventsData()
             .subscribe(){
                 adapter.setData(it)
-                Toast.makeText(this, "size=" + it.size, Toast.LENGTH_SHORT).show()
+                Log.d("EventsActivity---------", "subbed")
+                Toast.makeText(this, "size=" + (it.channel?.items?.size ?: "ewr"), Toast.LENGTH_SHORT).show()
             })
     }
 

@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.ItemTouchHelper
 import com.dcgabriel.myuark.ui.Adapters.TileAdapter
 import com.dcgabriel.myuark.ui.BaseFragment
 import com.example.myuark.databinding.FragmentExploreBinding
@@ -36,7 +37,6 @@ class ExploreFragment  : BaseFragment(){
         super.initSubscriptions()
         disposables.add(exploreViewModel.liveNewsData()
             .subscribe(){
-                adapter.setWidgetData(it)
             })
 
     }
@@ -51,6 +51,7 @@ class ExploreFragment  : BaseFragment(){
         binding.exploreRecyclerview.adapter = adapter
         gridlayoutManager.spanSizeLookup = adapter.getColSize
         adapter.setData(exploreViewModel.getTiles())
-        adapter.setWidgetData(exploreViewModel.dummyNewsArticle)
+        val touchHelper = ItemTouchHelper(itemTouchHelperCallback)
+        touchHelper.attachToRecyclerView(binding.exploreRecyclerview)
     }
 }

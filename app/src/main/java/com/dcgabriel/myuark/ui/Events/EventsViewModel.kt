@@ -3,6 +3,7 @@ package com.dcgabriel.myuark.ui.Events
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.dcgabriel.myuark.Networking.CallApi
+import com.dcgabriel.myuark.model.events.RssFeed
 import com.dcgabriel.myuark.model.events.RssItem
 import com.dcgabriel.myuark.model.news.NewsArticle
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -17,7 +18,7 @@ class EventsViewModel @Inject constructor(val api: CallApi) : ViewModel(){
 
     }
 
-    fun liveEventsData(): Observable<List<RssItem>> = api.eventsResult()
+    fun liveEventsData(): Observable<RssFeed> = api.eventsResult()
 
 
 }
