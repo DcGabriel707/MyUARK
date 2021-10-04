@@ -97,8 +97,8 @@ class MainActivity : AppCompatActivity() {
 
     fun onClick(item: TileItem) {
         when (item.action) {
-            TileItem.Action.WEB_LINK -> performWebIntent(item.url)
-            TileItem.Action.WEB_VIEW -> openWebView(item.url)
+            TileItem.Action.WEB_LINK -> performWebIntent(item.tileData.url)
+            TileItem.Action.WEB_VIEW -> openWebView(item.tileData.url)
             TileItem.Action.APP_VIEW -> openActivity(item.destination)
         }
     }

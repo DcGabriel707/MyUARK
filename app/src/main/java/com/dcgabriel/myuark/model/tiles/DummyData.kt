@@ -1,6 +1,7 @@
 package com.dcgabriel.myuark.model.tiles
 
 import com.dcgabriel.myuark.model.Constants
+import com.dcgabriel.myuark.model.tiles.TileItem.Action
 import com.example.myuark.R
 
 object DummyData {
@@ -12,8 +13,8 @@ object DummyData {
                     "Events",
                     3,
                     R.mipmap.ic_channel,
-                    TileItem.Action.APP_VIEW,
-                    "https://calendars.uark.edu/",
+                    TileData("https://calendar.uark.edu/",),
+                    Action.APP_VIEW,
                     TileItem.Type.WIDGET,
                     Constants.ACTIVITY_EVENTS
                 ),
@@ -21,8 +22,8 @@ object DummyData {
                     "News",
                     3,
                     R.mipmap.ic_channel,
-                    TileItem.Action.APP_VIEW,
-                    "https://urec.uark.edu/",
+                    TileData("https://news.uark.edu/"),
+                    Action.APP_VIEW,
                     TileItem.Type.WIDGET,
                     Constants.ACTIVITY_NEWS
                 ),
@@ -30,33 +31,32 @@ object DummyData {
                     "Transit",
                     4,
                     R.drawable.ic_baseline_directions_bus_24,
-                    TileItem.Action.WEB_VIEW,
-                    "https://uark.passiogo.com/",
+                    TileData("https://uark.passiogo.com/"),
+                    Action.WEB_VIEW,
                     TileItem.Type.ICON_TITLE,
-
                 ),
                 TileItem(
                     "Parking",
                     2,
                     R.drawable.ic_baseline_local_parking_24,
-                    TileItem.Action.WEB_LINK,
-                    "https://parking.uark.edu/",
+                    TileData("https://parking.uark.edu/"),
+                    Action.WEB_LINK,
                     TileItem.Type.ICON_TITLE
                 ),
                 TileItem(
                     "Housing",
                     2,
-
                     R.drawable.ic_baseline_home_work_24,
-                    TileItem.Action.WEB_VIEW,
-                    "https://housing.uark.edu/", TileItem.Type.ICON_TITLE
+                    TileData("https://housing.uark.edu/"),
+                    Action.WEB_VIEW,
+                    TileItem.Type.ICON_TITLE
                 ),
                 TileItem(
                     "Dining",
                     4,
                     R.drawable.ic_baseline_fastfood_24,
-                    TileItem.Action.WEB_VIEW,
-                    "https://dineoncampus.com/razorbacks/",
+                    TileData("https://dineoncampus.com/razorbacks/"),
+                    Action.WEB_VIEW,
                     TileItem.Type.ICON_TITLE
                 ),
 
@@ -64,48 +64,48 @@ object DummyData {
                     "Pat Walker Health Center",
                     4,
                     R.drawable.ic_baseline_health_and_safety_24,
-                    TileItem.Action.WEB_VIEW,
-                    "https://health.uark.edu/",
+                    TileData("https://health.uark.edu/"),
+                    Action.WEB_VIEW,
                     TileItem.Type.ICON_TITLE
                 ),
                 TileItem(
                     "Map",
                     2,
                     R.drawable.ic_baseline_place_24,
-                    TileItem.Action.WEB_VIEW,
-                    "https://campusmaps.uark.edu/",
+                    TileData("https://campusmaps.uark.edu/"),
+                    Action.WEB_VIEW,
                     TileItem.Type.ICON_TITLE
                 ),
                 TileItem(
                     "Razorbacks",
                     2,
                     R.drawable.razor,
-                    TileItem.Action.WEB_VIEW,
-                    "https://arkansasrazorbacks.com/",
+                    TileData("https://arkansasrazorbacks.com/"),
+                    Action.WEB_VIEW,
                     TileItem.Type.ICON_TITLE
                 ),
                 TileItem(
                     "UAPD",
                     2,
                     R.drawable.ic_outline_local_police_24,
-                    TileItem.Action.WEB_VIEW,
-                    "https://uapd.uark.edu/",
+                    TileData("https://uapd.uark.edu/"),
+                    Action.WEB_VIEW,
                     TileItem.Type.ICON_TITLE
                 ),
                 TileItem(
                     "Full Circle Food Pantry",
                     2,
                     R.drawable.ic_baseline_food_bank_24,
-                    TileItem.Action.WEB_VIEW,
-                    "https://service.uark.edu/services/pantry/index.php",
+                    TileData("https://service.uark.edu/services/pantry/index.php"),
+                    Action.WEB_VIEW,
                     TileItem.Type.ICON_TITLE
                 ),
                 TileItem(
                     "More Resources",
                     2,
                     R.drawable.ic_baseline_add_circle_outline_24,
-                    TileItem.Action.WEB_VIEW,
-                    "https://sponsored-students.uark.edu/current-students/resources/campus-resources.php",
+                    TileData("https://sponsored-students.uark.edu/current-students/resources/campus-resources.php"),
+                    Action.WEB_VIEW,
                     TileItem.Type.ICON_TITLE
                 ),
             )
@@ -122,72 +122,72 @@ object DummyData {
                     "Courses",
                     1,
                     R.drawable.ic_baseline_book_24,
-                    TileItem.Action.WEB_VIEW,
-                    "https://classes.uark.edu/",
+                    TileData("https://classes.uark.edu/"),
+                    Action.WEB_VIEW,
                     TileItem.Type.ICON_TITLE
                 ),
                 TileItem(
                     "Blackboard",
                     2,
                     R.drawable.bb,
-                    TileItem.Action.WEB_VIEW,
-                    "https://learn.uark.edu/",
+                    TileData("https://learn.uark.edu/"),
+                    Action.WEB_VIEW,
                     TileItem.Type.ICON_TITLE
                 ),
                 TileItem(
                     "UAConnect",
                     2,
                     null,
-                    TileItem.Action.WEB_VIEW,
-                    "https://uaconnect.uark.edu/",
+                    TileData("https://uaconnect.uark.edu/"),
+                    Action.WEB_VIEW,
                     TileItem.Type.TEXT
                 ),
                 TileItem(
                     "Library",
                     1,
                     R.drawable.ic_baseline_local_library_24,
-                    TileItem.Action.WEB_LINK,
-                    "https://libraries.uark.edu/",
+                    TileData("https://libraries.uark.edu/"),
+                    Action.WEB_LINK,
                     TileItem.Type.ICON_TITLE
                 ),
                 TileItem(
                     "Handshake",
                     1,
                     R.drawable.handshake,
-                    TileItem.Action.WEB_LINK,
-                    "https://uark.joinhandshake.com/",
+                    TileData("https://uark.joinhandshake.com/"),
+                    Action.WEB_LINK,
                     TileItem.Type.ICON_TITLE
                 ),
                 TileItem(
                     "Career Development Center",
                     2,
                     R.drawable.ic_baseline_work_24,
-                    TileItem.Action.WEB_LINK,
-                    "https://career.uark.edu/cdc/",
+                    TileData("https://career.uark.edu/cdc/"),
+                    Action.WEB_LINK,
                     TileItem.Type.ICON_TITLE
                 ),
                 TileItem(
                     "Bookstore",
                     1,
                     R.drawable.ic_baseline_menu_book_24,
-                    TileItem.Action.WEB_LINK,
-                    "https://uark.bncollege.com/",
+                    TileData("https://uark.bncollege.com/"),
+                    Action.WEB_LINK,
                     TileItem.Type.ICON_TITLE
                 ),
                 TileItem(
                     "Student Success",
                     1,
                     R.drawable.ic_baseline_star_outline_24,
-                    TileItem.Action.WEB_LINK,
-                    "https://success.uark.edu/",
+                    TileData("https://success.uark.edu/"),
+                    Action.WEB_LINK,
                     TileItem.Type.ICON_TITLE
                 ),
                 TileItem(
                     "Degree Programs",
                     1,
                     R.drawable.ic_outline_school_24_outline,
-                    TileItem.Action.WEB_LINK,
-                    "https://www.uark.edu/academics/majors.php",
+                    TileData("https://www.uark.edu/academics/majors.php"),
+                    Action.WEB_LINK,
                     TileItem.Type.ICON_TITLE
                 ),
             )
@@ -206,16 +206,16 @@ object DummyData {
                     "Hogsync",
                     4,
                     R.drawable.hogsync,
-                    TileItem.Action.WEB_LINK,
-                    "https://hogsync.uark.edu/",
+                    TileData("https://hogsync.uark.edu/"),
+                    Action.WEB_LINK,
                     TileItem.Type.LOGO
                 ),
                 TileItem(
                     "Directory",
                     2,
                     R.drawable.ic_baseline_contacts_24,
-                    TileItem.Action.WEB_VIEW,
-                    "https://directory.uark.edu/",
+                    TileData("https://directory.uark.edu/"),
+                    Action.WEB_VIEW,
                     TileItem.Type.ICON_TITLE
                 ),
 
@@ -223,24 +223,24 @@ object DummyData {
                     "University Programs",
                     2,
                     R.drawable.up,
-                    TileItem.Action.WEB_VIEW,
-                    "https://up.uark.edu/",
+                    TileData("https://up.uark.edu/"),
+                    Action.WEB_VIEW,
                     TileItem.Type.LOGO
                 ),
                 TileItem(
                     "Multicultural Center",
                     2,
                     R.mipmap.ic_mc,
-                    TileItem.Action.WEB_VIEW,
-                    "https://multicultural.uark.edu/",
+                    TileData("https://multicultural.uark.edu/"),
+                    Action.WEB_VIEW,
                     TileItem.Type.ICON_TITLE
                 ),
                 TileItem(
                     "UREC",
                     2,
                     R.mipmap.ic_channel,
-                    TileItem.Action.WEB_VIEW,
-                    "https://urec.uark.edu/",
+                    TileData("https://urec.uark.edu/"),
+                    Action.WEB_VIEW,
                     TileItem.Type.LOGO
                 ),
 
@@ -248,24 +248,24 @@ object DummyData {
                     "UATV",
                     2,
                     R.mipmap.ic_uatv,
-                    TileItem.Action.WEB_VIEW,
-                    "https://uatvonline.net/",
+                    TileData("https://uatvonline.net/"),
+                    Action.WEB_VIEW,
                     TileItem.Type.LOGO
                 ),
                 TileItem(
                     "ASG",
                     2,
                     R.mipmap.ic_asg,
-                    TileItem.Action.WEB_VIEW,
-                    "https://asg.uark.edu/",
+                    TileData("https://asg.uark.edu/"),
+                    Action.WEB_VIEW,
                     TileItem.Type.LOGO
                 ),
                 TileItem(
                     "Add More",
                     2,
                     R.drawable.ic_baseline_add_circle_outline_24,
-                    TileItem.Action.WEB_VIEW,
-                    "https://hogsync.uark.edu/",
+                    TileData("https://hogsync.uark.edu/"),
+                    Action.WEB_VIEW,
                     TileItem.Type.ICON_TITLE
                 ),
 
@@ -283,8 +283,8 @@ object DummyData {
                     "A-Z Directory",
                     2,
                     R.drawable.ic_baseline_format_list_bulleted_24,
-                    TileItem.Action.WEB_VIEW,
-                    "https://www.uark.edu/a-to-z.php",
+                    TileData("https://www.uark.edu/a-to-z.php"),
+                    Action.WEB_VIEW,
                     TileItem.Type.ICON_TITLE
                 ),
             )

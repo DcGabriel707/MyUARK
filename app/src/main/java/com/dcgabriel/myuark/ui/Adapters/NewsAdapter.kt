@@ -1,13 +1,17 @@
 package com.dcgabriel.myuark.ui.Adapters
 
 import android.content.Context
+import android.content.res.Resources
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.text.HtmlCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.dcgabriel.myuark.model.news.NewsArticle
+import com.example.myuark.R
 import com.example.myuark.databinding.NewsItemBinding
 import com.squareup.picasso.Picasso
 import io.reactivex.rxjava3.core.Observable
@@ -67,10 +71,18 @@ class NewsAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHold
 
         fun setVisibility(item: NewsArticle) {
             val desc = binding.descriptionTextview
-            if (desc.visibility == View.GONE)
+            val image = binding.image
+            if (desc.visibility == View.GONE) {
                 desc.visibility = View.VISIBLE
-            else
+                image.scaleType = ImageView.ScaleType.FIT_START
+                image.layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT
+            }
+            else {
                 desc.visibility = View.GONE
+                image.layoutParams.height = mContext.resources
+                    .getDimensionPixelSize(R.dimen.minimizedImageSize)
+                image.scaleType = ImageView.ScaleType.CENTER_CROP
+            }
         }
 
         fun setVisibility() {

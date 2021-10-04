@@ -7,6 +7,7 @@ import android.webkit.WebSettings
 import android.webkit.WebView
 import androidx.appcompat.app.AppCompatActivity
 import com.dcgabriel.myuark.model.Constants
+import com.dcgabriel.myuark.model.tiles.TileData
 import com.example.myuark.databinding.ActivityWebviewBinding
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 
@@ -17,6 +18,8 @@ class WebViewActivity : AppCompatActivity() {
     private val disposables = CompositeDisposable()
     private var isFabExtended = false;
     private lateinit var url: String
+    private lateinit var tileData: TileData
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +28,7 @@ class WebViewActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         url = intent.getStringExtra(Constants.EXTRA_URL)!!
+//        tileData = intent.getStringExtra(Constants.EXTRA_TILE_DATA)!!
 
         webView = binding.webview
         initSubscriptions()
@@ -49,6 +53,9 @@ class WebViewActivity : AppCompatActivity() {
         binding.appFab.visibility = View.GONE
         binding.browserFab.visibility = View.GONE
 
+        for (item in tileData.otherLinks!!){
+//            binding.fabGroup.addView()
+        }
     }
 
 

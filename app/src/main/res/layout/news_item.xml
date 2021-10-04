@@ -10,42 +10,45 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout style="@style/CardItemInnerLayout">
 
-        <ImageView
-            android:id="@+id/image"
-            style="@style/NewsImageView"
-            android:maxHeight="60dp"
-            android:scaleType="center"
-            android:src="@drawable/ic_baseline_directions_bus_24"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/header_textview"
             style="@style/CardHeaderTextView"
+            android:textColor="@color/red"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/image" />
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/brief_textview"
-            style="@style/cardSecondaryText"
-            android:layout_marginTop="8dp"
-            android:text="This is a brief description of the news"
-            android:textAlignment="viewStart"
+
+        <ImageView
+            android:id="@+id/image"
+            style="@style/NewsImageView"
+            android:layout_height="@dimen/minimizedImageSize"
+            android:scaleType="center"
+            android:src="@drawable/ic_baseline_directions_bus_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/header_textview" />
 
         <TextView
+            android:id="@+id/brief_textview"
+            style="@style/cardSecondaryText"
+            android:text="This is a brief description of the news"
+            android:textAlignment="viewStart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image" />
+
+        <TextView
             android:id="@+id/description_textview"
             style="@style/cardSecondaryText"
-            android:layout_marginTop="8dp"
             android:letterSpacing=".03"
             android:text="This is a brief description of the news"
             android:textAlignment="viewStart"
             android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/brief_textview" />
 

@@ -1,18 +1,16 @@
 package com.dcgabriel.myuark.model.tiles
 
- class TileItem(
-     val title: String = "This is a title",
-     val colSize: Int = 1,
-     val image: Int?,
-     val action: Action,
-     val url: String?,
-     val type: Type,
-     val destination : String? = null,
-     val subtext: String? = null
+class TileItem(
+    val title: String = "This is a title",
+    val colSize: Int = 1,
+    val image: Int?,
+    val tileData: TileData,
+    val action: Action,
+    val type: Type,
+    val destination: String? = null,
+    ) {
 
-) {
-
-    enum class Action{
+    enum class Action {
         WEB_LINK,
         APP_LINK,
         WEB_VIEW,

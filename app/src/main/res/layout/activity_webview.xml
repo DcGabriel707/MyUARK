@@ -11,40 +11,38 @@
         android:layout_height="match_parent" />
 
 
-
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/social_fab1"
-        style="@style/FloatingActionButton"
-        app:layout_constraintBottom_toTopOf="@+id/app_fab"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:text="Facebook"
-        app:icon="@drawable/ic_baseline_facebook_24"
-         />
-
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/app_fab"
-        style="@style/FloatingActionButton"
-        android:text="Open app"
-        app:icon="@drawable/ic_baseline_exit_to_app_24"
-        app:layout_constraintBottom_toTopOf="@+id/browser_fab"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/browser_fab"
-        style="@style/FloatingActionButton"
-        android:text="Open in browser"
-        app:icon="@drawable/ic_baseline_open_in_browser_24"
-        app:layout_constraintBottom_toTopOf="@+id/options_fab"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/options_fab"
-        style="@style/FloatingActionButton"
-        android:onClick="clickOptions"
+    <LinearLayout
+        android:id="@+id/fab_group"
+        style="@style/FABGroupLayout"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:icon="@drawable/ic_baseline_more_vert_24"
-        android:text="Options"
-        app:tint="@color/white"/>
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/social_fab1"
+            style="@style/FloatingActionButton"
+            android:text="Facebook"
+            app:icon="@drawable/ic_baseline_facebook_24" />
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/app_fab"
+            style="@style/FloatingActionButton"
+            android:text="Open app"
+            app:icon="@drawable/ic_baseline_exit_to_app_24" />
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/browser_fab"
+            style="@style/FloatingActionButton"
+            android:text="Open in browser"
+            app:icon="@drawable/ic_baseline_open_in_browser_24" />
+
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/options_fab"
+            style="@style/FloatingActionButton"
+            android:onClick="clickOptions"
+            android:text="Options"
+            app:icon="@drawable/ic_baseline_more_vert_24"
+            app:tint="@color/white" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -48,7 +48,7 @@
         <item name="android:layout_marginRight">8dp</item>
         <item name="android:layout_marginTop">8dp</item>
         <item name="android:layout_marginBottom">8dp</item>
-
+        <item name="android:adjustViewBounds">true</item>
         <item name="android:gravity">center</item>
         <item name="android:layout_gravity">center</item>
 
@@ -108,14 +108,12 @@
     </style>
 
 
-
     <style name="cardSecondaryText" parent="SecondaryText">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:layout_marginBottom">4dp</item>
     </style>
-
-
-
 
 
     <style name="MyRecyclerView">
@@ -130,7 +128,10 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_gravity">bottom|end</item>
-        <item name="android:layout_margin">16dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">12dp</item>
+        <item name="android:layout_marginLeft">4dp</item>
+        <item name="android:layout_marginRight">4dp</item>
         <item name="android:backgroundTint">@color/red</item>
         <item name="tint">@color/white</item>
         <item name="iconGravity">end</item>
@@ -138,6 +139,13 @@
         <item name="iconTint">@color/white</item>
 
 
+    </style>
+
+    <style name="FABGroupLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_margin">16dp</item>
     </style>
 
     <style name="Widget.Theme.MyApplication.ActionBar.Fullscreen" parent="Widget.AppCompat.ActionBar">
