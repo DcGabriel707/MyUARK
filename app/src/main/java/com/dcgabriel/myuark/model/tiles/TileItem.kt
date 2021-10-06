@@ -1,14 +1,19 @@
 package com.dcgabriel.myuark.model.tiles
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
 class TileItem(
+    val id: Int,
     val title: String = "This is a title",
+    val category: Category,
     val colSize: Int = 1,
     val image: Int?,
     val tileData: TileData,
     val action: Action,
     val type: Type,
     val destination: String? = null,
-    ) {
+    )  {
 
     enum class Action {
         WEB_LINK,
@@ -25,5 +30,11 @@ class TileItem(
         IMAGE_TEXT,
         TEXT,
         WIDGET,
+    }
+    enum class Category {
+        CAMPUS,
+        STUDENT,
+        EXPLORE,
+        OTHER
     }
 }

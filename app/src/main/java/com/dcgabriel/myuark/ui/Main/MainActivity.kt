@@ -98,7 +98,7 @@ class MainActivity : AppCompatActivity() {
     fun onClick(item: TileItem) {
         when (item.action) {
             TileItem.Action.WEB_LINK -> performWebIntent(item.tileData.url)
-            TileItem.Action.WEB_VIEW -> openWebView(item.tileData.url)
+            TileItem.Action.WEB_VIEW -> openWebView(item)
             TileItem.Action.APP_VIEW -> openActivity(item.destination)
         }
     }
@@ -111,9 +111,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun openWebView(url: String?) {
+    private fun openWebView(item: TileItem) {
         val intent = Intent(this, WebViewActivity::class.java)
-            .putExtra(Constants.EXTRA_URL, url)
+            .putExtra(Constants.EXTRA_TILE_DATA, item.id )
         startActivity(intent)
 
     }
@@ -133,5 +133,12 @@ class MainActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         disposables.dispose()
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+//        binding.searchBackground.visibility = View.GONE
+//        binding.backSearchButton.visibility = View.GONE
+//        binding.searchRecyclerview.visibility = View.GONE
     }
 }

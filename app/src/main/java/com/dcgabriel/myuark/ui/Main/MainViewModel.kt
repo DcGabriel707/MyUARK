@@ -7,7 +7,7 @@ import com.dcgabriel.myuark.model.tiles.TileItem
 class MainViewModel : ViewModel() {
 
     fun getAllTiles() = DummyData.getStudentTiles() + DummyData.getCampusTiles() + DummyData.getExploreTiles()
-    fun getOtherTiles() = DummyData.otherTiles()
+    fun getOtherTiles() = DummyData.getOtherTiles()
 
     fun queryTile(string: String) : List<TileItem>{
         val allTiles = getAllTiles()

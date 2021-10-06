@@ -17,22 +17,46 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
+
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-            android:id="@+id/social_fab1"
+            android:id="@+id/other_fab3"
             style="@style/FloatingActionButton"
-            android:text="Facebook"
-            app:icon="@drawable/ic_baseline_facebook_24" />
+            android:onClick="otherFab3CLick"
+            android:text="Open link"
+            android:visibility="gone"
+            app:icon="@drawable/ic_baseline_exit_to_app_24" />
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/other_fab2"
+            style="@style/FloatingActionButton"
+            android:onClick="otherFab2CLick"
+
+            android:text="Open link"
+            android:visibility="gone"
+            app:icon="@drawable/ic_baseline_exit_to_app_24" />
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/other_fab1"
+            style="@style/FloatingActionButton"
+            android:onClick="otherFab1CLick"
+
+            android:text="Open link"
+            android:visibility="gone"
+            app:icon="@drawable/ic_baseline_exit_to_app_24" />
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/app_fab"
             style="@style/FloatingActionButton"
             android:text="Open app"
+            android:visibility="gone"
             app:icon="@drawable/ic_baseline_exit_to_app_24" />
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/browser_fab"
+            android:onClick="openBrowserClick"
             style="@style/FloatingActionButton"
             android:text="Open in browser"
+            android:visibility="gone"
             app:icon="@drawable/ic_baseline_open_in_browser_24" />
 
 

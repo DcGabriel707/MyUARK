@@ -6,6 +6,7 @@ object Constants {
 
     const val EXTRA_URL = "url_string"
     const val EXTRA_TILE_DATA = "tile_data"
+    const val EXTRA_OTHER_LINKS = "other_links"
 
 
 
