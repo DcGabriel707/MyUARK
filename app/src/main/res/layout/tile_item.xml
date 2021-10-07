@@ -18,8 +18,8 @@
             android:id="@+id/tile_image"
             style="@style/TileIconImageView"
             android:layout_weight="4"
-            android:cropToPadding="true"
-            android:src="@drawable/ic_baseline_directions_bus_24"
+            android:padding="8dp"
+            android:src="@drawable/bus_alt"
             android:visibility="visible" />
 
         <TextView

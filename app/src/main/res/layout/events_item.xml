@@ -16,7 +16,7 @@
             android:maxHeight="60dp"
             android:visibility="gone"
             android:scaleType="center"
-            android:src="@drawable/ic_baseline_directions_bus_24"
+            android:src="@drawable/bus_alt"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
