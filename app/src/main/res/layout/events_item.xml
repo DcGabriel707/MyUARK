@@ -1,44 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     style="@style/ListCardView"
-    android:layout_height="wrap_content"
-    android:layout_marginLeft="21dp"
-    android:layout_marginRight="21dp"
+    android:id="@+id/card"
+    android:layout_height="@dimen/minimized_event_card"
     android:stateListAnimator="@animator/card_clicked"
     app:cardElevation="8dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout style="@style/CardItemInnerLayout">
 
-        <ImageView
-            android:id="@+id/image"
-            style="@style/NewsImageView"
-            android:maxHeight="60dp"
-            android:visibility="gone"
-            android:scaleType="center"
-            android:src="@drawable/bus_alt"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/bg_image"
+        style="@style/BgImageView"
+        app:tint="@color/red" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/SimpleInnerLayout"
+        android:layout_margin="16dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="8dp"
+        >
 
         <TextView
             android:id="@+id/header_textview"
             style="@style/CardHeaderTextView"
+            android:layout_width="match_parent"
+            android:text="erwer"
             android:textAlignment="viewStart"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/image" />
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/image"
+            style="@style/EventsImageView"
+            android:layout_height="@dimen/minimizedImageSize"
+            android:src="@drawable/calendar_alt"
+            android:visibility="gone"
+            android:gravity="center"
+            android:layout_gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/header_textview" />
 
         <TextView
+
             android:id="@+id/description_textview"
             style="@style/cardSecondaryText"
             android:layout_marginTop="8dp"
             android:letterSpacing=".03"
             android:text="This is a brief description of the news"
             android:textAlignment="viewStart"
+            android:textColor="@color/white"
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/header_textview" />
+            app:layout_constraintTop_toBottomOf="@+id/image" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

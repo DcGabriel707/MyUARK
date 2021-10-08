@@ -3,15 +3,10 @@ package com.dcgabriel.myuark.ui.Events
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dcgabriel.myuark.ui.Adapters.EventsAdapter
-import com.dcgabriel.myuark.ui.Adapters.NewsAdapter
-import com.dcgabriel.myuark.ui.News.NewsViewModel
-import com.example.myuark.R
 import com.example.myuark.databinding.ActivityEventsBinding
-import com.example.myuark.databinding.ActivityNewsBinding
 import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 
@@ -35,9 +30,8 @@ class EventsActivity : AppCompatActivity() {
     private fun initSubscription() {
         disposables.add(viewModel.liveEventsData()
             .subscribe(){
-                adapter.setData(it)
+                adapter.setData(viewModel.mapDates(it.channel?.items))
                 Log.d("EventsActivity---------", "subbed")
-                Toast.makeText(this, "size=" + (it.channel?.items?.size ?: "ewr"), Toast.LENGTH_SHORT).show()
             })
     }
 

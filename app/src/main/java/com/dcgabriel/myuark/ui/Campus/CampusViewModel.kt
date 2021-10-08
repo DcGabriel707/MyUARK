@@ -2,7 +2,7 @@ package com.dcgabriel.myuark.ui.Campus
 
 import androidx.lifecycle.ViewModel
 import com.dcgabriel.myuark.Networking.CallApi
-import com.dcgabriel.myuark.model.events.CalendarEvent
+import com.dcgabriel.myuark.model.events.ImageContent
 import com.dcgabriel.myuark.model.events.RssFeed
 import com.dcgabriel.myuark.model.events.RssItem
 import com.dcgabriel.myuark.model.tiles.DummyData
@@ -32,7 +32,7 @@ class CampusViewModel @Inject constructor(val api: CallApi) : ViewModel() {
     )
 
     val dummyEvent= mutableListOf<RssItem>(
-        RssItem("","test","testst","test")
+        RssItem("","test","testst","test", ImageContent("test"))
     )
 
 }

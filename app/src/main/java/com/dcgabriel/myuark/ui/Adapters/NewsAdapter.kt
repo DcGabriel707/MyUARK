@@ -54,11 +54,11 @@ class NewsAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHold
             Log.d("---------9rfrf----", "News=" + item.headline)
 
             binding.headerTextview.text =
-                HtmlCompat.fromHtml(item.headline, HtmlCompat.FROM_HTML_MODE_COMPACT)
+                HtmlCompat.fromHtml(item.headline, HtmlCompat.FROM_HTML_MODE_LEGACY)
             binding.briefTextview.text =
-                HtmlCompat.fromHtml(item.brief, HtmlCompat.FROM_HTML_MODE_COMPACT)
+                HtmlCompat.fromHtml(item.brief, HtmlCompat.FROM_HTML_MODE_LEGACY)
             binding.descriptionTextview.text =
-                HtmlCompat.fromHtml(item.content, HtmlCompat.FROM_HTML_MODE_COMPACT)
+                HtmlCompat.fromHtml(item.content, HtmlCompat.FROM_HTML_MODE_LEGACY)
 
             Picasso.get()
                 .load("https://campusdata.uark.edu/resources/images/articles/" + item.imageUrl)

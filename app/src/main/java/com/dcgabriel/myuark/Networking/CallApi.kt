@@ -1,7 +1,6 @@
 package com.dcgabriel.myuark.Networking
 
 import android.util.Log
-import com.dcgabriel.myuark.model.events.CalendarEvent
 import com.dcgabriel.myuark.model.events.RssFeed
 import com.dcgabriel.myuark.model.events.RssItem
 import com.dcgabriel.myuark.model.news.NewsArticle

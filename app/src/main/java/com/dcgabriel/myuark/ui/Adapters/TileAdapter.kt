@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils.*
 import android.widget.LinearLayout
 import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.GridLayoutManager
@@ -15,6 +16,7 @@ import com.dcgabriel.myuark.model.tiles.TileItem.Type.*
 import com.dcgabriel.myuark.ui.Campus.CampusFragment
 import com.example.myuark.databinding.TileItemBinding
 import com.example.myuark.databinding.WidgetItemBinding
+import com.google.android.material.animation.AnimationUtils
 import com.squareup.picasso.Picasso
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
@@ -28,6 +30,7 @@ class TileAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHold
     private var events: MutableList<RssItem> = mutableListOf()
     private val clickEvents = PublishSubject.create<TileItem>()
     private val mContext = context
+    private var prevPos = -1
 
     fun clickEvents(): Observable<TileItem> {
         return clickEvents.debounce(300, TimeUnit.MILLISECONDS)
@@ -49,6 +52,7 @@ class TileAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHold
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val item = items[position]
+        loadItemAnimate(holder.itemView, position)
         when (item.type) {
             ICON_TITLE -> (holder as IconTitleViewHolder).bindData(item)
             TEXT -> (holder as TextViewHolder).bindData(item)
@@ -90,6 +94,14 @@ class TileAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHold
             override fun getSpanSize(position: Int): Int {
                 return items[position].colSize
             }
+        }
+    }
+
+    fun loadItemAnimate(view: View, position: Int){
+        if(position > prevPos){
+            val anim = loadAnimation(mContext, android.R.anim.fade_in)
+            view.startAnimation(anim)
+            prevPos = position
         }
     }
 

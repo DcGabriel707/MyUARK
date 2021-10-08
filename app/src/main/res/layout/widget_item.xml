@@ -2,19 +2,17 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:backgroundTint="@color/red"
-    style="@style/WidgetCardView">
+    style="@style/WidgetCardView"
+    android:backgroundTint="@color/red">
 
     <ImageView
         android:id="@+id/bg_image"
-        app:tint="@color/red"
-        android:tintMode="multiply"
-        android:scaleType="centerCrop"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        style="@style/BgImageView"
+        app:tint="@color/red" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/inner_layout"
-        style="@style/TileInnerLayout"
+        style="@style/SimpleInnerLayout"
         android:orientation="vertical">
 
         <TextSwitcher
@@ -28,24 +26,25 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <TextView style="@style/CardHeaderTextView"
-                android:textColor="@color/white"/>
+            <TextView
+                style="@style/CardHeaderTextView"
+                android:textColor="@color/white" />
 
             <TextView
-                android:textColor="@color/white"
-                style="@style/CardHeaderTextView" />
+                style="@style/CardHeaderTextView"
+                android:textColor="@color/white" />
         </TextSwitcher>
 
         <TextView
             android:id="@+id/title_textview"
             style="@style/TileTitleTextView"
             android:layout_gravity="center"
-            android:textColor="@color/white"
             android:layout_weight="1"
             android:text="News"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
