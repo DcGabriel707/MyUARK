@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/TileCardView">
+
+    <TextView
+        android:id="@+id/tile_text"
+        style="@style/TileTitleTextView"
+        android:layout_gravity="center"
+        android:text="Title"
+        android:textColor="@color/red"
+        android:textSize="26sp"/>
+
+</androidx.cardview.widget.CardView>

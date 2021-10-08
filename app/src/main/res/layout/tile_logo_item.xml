@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/TileCardView">
+
+        <ImageView
+            android:id="@+id/tile_image"
+            style="@style/TileIconImageView"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:layout_margin="16dp"
+            android:src="@drawable/bus_alt"
+            android:visibility="visible" />
+
+</androidx.cardview.widget.CardView>
