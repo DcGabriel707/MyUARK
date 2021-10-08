@@ -11,7 +11,7 @@ object DummyData {
         createTiles()
     }
 
-    fun getTile(key: Int) = allTiles.find{tile -> tile.id == key}
+    fun getTile(key: Int) = allTiles.find { tile -> tile.id == key }
     fun getCampusTiles() = allTiles.filter { tile -> tile.category == TileItem.Category.CAMPUS }
     fun getStudentTiles() = allTiles.filter { tile -> tile.category == TileItem.Category.STUDENT }
     fun getExploreTiles() = allTiles.filter { tile -> tile.category == TileItem.Category.EXPLORE }
@@ -86,7 +86,14 @@ object DummyData {
                 TileItem.Category.CAMPUS,
                 2,
                 R.drawable.house_user,
-                TileData("https://housing.uark.edu/"),
+                TileData(
+                    "https://housing.uark.edu/",
+                    arrayListOf(
+                        "https://twitter.com/Uarkhousing",
+                        "https://www.instagram.com/Uarkhousing/",
+                        "https://www.youtube.com/channel/UCpg2zTOL2F4zZEuoOQrXBdg"
+                    )
+                ),
                 Action.WEB_VIEW,
                 TileItem.Type.ICON_TITLE
             )
@@ -98,7 +105,13 @@ object DummyData {
                 TileItem.Category.CAMPUS,
                 4,
                 R.drawable.burger_soda,
-                TileData("https://dineoncampus.com/razorbacks/"),
+                TileData(
+                    "https://dineoncampus.com/razorbacks/",
+                    arrayListOf(
+                        "https://www.facebook.com/FoodontheHillAR",
+                        "https://twitter.com/FoodontheHillAR",
+                    )
+                ),
                 Action.WEB_VIEW,
                 TileItem.Type.ICON_TITLE
             )
@@ -111,7 +124,14 @@ object DummyData {
                 TileItem.Category.CAMPUS,
                 4,
                 R.drawable.heartbeat,
-                TileData("https://health.uark.edu/"),
+                TileData(
+                    "https://health.uark.edu/",
+                    arrayListOf(
+                        "https://www.facebook.com/UofAHealth",
+                        "https://twitter.com/UofAHealth",
+                        "https://www.instagram.com/uofahealth/"
+                    )
+                ),
                 Action.WEB_VIEW,
                 TileItem.Type.ICON_TITLE
             )
@@ -147,7 +167,13 @@ object DummyData {
                 TileItem.Category.CAMPUS,
                 2,
                 R.drawable.shield_alt,
-                TileData("https://uapd.uark.edu/"),
+                TileData(
+                    "https://uapd.uark.edu/",
+                    arrayListOf(
+                        "https://www.facebook.com/UARKPD/",
+                    )
+                ),
+
                 Action.WEB_VIEW,
                 TileItem.Type.ICON_TITLE
             )
@@ -159,7 +185,13 @@ object DummyData {
                 TileItem.Category.CAMPUS,
                 2,
                 R.drawable.hands_heart,
-                TileData("https://service.uark.edu/services/pantry/index.php"),
+                TileData(
+                    "https://service.uark.edu/services/pantry/index.php",
+                    arrayListOf(
+                        "https://www.facebook.com/UAVAC/",
+                        "https://twitter.com/uacce"
+                    )
+                ),
                 Action.WEB_VIEW,
                 TileItem.Type.ICON_TITLE
             )
@@ -224,7 +256,13 @@ object DummyData {
                 TileItem.Category.STUDENT,
                 1,
                 R.drawable.book_open,
-                TileData("https://libraries.uark.edu/"),
+                TileData(
+                    "https://libraries.uark.edu/",
+                    arrayListOf(
+                        "https://twitter.com/UARKLibraries",
+                        "https://www.instagram.com/uarklibraries/"
+                    )
+                ),
                 Action.WEB_LINK,
                 TileItem.Type.ICON_TITLE
             )
@@ -248,7 +286,13 @@ object DummyData {
                 TileItem.Category.STUDENT,
                 2,
                 R.drawable.briefcase,
-                TileData("https://career.uark.edu/cdc/"),
+                TileData(
+                    "https://career.uark.edu/cdc/",
+                    arrayListOf(
+                        "https://www.facebook.com/UACareer/",
+                        "https://twitter.com/UARK_CDC"
+                    )
+                ),
                 Action.WEB_LINK,
                 TileItem.Type.ICON_TITLE
             )
@@ -260,7 +304,12 @@ object DummyData {
                 TileItem.Category.STUDENT,
                 1,
                 R.drawable.books,
-                TileData("https://uark.bncollege.com/"),
+                TileData(
+                    "https://uark.bncollege.com/",
+                    arrayListOf(
+                        "https://www.facebook.com/UofABookstore/",
+                    )
+                ),
                 Action.WEB_LINK,
                 TileItem.Type.ICON_TITLE
             )
@@ -272,7 +321,14 @@ object DummyData {
                 TileItem.Category.STUDENT,
                 1,
                 R.drawable.user_graduate,
-                TileData("https://success.uark.edu/"),
+                TileData(
+                    "https://success.uark.edu/",
+                    arrayListOf(
+                        "https://www.facebook.com/uarksuccess",
+                        "https://twitter.com/uarksuccess",
+                        "https://www.instagram.com/uarksuccess/"
+                    )
+                ),
                 Action.WEB_LINK,
                 TileItem.Type.ICON_TITLE
             )
@@ -320,7 +376,13 @@ object DummyData {
                 TileItem.Category.EXPLORE,
                 2,
                 R.drawable.up,
-                TileData("https://up.uark.edu/"),
+                TileData(
+                    "https://up.uark.edu/",
+                    arrayListOf(
+                        "https://www.facebook.com/UniversityPrograms",
+                        "https://twitter.com/UParkansas",
+                    )
+                ),
                 Action.WEB_VIEW,
                 TileItem.Type.LOGO
             )
@@ -332,7 +394,14 @@ object DummyData {
                 TileItem.Category.EXPLORE,
                 2,
                 R.mipmap.ic_mc,
-                TileData("https://multicultural.uark.edu/"),
+                TileData(
+                    "https://multicultural.uark.edu/",
+                    arrayListOf(
+                        "https://www.facebook.com/uarkmc",
+                        "https://www.instagram.com/uark_mc/",
+                        "https://www.youtube.com/channel/UCe1yxjkFsrKWT3axa0mGnbw"
+                    )
+                ),
                 Action.WEB_VIEW,
                 TileItem.Type.ICON_TITLE
             )
@@ -344,7 +413,15 @@ object DummyData {
                 TileItem.Category.EXPLORE,
                 2,
                 R.mipmap.ic_channel,
-                TileData("https://urec.uark.edu/"),
+                TileData(
+                    "https://urec.uark.edu/",
+                    arrayListOf(
+                        "https://www.facebook.com/urecarkansas",
+                        "https://twitter.com/urecarkansas",
+                        "https://www.instagram.com/urecarkansas/",
+                        "https://www.youtube.com/channel/UCe1yxjkFsrKWT3axa0mGnbw"
+                    )
+                ),
                 Action.WEB_VIEW,
                 TileItem.Type.LOGO
             )
@@ -356,7 +433,14 @@ object DummyData {
                 TileItem.Category.EXPLORE,
                 2,
                 R.mipmap.ic_uatv,
-                TileData("https://uatvonline.net/"),
+                TileData(
+                    "https://uatvonline.net/",
+                    arrayListOf(
+                        "https://www.facebook.com/uastudenttelevision",
+                        "https://twitter.com/uatvnews",
+                        "https://www.instagram.com/uatvnews/",
+                    )
+                ),
                 Action.WEB_VIEW,
                 TileItem.Type.LOGO
             )
@@ -368,7 +452,14 @@ object DummyData {
                 TileItem.Category.EXPLORE,
                 2,
                 R.mipmap.ic_asg,
-                TileData("https://asg.uark.edu/"),
+                TileData(
+                    "https://asg.uark.edu/",
+                    arrayListOf(
+                        "https://www.facebook.com/UofAASG",
+                        "https://twitter.com/uofaasg",
+                        "https://www.instagram.com/uarkasg/",
+                    )
+                ),
                 Action.WEB_VIEW,
                 TileItem.Type.LOGO
             )
