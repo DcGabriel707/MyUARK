@@ -46,10 +46,11 @@
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/app_fab"
+            android:onClick="appFabClick"
             style="@style/FloatingActionButton"
             android:text="Open app"
             android:visibility="gone"
-            app:icon="@drawable/ic_baseline_exit_to_app_24" />
+            app:icon="@drawable/mobile_android_alt" />
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/browser_fab"

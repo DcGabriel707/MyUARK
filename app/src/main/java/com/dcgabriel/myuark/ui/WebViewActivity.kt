@@ -7,10 +7,12 @@ import android.view.View
 import android.webkit.WebChromeClient
 import android.webkit.WebSettings
 import android.webkit.WebView
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.dcgabriel.myuark.model.Constants
 import com.dcgabriel.myuark.model.tiles.TileItem
+import com.example.myuark.R
 import com.example.myuark.databinding.ActivityWebviewBinding
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import dagger.hilt.android.AndroidEntryPoint
@@ -62,20 +64,23 @@ class WebViewActivity : AppCompatActivity() {
     }
 
     private fun initFAB() {
-        fabList.add(binding.appFab)
+        if (tileItem.tileData.applink != null) {
+            fabList.add(binding.appFab)
+        }
+
         fabList.add(binding.browserFab)
         for (i in otherLinks.indices) {
             when (i) {
                 0 -> {
-                    binding.otherFab1.text = setFABText(otherLinks.get(0))
+                    setTextIcon(binding.otherFab1, otherLinks.get(0))
                     fabList.add(binding.otherFab1)
                 }
                 1 -> {
-                    binding.otherFab2.text = setFABText(otherLinks.get(1))
+                    setTextIcon(binding.otherFab2, otherLinks.get(1))
                     fabList.add(binding.otherFab2)
                 }
                 2 -> {
-                    binding.otherFab3.text = setFABText(otherLinks.get(2))
+                    setTextIcon(binding.otherFab3, otherLinks.get(2))
                     fabList.add(binding.otherFab3)
                 }
             }
@@ -87,13 +92,27 @@ class WebViewActivity : AppCompatActivity() {
         }
     }
 
-    private fun setFABText(url: String): String {
-        return when {
-            url.contains("facebook", ignoreCase = true) -> "Facebook"
-            url.contains("twitter", ignoreCase = true) -> "Twitter"
-            url.contains("instagram", ignoreCase = true) -> "Instagram"
-            url.contains("youtube", ignoreCase = true) -> "Youtube"
-            else -> "Open Related Link"
+    private fun setTextIcon(fab: ExtendedFloatingActionButton, url: String) {
+         when {
+            url.contains("facebook", ignoreCase = true) -> {
+                fab.text = "Facebook"
+                fab.icon = getDrawable(R.drawable.facebook)
+            }
+            url.contains("twitter", ignoreCase = true) -> {
+                fab.text = "Twitter"
+                fab.icon = getDrawable(R.drawable.twitter)
+            }
+            url.contains("instagram", ignoreCase = true) -> {
+                fab.text = "Instagram"
+                fab.icon = getDrawable(R.drawable.instagram)
+            }
+            url.contains("youtube", ignoreCase = true) -> {
+                fab.text = "Youtube"
+                fab.icon = getDrawable(R.drawable.youtube)
+            }
+            else -> {
+                fab.text = "Open Related Link"
+            }
         }
     }
 
@@ -101,6 +120,20 @@ class WebViewActivity : AppCompatActivity() {
         val webpage: Uri = Uri.parse(url)
         val intent = Intent(Intent.ACTION_VIEW, webpage)
         if (intent.resolveActivity(packageManager!!) != null) {
+            startActivity(intent)
+        }
+    }
+
+    private fun openAppIntent(applink: String?) {
+        val intent = packageManager.getLaunchIntentForPackage(applink.toString())
+        if (intent != null) {
+            startActivity(intent);
+        } else {
+            val intent = Intent(Intent.ACTION_VIEW).apply {
+                data = Uri.parse(
+                    "https://play.google.com/store/apps/details?id=$applink")
+                setPackage("com.android.vending")
+            }
             startActivity(intent)
         }
     }
@@ -128,6 +161,9 @@ class WebViewActivity : AppCompatActivity() {
     fun otherFab2CLick(view: View) = openWebIntent(otherLinks[1])
     fun otherFab3CLick(view: View) = openWebIntent(otherLinks[2])
     fun openBrowserClick(view: View) = openWebIntent(webView.url.toString())
+    fun appFabClick(view:View) = openAppIntent(tileItem.tileData.applink)
+
+
 
 
     override fun onBackPressed() {

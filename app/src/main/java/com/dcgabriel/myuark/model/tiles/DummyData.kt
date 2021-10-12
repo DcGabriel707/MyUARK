@@ -54,7 +54,11 @@ object DummyData {
                 R.drawable.bus_alt,
                 TileData(
                     "https://uark.passiogo.com/",
-                    arrayListOf("https://twitter.com/uatandp", "https://www.instagram.com/uatandp/")
+                    arrayListOf(
+                        "https://twitter.com/uatandp",
+                        "https://www.instagram.com/uatandp/"
+                    ),
+                    "com.passio3.go"
                 ),
                 Action.WEB_VIEW,
                 TileItem.Type.ICON_TITLE,
@@ -73,9 +77,10 @@ object DummyData {
                         "https://www.facebook.com/UATandP/",
                         "https://twitter.com/UATandP",
                         "https://www.instagram.com/UATandP/"
-                    )
+                    ),
+                    "group.flowbird.mpp"
                 ),
-                Action.WEB_LINK,
+                Action.WEB_VIEW,
                 TileItem.Type.ICON_TITLE
             )
         )
@@ -91,7 +96,8 @@ object DummyData {
                     arrayListOf(
                         "https://twitter.com/Uarkhousing",
                         "https://www.instagram.com/Uarkhousing/",
-                        "https://www.youtube.com/channel/UCpg2zTOL2F4zZEuoOQrXBdg"
+                        "https://www.youtube.com/channel/UCpg2zTOL2F4zZEuoOQrXBdg",
+                        "https://www.laundryalert.com/cgi-bin/razorbacks/LMPage?CallingPage=LMRoom&RoomPersistence=&MachinePersistenceA=010&MachinePersistenceB"
                     )
                 ),
                 Action.WEB_VIEW,
@@ -110,6 +116,7 @@ object DummyData {
                     arrayListOf(
                         "https://www.facebook.com/FoodontheHillAR",
                         "https://twitter.com/FoodontheHillAR",
+                        "https://www.instagram.com/foodonthehill_ar/"
                     )
                 ),
                 Action.WEB_VIEW,
@@ -130,8 +137,9 @@ object DummyData {
                         "https://www.facebook.com/UofAHealth",
                         "https://twitter.com/UofAHealth",
                         "https://www.instagram.com/uofahealth/"
-                    )
-                ),
+                    ),
+
+                    ),
                 Action.WEB_VIEW,
                 TileItem.Type.ICON_TITLE
             )
@@ -171,7 +179,8 @@ object DummyData {
                     "https://uapd.uark.edu/",
                     arrayListOf(
                         "https://www.facebook.com/UARKPD/",
-                    )
+                    ),
+                    "com.criticalarc.safezoneapp"
                 ),
 
                 Action.WEB_VIEW,
@@ -189,8 +198,9 @@ object DummyData {
                     "https://service.uark.edu/services/pantry/index.php",
                     arrayListOf(
                         "https://www.facebook.com/UAVAC/",
-                        "https://twitter.com/uacce"
-                    )
+                        "https://twitter.com/uacce",
+
+                        )
                 ),
                 Action.WEB_VIEW,
                 TileItem.Type.ICON_TITLE
@@ -232,7 +242,11 @@ object DummyData {
                 TileItem.Category.STUDENT,
                 2,
                 R.drawable.bb,
-                TileData("https://learn.uark.edu/"),
+                TileData(
+                    "https://learn.uark.edu/",
+                    arrayListOf(),
+                    "com.blackboard.android.bbstudent"
+                ),
                 Action.WEB_VIEW,
                 TileItem.Type.ICON_TITLE
             )
@@ -260,7 +274,7 @@ object DummyData {
                     "https://libraries.uark.edu/",
                     arrayListOf(
                         "https://twitter.com/UARKLibraries",
-                        "https://www.instagram.com/uarklibraries/"
+                        "https://www.instagram.com/uarklibraries/",
                     )
                 ),
                 Action.WEB_LINK,
@@ -274,7 +288,11 @@ object DummyData {
                 TileItem.Category.STUDENT,
                 1,
                 R.drawable.handshake,
-                TileData("https://uark.joinhandshake.com/"),
+                TileData(
+                    "https://uark.joinhandshake.com/",
+                    arrayListOf(),
+                    "com.joinhandshake.student"
+                ),
                 Action.WEB_LINK,
                 TileItem.Type.ICON_TITLE
             )
@@ -291,7 +309,8 @@ object DummyData {
                     arrayListOf(
                         "https://www.facebook.com/UACareer/",
                         "https://twitter.com/UARK_CDC"
-                    )
+                    ),
+                    "com.joinhandshake.student"
                 ),
                 Action.WEB_LINK,
                 TileItem.Type.ICON_TITLE
@@ -353,6 +372,7 @@ object DummyData {
                 4,
                 R.drawable.hogsync,
                 TileData("https://hogsync.uark.edu/"),
+
                 Action.WEB_LINK,
                 TileItem.Type.LOGO
             )
@@ -381,8 +401,9 @@ object DummyData {
                     arrayListOf(
                         "https://www.facebook.com/UniversityPrograms",
                         "https://twitter.com/UParkansas",
-                    )
-                ),
+                    ),
+
+                    ),
                 Action.WEB_VIEW,
                 TileItem.Type.LOGO
             )
@@ -439,7 +460,8 @@ object DummyData {
                         "https://www.facebook.com/uastudenttelevision",
                         "https://twitter.com/uatvnews",
                         "https://www.instagram.com/uatvnews/",
-                    )
+                        "https://www.youtube.com/user/UATV214"
+                    ),
                 ),
                 Action.WEB_VIEW,
                 TileItem.Type.LOGO
@@ -458,6 +480,7 @@ object DummyData {
                         "https://www.facebook.com/UofAASG",
                         "https://twitter.com/uofaasg",
                         "https://www.instagram.com/uarkasg/",
+                        "https://www.linkedin.com/company/ua-associated-student-government/"
                     )
                 ),
                 Action.WEB_VIEW,
@@ -471,7 +494,9 @@ object DummyData {
                 TileItem.Category.EXPLORE,
                 2,
                 R.drawable.plus_circle,
-                TileData("https://hogsync.uark.edu/"),
+                TileData(
+                    "https://hogsync.uark.edu/",
+                ),
                 Action.WEB_VIEW,
                 TileItem.Type.ICON_TITLE
             )
@@ -483,7 +508,7 @@ object DummyData {
                 "A-Z Directory",
                 TileItem.Category.OTHER,
                 2,
-                R.drawable.plus_circle,
+                R.drawable.sort_alpha_down,
                 TileData("https://www.uark.edu/a-to-z.php"),
                 Action.WEB_VIEW,
                 TileItem.Type.ICON_TITLE
