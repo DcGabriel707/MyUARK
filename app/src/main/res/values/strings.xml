@@ -8,4 +8,9 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="student">Student</string>
     <string name="explore">Explore</string>
+    <string name="facebook">Facebook</string>
+    <string name="twitter">Twitter</string>
+    <string name="instagram">Instagram</string>
+    <string name="youtube">Youtube</string>
+    <string name="open_link">Open Related Link</string>
 </resources>

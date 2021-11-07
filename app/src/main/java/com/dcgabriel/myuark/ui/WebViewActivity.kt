@@ -3,6 +3,7 @@ package com.dcgabriel.myuark.ui
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.webkit.WebChromeClient
 import android.webkit.WebSettings
@@ -10,6 +11,7 @@ import android.webkit.WebView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.content.res.AppCompatResources
 import com.dcgabriel.myuark.model.Constants
 import com.dcgabriel.myuark.model.tiles.TileItem
 import com.example.myuark.R
@@ -47,7 +49,6 @@ class WebViewActivity : AppCompatActivity() {
 
     private fun initWebView() {
         val webSettings = webView.settings
-        webSettings.javaScriptEnabled = true
         webView.webChromeClient = WebChromeClient()
         webView.clearHistory()
         webSettings.cacheMode = WebSettings.LOAD_NO_CACHE
@@ -95,23 +96,23 @@ class WebViewActivity : AppCompatActivity() {
     private fun setTextIcon(fab: ExtendedFloatingActionButton, url: String) {
          when {
             url.contains("facebook", ignoreCase = true) -> {
-                fab.text = "Facebook"
-                fab.icon = getDrawable(R.drawable.facebook)
+                fab.text = getString(R.string.facebook)
+                fab.icon = AppCompatResources.getDrawable(this, R.drawable.facebook)
             }
             url.contains("twitter", ignoreCase = true) -> {
-                fab.text = "Twitter"
-                fab.icon = getDrawable(R.drawable.twitter)
+                fab.text = getString(R.string.twitter)
+                fab.icon = AppCompatResources.getDrawable(this, R.drawable.twitter)
             }
             url.contains("instagram", ignoreCase = true) -> {
-                fab.text = "Instagram"
-                fab.icon = getDrawable(R.drawable.instagram)
+                fab.text = getString(R.string.instagram)
+                fab.icon = AppCompatResources.getDrawable(this, R.drawable.instagram)
             }
             url.contains("youtube", ignoreCase = true) -> {
-                fab.text = "Youtube"
-                fab.icon = getDrawable(R.drawable.youtube)
+                fab.text = getString(R.string.youtube)
+                fab.icon = AppCompatResources.getDrawable(this, R.drawable.youtube)
             }
             else -> {
-                fab.text = "Open Related Link"
+                fab.text = getString(R.string.open_link)
             }
         }
     }

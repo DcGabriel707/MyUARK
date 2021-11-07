@@ -22,12 +22,12 @@ import java.util.concurrent.TimeUnit
 
 class EventsAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private var items: MutableList<EventItem> = mutableListOf()
-    private val clickEvents = PublishSubject.create<RssItem>()
+    private val clickOpen = PublishSubject.create<RssItem>()
+    private val clickSave = PublishSubject.create<RssItem>()
+    private val clickShare = PublishSubject.create<RssItem>()
     private val mContext = context
 
-    fun clickEvents(): Observable<RssItem> {
-        return clickEvents.debounce(300, TimeUnit.MILLISECONDS)
-    }
+
 
     //wip
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -65,6 +65,7 @@ class EventsAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHo
         return when (items[position]) {
             is DateHeader -> Type.HEADER.ordinal
             is RssItem -> Type.ITEM.ordinal
+            else -> Type.ITEM.ordinal
         }
     }
 
@@ -77,42 +78,55 @@ class EventsAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHo
         notifyDataSetChanged()
     }
 
+    fun clickOpen(): Observable<RssItem> = clickOpen.debounce(300, TimeUnit.MILLISECONDS)
+    fun clickShare(): Observable<RssItem> = clickShare.debounce(300, TimeUnit.MILLISECONDS)
+    fun clickSave(): Observable<RssItem> = clickSave.debounce(300, TimeUnit.MILLISECONDS)
+
+
     inner class EventsViewHolder(var binding: EventsItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bindData(item: RssItem) {
             Log.d("---------9rfrf----", "events=" + item.title)
-            Picasso.get()
-                .load(item.imageContent?.url.toString())
-                .into(binding.bgImage)
             binding.headerTextview.text =
                 HtmlCompat.fromHtml(
                     item.title.toString().substringAfter(':'),
                     HtmlCompat.FROM_HTML_MODE_LEGACY
                 )
             binding.descriptionTextview.text =
-                HtmlCompat.fromHtml(item.description.toString(), HtmlCompat.FROM_HTML_MODE_LEGACY)
+                HtmlCompat.fromHtml(item.description.toString().substringBefore("View on site"), HtmlCompat.FROM_HTML_MODE_LEGACY)
             Picasso.get()
                 .load(item.imageContent?.url.toString())
                 .into(binding.image)
-            binding.root.setOnClickListener { view ->
-                clickEvents.onNext(item)
-                setVisibility(item)
-            }
+            setOnClicks(item)
+
         }
 
-        fun setVisibility(item: RssItem) {
-            val desc = binding.descriptionTextview
-            val image = binding.image
-            val card = binding.card
-            if (desc.visibility == View.GONE) {
-                desc.visibility = View.VISIBLE
-                //image.visibility = View.VISIBLE
+        fun setOnClicks(item: RssItem){
+            binding.root.setOnClickListener { view ->
+                setVisibility()
+            }
+            binding.openEvent.setOnClickListener{clickOpen.onNext(item)}
+            binding.saveEvent.setOnClickListener{clickSave.onNext(item)}
+            binding.shareEvent.setOnClickListener{clickShare.onNext(item)}
+        }
+
+        fun setVisibility() {
+            if (binding.descriptionTextview.visibility == View.GONE) {
+                binding.descriptionTextview.visibility = View.VISIBLE
+                binding.image.visibility = View.VISIBLE
+                binding.openEvent.visibility = View.VISIBLE
+                binding.shareEvent.visibility = View.VISIBLE
+                binding.saveEvent.visibility = View.VISIBLE
                 //image.scaleType = ImageView.ScaleType.FIT_START
-                card.layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT
+                binding.card.layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT
+
             } else {
-                desc.visibility = View.GONE
-                image.visibility = View.GONE
-                card.layoutParams.height = mContext.resources
+                binding.descriptionTextview.visibility = View.GONE
+                binding.image.visibility = View.GONE
+                binding.openEvent.visibility = View.GONE
+                binding.shareEvent.visibility = View.GONE
+                binding.saveEvent.visibility = View.GONE
+                binding.card.layoutParams.height = mContext.resources
                     .getDimensionPixelSize(R.dimen.minimized_event_card)
             }
         }

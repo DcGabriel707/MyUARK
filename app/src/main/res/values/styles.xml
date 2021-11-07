@@ -8,6 +8,8 @@
 
     <style name="SimpleCardView">
         <item name="android:foreground">?attr/selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+        <item name="android:selectable">true</item>
         <item name="cardCornerRadius">16dp</item>
         <item name="android:layout_width">match_parent</item>
     </style>
@@ -73,17 +75,14 @@
         <item name="android:layout_width">wrap_content</item>
     </style>
 
-    <style name="NewsImageView" parent="ImageViewInCard">
+    <style name="FeedsImageView" parent="ImageViewInCard">
+        <item name="shapeAppearanceOverlay">@style/RoundCorners</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_margin">16dp</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_marginBottom">16dp</item>
     </style>
 
-    <style name="EventsImageView" parent="ImageViewInCard">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_margin">16dp</item>
-    </style>
 
     <style name="LatoFont">
         <item name="fontFamily">@font/lato</item>
@@ -172,6 +171,28 @@
     <style name="Widget.Theme.MyApplication.ButtonBar.Fullscreen" parent="">
         <item name="android:background">@color/black_overlay</item>
         <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
+    </style>
+
+    <style name="RoundCorners">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+
+    <style name="RoundButton" parent="SimpleCardView">
+        <item name="cardBackgroundColor">@color/blueGray</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:stateListAnimator">@animator/card_clicked</item>
+    </style>
+
+    <style name="CardButtonInnerLayout">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:layout_marginRight">8dp</item>
     </style>
 
 
