@@ -18,8 +18,8 @@
         android:theme="@style/LatoFont"
         app:itemIconTint="@drawable/nav_selector"
         app:itemRippleColor="@color/white"
-        app:labelVisibilityMode="selected"
         app:itemTextColor="@color/white"
+        app:labelVisibilityMode="selected"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -40,7 +40,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/transparentWhite"
+        android:clickable="true"
+        android:onClick="exitSearch"
         android:visibility="gone" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/search_cardview"
         style="@style/SimpleCardView"
@@ -67,11 +70,10 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="16dp"
                 android:src="@drawable/ic_baseline_arrow_back_24"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 android:visibility="gone"
-                />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
             <EditText
@@ -79,6 +81,8 @@
                 style="@style/LatoFont"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="32dp"
                 android:background="@null"
                 android:cursorVisible="false"
                 android:fontFamily="@font/lato"
@@ -88,8 +92,6 @@
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"
                 android:textStyle="bold"
-                android:layout_marginLeft="32dp"
-                android:layout_marginRight="32dp"
 
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -101,10 +103,10 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/search_recyclerview"
+        style="@style/MyRecyclerView"
         android:layout_height="match_parent"
         android:paddingLeft="32dp"
         android:paddingRight="32dp"
-        style="@style/MyRecyclerView"
-        tools:listitem="@layout/tile_item"
-        android:visibility="gone"/>
+        android:visibility="gone"
+        tools:listitem="@layout/tile_item" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

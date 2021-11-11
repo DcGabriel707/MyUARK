@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
     private val disposables = CompositeDisposable()
     private lateinit var adapter: TileAdapter
     private val viewModel: MainViewModel by viewModels()
+    private var isSearchVisible = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         initListener()
     }
 
-    <<<Contact me at gcarapplications@gmail.com when you find this>>>
+    <<Contact me at gcarapplications@gmail.com for questions>>
 
 
     private fun initSubscription() {
@@ -81,23 +82,20 @@ class MainActivity : AppCompatActivity() {
     private fun initListener() {
         binding.searchEditText.onFocusChangeListener = OnFocusChangeListener { view, inFocus ->
             if (inFocus) {
+                isSearchVisible = true
                 binding.searchBackground.visibility = View.VISIBLE
                 binding.backSearchButton.visibility = View.VISIBLE
                 binding.searchRecyclerview.visibility = View.VISIBLE
             } else {
+                isSearchVisible = false
                 binding.searchBackground.visibility = View.GONE
                 binding.backSearchButton.visibility = View.GONE
                 binding.searchRecyclerview.visibility = View.GONE
             }
         }
 
-
-        binding.backSearchButton.setOnClickListener(View.OnClickListener {
-            binding.searchEditText.clearFocus()
-            binding.searchEditText.text.clear()
-            val manager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            manager.hideSoftInputFromWindow(binding.searchEditText.windowToken, 0)
-        })
+        binding.backSearchButton.setOnClickListener{ exitSearch() }
+        binding.searchBackground.setOnClickListener{ exitSearch() }
     }
 
     fun onClick(item: TileItem) {
@@ -106,6 +104,13 @@ class MainActivity : AppCompatActivity() {
             TileItem.Action.WEB_VIEW -> openWebView(item)
             TileItem.Action.APP_VIEW -> openActivity(item.destination)
         }
+    }
+
+    fun exitSearch(){
+        binding.searchEditText.clearFocus()
+        binding.searchEditText.text.clear()
+        val manager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        manager.hideSoftInputFromWindow(binding.searchEditText.windowToken, 0)
     }
 
     private fun performWebIntent(url: String?) {
@@ -120,7 +125,6 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, WebViewActivity::class.java)
             .putExtra(Constants.EXTRA_TILE_DATA, item.id )
         startActivity(intent)
-
     }
 
     //wip
@@ -141,9 +145,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        super.onBackPressed()
-//        binding.searchBackground.visibility = View.GONE
-//        binding.backSearchButton.visibility = View.GONE
-//        binding.searchRecyclerview.visibility = View.GONE
+        if(isSearchVisible) {
+            isSearchVisible = false
+            exitSearch()
+        } else {
+            super.onBackPressed()
+        }
     }
 }

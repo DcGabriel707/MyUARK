@@ -189,6 +189,18 @@ object DummyData {
         )
         allTiles.add(
             TileItem(
+                30,
+                "Jobs",
+                TileItem.Category.CAMPUS,
+                2,
+                R.drawable.briefcase,
+                TileData("https://uasys.wd5.myworkdayjobs.com/UASYS?locations=17a66cdad98201f7890cfb48ca00e249&q=University+of+Arkansas%2C+Fayetteville"),
+                Action.WEB_VIEW,
+                TileItem.Type.ICON_TITLE
+            )
+        )
+        allTiles.add(
+            TileItem(
                 11,
                 "Full Circle Food Pantry",
                 TileItem.Category.CAMPUS,
@@ -313,6 +325,24 @@ object DummyData {
                     "com.joinhandshake.student"
                 ),
                 Action.WEB_LINK,
+                TileItem.Type.ICON_TITLE
+            )
+        )
+        allTiles.add(
+            TileItem(
+                31,
+                "Workday",
+                TileItem.Category.STUDENT,
+                2,
+                R.drawable.logo_wday,
+                TileData(
+                    "https://workday.uark.edu/",
+                    arrayListOf(
+                        "https://wd5.myworkday.com/uasys/d/home.htmld"
+                    ),
+                    "com.workday.workdroidapp"
+                ),
+                Action.WEB_VIEW,
                 TileItem.Type.ICON_TITLE
             )
         )
