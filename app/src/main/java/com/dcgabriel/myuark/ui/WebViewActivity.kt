@@ -21,14 +21,12 @@ import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 
 @AndroidEntryPoint
-class WebViewActivity : AppCompatActivity() {
+class WebViewActivity : BaseActivity() {
 
     private lateinit var binding: ActivityWebviewBinding
     private lateinit var webView: WebView
-    private val disposables = CompositeDisposable()
-    private var isFabExtended = false;
     private lateinit var otherLinks: ArrayList<String>
-    private var fabList: ArrayList<ExtendedFloatingActionButton> = arrayListOf()
+    private var fabList: ArrayList<View> = arrayListOf()
     private val viewModel: WebViewViewModel by viewModels()
     private lateinit var tileItem: TileItem
 
@@ -89,7 +87,7 @@ class WebViewActivity : AppCompatActivity() {
 
         for (fab in fabList) {
             fab.visibility = View.GONE
-            fab.shrink()
+            (fab as ExtendedFloatingActionButton).shrink()
         }
     }
 
@@ -117,14 +115,6 @@ class WebViewActivity : AppCompatActivity() {
         }
     }
 
-    private fun openWebIntent(url: String) {
-        val webpage: Uri = Uri.parse(url)
-        val intent = Intent(Intent.ACTION_VIEW, webpage)
-        if (intent.resolveActivity(packageManager!!) != null) {
-            startActivity(intent)
-        }
-    }
-
     private fun openAppIntent(applink: String?) {
         val intent = packageManager.getLaunchIntentForPackage(applink.toString())
         if (intent != null) {
@@ -139,33 +129,12 @@ class WebViewActivity : AppCompatActivity() {
         }
     }
 
-
-    fun clickOptions(view: View) {
-        if (!isFabExtended) {
-            for (fab in fabList) {
-                fab.show()
-                fab.extend()
-            }
-            binding.optionsFab.extend()
-            isFabExtended = true
-        } else {
-            for (fab in fabList) {
-                fab.shrink()
-                fab.hide()
-            }
-            binding.optionsFab.shrink()
-            isFabExtended = false
-        }
-    }
-
-    fun otherFab1CLick(view: View) = openWebIntent(otherLinks[0])
-    fun otherFab2CLick(view: View) = openWebIntent(otherLinks[1])
-    fun otherFab3CLick(view: View) = openWebIntent(otherLinks[2])
-    fun openBrowserClick(view: View) = openWebIntent(webView.url.toString())
+    fun clickOptions(view: View) =  showHideFAB(binding.optionsFab, fabList)
+    fun otherFab1CLick(view: View) = openBrowser(otherLinks[0])
+    fun otherFab2CLick(view: View) = openBrowser(otherLinks[1])
+    fun otherFab3CLick(view: View) = openBrowser(otherLinks[2])
+    fun openBrowserClick(view: View) = openBrowser(webView.url.toString())
     fun appFabClick(view:View) = openAppIntent(tileItem.tileData.applink)
-
-
-
 
     override fun onBackPressed() {
         if (webView.canGoBack())
@@ -173,10 +142,4 @@ class WebViewActivity : AppCompatActivity() {
         else
             super.onBackPressed()
     }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        disposables.dispose()
-    }
-
 }

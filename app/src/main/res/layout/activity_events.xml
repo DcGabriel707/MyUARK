@@ -1,13 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/OuterLayout"
     tools:context="com.dcgabriel.myuark.ui.Events.EventsActivity">
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/events_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/events_item"
-        />
+        tools:listitem="@layout/events_item" />
+
+    <LinearLayout
+        android:id="@+id/fab_group"
+        style="@style/FABGroupLayout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/openAcademicCalendar"
+            style="@style/FloatingActionButton"
+            android:onClick="clickAcademicCalendar"
+            android:text="Academic Calendar"
+            android:visibility="gone"
+            app:icon="@drawable/calendar_alt"
+            app:iconTint="@color/white" />
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/openHoliday"
+            style="@style/FloatingActionButton"
+            android:onClick="clickHoliday"
+            android:text="Holiday Schedule"
+            android:visibility="gone"
+            app:icon="@drawable/calendar_alt"
+            app:iconTint="@color/white" />
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/openBrowser"
+            style="@style/FloatingActionButton"
+            android:onClick="clickBrowser"
+            android:text="Open in browser"
+            android:visibility="gone"
+            app:icon="@drawable/ic_baseline_exit_to_app_24" />
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/options_fab"
+            style="@style/FloatingActionButton"
+            android:onClick="clickOptions"
+            android:text="Options"
+            app:icon="@drawable/ic_baseline_more_vert_24"
+            app:tint="@color/white" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,6 +12,7 @@ import androidx.core.text.HtmlCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dcgabriel.myuark.model.events.RssItem
 import com.dcgabriel.myuark.ui.Adapters.EventsAdapter
+import com.dcgabriel.myuark.ui.BaseActivity
 import com.dcgabriel.myuark.ui.Main.MainActivity
 import com.example.myuark.databinding.ActivityEventsBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -19,15 +20,13 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 
 @AndroidEntryPoint
-class EventsActivity : AppCompatActivity() {
+class EventsActivity : BaseActivity() {
     private val viewModel: EventsViewModel by viewModels()
     private lateinit var adapter: EventsAdapter
     private lateinit var binding: ActivityEventsBinding
-    private val disposables = CompositeDisposable()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityEventsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -59,8 +58,6 @@ class EventsActivity : AppCompatActivity() {
                     share(it)
                 }
         )
-
-
     }
 
     private fun initRecyclerView() {
@@ -68,19 +65,6 @@ class EventsActivity : AppCompatActivity() {
         adapter = EventsAdapter(this)
         binding.eventsRecyclerview.layoutManager = layoutManager
         binding.eventsRecyclerview.adapter = adapter
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        disposables.dispose()
-    }
-
-    fun openBrowser(url: String){
-        val webpage: Uri = Uri.parse(url)
-        val intent = Intent(Intent.ACTION_VIEW, webpage)
-        if (intent.resolveActivity(packageManager!!) != null) {
-            startActivity(intent)
-        }
     }
 
     fun share(event: RssItem) {
@@ -102,14 +86,21 @@ class EventsActivity : AppCompatActivity() {
         val intent = Intent(Intent.ACTION_INSERT).apply {
             data = CalendarContract.Events.CONTENT_URI
             putExtra(CalendarContract.Events.TITLE, event.title)
-//            putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, )
-//            putExtra(CalendarContract.Events.EVENT_LOCATION, )
             putExtra(CalendarContract.Events.DESCRIPTION, event.description)
         }
         if (intent.resolveActivity(packageManager) != null) {
             startActivity(intent)
         }
+    }
+
+    fun clickOptions(view: View) {
+
+        showHideFAB(binding.optionsFab, arrayListOf(binding.openAcademicCalendar, binding.openHoliday,binding.openBrowser,))
 
     }
 
+
+    fun clickBrowser(view: View) = openBrowser("https://calendars.uark.edu/")
+    fun clickAcademicCalendar(view: View) = openBrowser("https://registrar.uark.edu/academic-dates/3-year-academic-calendar/2021-2022-five-year-academic-calendar.php")
+    fun clickHoliday(view: View) = openBrowser("https://vcfa.uark.edu/fayetteville-policies-procedures/vcfa/4092.php")
 }

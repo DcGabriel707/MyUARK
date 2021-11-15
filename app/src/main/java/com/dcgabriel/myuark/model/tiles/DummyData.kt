@@ -19,9 +19,11 @@ object DummyData {
 
 
     private fun createTiles() {
+
+        //Start of campus tiles.
         allTiles.add(
             TileItem(
-                1,
+                1001,
                 "Events",
                 TileItem.Category.CAMPUS,
                 3,
@@ -34,7 +36,7 @@ object DummyData {
         )
         allTiles.add(
             TileItem(
-                2,
+                1002,
                 "News",
                 TileItem.Category.CAMPUS,
                 3,
@@ -47,7 +49,7 @@ object DummyData {
         )
         allTiles.add(
             TileItem(
-                3,
+                1003,
                 "Transit",
                 TileItem.Category.CAMPUS,
                 4,
@@ -66,7 +68,7 @@ object DummyData {
         )
         allTiles.add(
             TileItem(
-                4,
+                1004,
                 "Parking",
                 TileItem.Category.CAMPUS,
                 2,
@@ -86,7 +88,7 @@ object DummyData {
         )
         allTiles.add(
             TileItem(
-                5,
+                1005,
                 "Housing",
                 TileItem.Category.CAMPUS,
                 2,
@@ -106,7 +108,7 @@ object DummyData {
         )
         allTiles.add(
             TileItem(
-                6,
+                1006,
                 "Dining",
                 TileItem.Category.CAMPUS,
                 4,
@@ -126,7 +128,7 @@ object DummyData {
 
         allTiles.add(
             TileItem(
-                7,
+                1007,
                 "Pat Walker Health Center",
                 TileItem.Category.CAMPUS,
                 4,
@@ -146,7 +148,7 @@ object DummyData {
         )
         allTiles.add(
             TileItem(
-                8,
+                1008,
                 "Map",
                 TileItem.Category.CAMPUS,
                 2,
@@ -158,7 +160,7 @@ object DummyData {
         )
         allTiles.add(
             TileItem(
-                9,
+                1009,
                 "Razorbacks",
                 TileItem.Category.CAMPUS,
                 2,
@@ -170,7 +172,7 @@ object DummyData {
         )
         allTiles.add(
             TileItem(
-                10,
+                1010,
                 "UAPD",
                 TileItem.Category.CAMPUS,
                 2,
@@ -189,7 +191,7 @@ object DummyData {
         )
         allTiles.add(
             TileItem(
-                30,
+                1011,
                 "Jobs",
                 TileItem.Category.CAMPUS,
                 2,
@@ -201,7 +203,7 @@ object DummyData {
         )
         allTiles.add(
             TileItem(
-                11,
+                1012,
                 "Full Circle Food Pantry",
                 TileItem.Category.CAMPUS,
                 2,
@@ -220,7 +222,7 @@ object DummyData {
         )
         allTiles.add(
             TileItem(
-                12,
+                1013,
                 "More Resources",
                 TileItem.Category.CAMPUS,
                 2,
@@ -235,9 +237,13 @@ object DummyData {
 
 
 
+
+
+
+        //Start of student tiles
         allTiles.add(
             TileItem(
-                13,
+                2001,
                 "Courses",
                 TileItem.Category.STUDENT,
                 1,
@@ -249,7 +255,7 @@ object DummyData {
         )
         allTiles.add(
             TileItem(
-                14,
+                2002,
                 "Blackboard",
                 TileItem.Category.STUDENT,
                 2,
@@ -265,7 +271,7 @@ object DummyData {
         )
         allTiles.add(
             TileItem(
-                15,
+                2003,
                 "UAConnect",
                 TileItem.Category.STUDENT,
                 2,
@@ -275,27 +281,22 @@ object DummyData {
                 TileItem.Type.TEXT
             )
         )
+
         allTiles.add(
             TileItem(
-                16,
-                "Library",
+                2004,
+                "Academic Calendar",
                 TileItem.Category.STUDENT,
                 1,
-                R.drawable.book_open,
-                TileData(
-                    "https://libraries.uark.edu/",
-                    arrayListOf(
-                        "https://twitter.com/UARKLibraries",
-                        "https://www.instagram.com/uarklibraries/",
-                    )
-                ),
-                Action.WEB_LINK,
+                R.drawable.calendar_alt,
+                TileData("https://registrar.uark.edu/academic-dates/3-year-academic-calendar/2021-2022-five-year-academic-calendar.php"),
+                Action.WEB_VIEW,
                 TileItem.Type.ICON_TITLE
             )
         )
         allTiles.add(
             TileItem(
-                17,
+                2005,
                 "Handshake",
                 TileItem.Category.STUDENT,
                 1,
@@ -311,7 +312,7 @@ object DummyData {
         )
         allTiles.add(
             TileItem(
-                18,
+                2006,
                 "Career Development Center",
                 TileItem.Category.STUDENT,
                 2,
@@ -330,7 +331,7 @@ object DummyData {
         )
         allTiles.add(
             TileItem(
-                31,
+                2007,
                 "Workday",
                 TileItem.Category.STUDENT,
                 2,
@@ -346,9 +347,29 @@ object DummyData {
                 TileItem.Type.ICON_TITLE
             )
         )
+
         allTiles.add(
             TileItem(
-                19,
+                2008,
+                "Library",
+                TileItem.Category.STUDENT,
+                1,
+                R.drawable.book_open,
+                TileData(
+                    "https://libraries.uark.edu/",
+                    arrayListOf(
+                        "https://twitter.com/UARKLibraries",
+                        "https://www.instagram.com/uarklibraries/",
+                    )
+                ),
+                Action.WEB_LINK,
+                TileItem.Type.ICON_TITLE
+            )
+        )
+
+        allTiles.add(
+            TileItem(
+                2009,
                 "Bookstore",
                 TileItem.Category.STUDENT,
                 1,
@@ -365,7 +386,7 @@ object DummyData {
         )
         allTiles.add(
             TileItem(
-                20,
+                2010,
                 "Student Success",
                 TileItem.Category.STUDENT,
                 1,
@@ -384,7 +405,7 @@ object DummyData {
         )
         allTiles.add(
             TileItem(
-                21,
+                2011,
                 "Degree Programs",
                 TileItem.Category.STUDENT,
                 1,
@@ -394,9 +415,20 @@ object DummyData {
                 TileItem.Type.ICON_TITLE
             )
         )
+
+
+
+
+
+
+
+
+
+
+        //Start of explore tiles
         allTiles.add(
             TileItem(
-                21,
+                3001,
                 "Hogsync",
                 TileItem.Category.EXPLORE,
                 4,
@@ -409,7 +441,7 @@ object DummyData {
         )
         allTiles.add(
             TileItem(
-                22,
+                3002,
                 "Directory",
                 TileItem.Category.EXPLORE,
                 2,
@@ -421,7 +453,7 @@ object DummyData {
         )
         allTiles.add(
             TileItem(
-                23,
+                3003,
                 "University Programs",
                 TileItem.Category.EXPLORE,
                 2,
@@ -440,7 +472,7 @@ object DummyData {
         )
         allTiles.add(
             TileItem(
-                24,
+                3004,
                 "Multicultural Center",
                 TileItem.Category.EXPLORE,
                 2,
@@ -459,7 +491,7 @@ object DummyData {
         )
         allTiles.add(
             TileItem(
-                25,
+                3005,
                 "UREC",
                 TileItem.Category.EXPLORE,
                 2,
@@ -479,7 +511,7 @@ object DummyData {
         )
         allTiles.add(
             TileItem(
-                26,
+                3006,
                 "UATV",
                 TileItem.Category.EXPLORE,
                 2,
@@ -499,7 +531,7 @@ object DummyData {
         )
         allTiles.add(
             TileItem(
-                27,
+                3007,
                 "ASG",
                 TileItem.Category.EXPLORE,
                 2,
@@ -519,7 +551,7 @@ object DummyData {
         )
         allTiles.add(
             TileItem(
-                28,
+                3008,
                 "Add More",
                 TileItem.Category.EXPLORE,
                 2,
@@ -532,9 +564,11 @@ object DummyData {
             )
         )
 
+
+        //Start of others tiles
         allTiles.add(
             TileItem(
-                29,
+                4001,
                 "A-Z Directory",
                 TileItem.Category.OTHER,
                 2,

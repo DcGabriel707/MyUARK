@@ -18,6 +18,7 @@ import com.dcgabriel.myuark.ui.News.NewsActivity
 import com.dcgabriel.myuark.ui.WebViewActivity
 import com.dcgabriel.myuark.ui.Adapters.TileAdapter
 import com.dcgabriel.myuark.model.tiles.TileItem
+import com.dcgabriel.myuark.ui.BaseActivity
 import com.dcgabriel.myuark.ui.Events.EventsActivity
 import com.example.myuark.R
 import com.example.myuark.databinding.ActivityMainBinding
@@ -28,9 +29,8 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
     private lateinit var binding: ActivityMainBinding
-    private val disposables = CompositeDisposable()
     private lateinit var adapter: TileAdapter
     private val viewModel: MainViewModel by viewModels()
     private var isSearchVisible = false
@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         initListener()
     }
 
-    <<Contact me at gcarapplications@gmail.com for questions>>
+    //<<Contact me at gcarapplications@gmail.com for questions>>
 
 
     private fun initSubscription() {
@@ -83,14 +83,10 @@ class MainActivity : AppCompatActivity() {
         binding.searchEditText.onFocusChangeListener = OnFocusChangeListener { view, inFocus ->
             if (inFocus) {
                 isSearchVisible = true
-                binding.searchBackground.visibility = View.VISIBLE
-                binding.backSearchButton.visibility = View.VISIBLE
-                binding.searchRecyclerview.visibility = View.VISIBLE
+                showView(arrayListOf(binding.searchBackground,binding.backSearchButton,binding.searchRecyclerview))
             } else {
                 isSearchVisible = false
-                binding.searchBackground.visibility = View.GONE
-                binding.backSearchButton.visibility = View.GONE
-                binding.searchRecyclerview.visibility = View.GONE
+                hideView(arrayListOf(binding.searchBackground,binding.backSearchButton,binding.searchRecyclerview))
             }
         }
 
@@ -100,7 +96,7 @@ class MainActivity : AppCompatActivity() {
 
     fun onClick(item: TileItem) {
         when (item.action) {
-            TileItem.Action.WEB_LINK -> performWebIntent(item.tileData.url)
+            TileItem.Action.WEB_LINK -> openBrowser(item.tileData.url.toString())
             TileItem.Action.WEB_VIEW -> openWebView(item)
             TileItem.Action.APP_VIEW -> openActivity(item.destination)
         }
@@ -111,14 +107,6 @@ class MainActivity : AppCompatActivity() {
         binding.searchEditText.text.clear()
         val manager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         manager.hideSoftInputFromWindow(binding.searchEditText.windowToken, 0)
-    }
-
-    private fun performWebIntent(url: String?) {
-        val webpage: Uri = Uri.parse(url)
-        val intent = Intent(Intent.ACTION_VIEW, webpage)
-        if (intent.resolveActivity(packageManager!!) != null) {
-            startActivity(intent)
-        }
     }
 
     private fun openWebView(item: TileItem) {
@@ -137,11 +125,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         startActivity(intent)
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        disposables.dispose()
     }
 
     override fun onBackPressed() {

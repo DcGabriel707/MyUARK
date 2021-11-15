@@ -21,13 +21,13 @@
             android:id="@+id/openNewswire"
             style="@style/FloatingActionButton"
             android:text="Newswire"
-            android:onClick="openNewswire"
+            android:onClick="clickNewswire"
             android:visibility="gone"
             app:icon="@drawable/ic_baseline_exit_to_app_24" />
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/openBrowserFab"
             style="@style/FloatingActionButton"
-            android:onClick="openBrowser"
+            android:onClick="clickBrowser"
             android:text="Open in browser"
             android:visibility="gone"
             app:icon="@drawable/ic_baseline_exit_to_app_24" />
