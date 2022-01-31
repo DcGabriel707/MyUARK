@@ -1,22 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/OuterLayout"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
     tools:context="com.dcgabriel.myuark.ui.WebViewActivity">
+
 
     <WebView
         android:id="@+id/webview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:scrollbars="vertical" />
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottom_appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:backgroundTint="@color/red"
+        android:gravity="bottom"
+        app:fabAlignmentMode="end"
+        app:fabCradleMargin="10dp"
+        app:fabCradleRoundedCornerRadius="20dp"
+        app:fabCradleVerticalOffset="10dp"
+        app:menu="@menu/webview_bottom_appbar_menu" />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/options_fab"
+        style="@style/FloatingActionButton"
+        android:onClick="clickOptions"
+        android:src="@drawable/ic_baseline_open_in_browser_24"
+        android:text="@string/open"
+        app:layout_anchor="@id/bottom_appbar"
+        app:tint="@color/white" />
 
 
     <LinearLayout
-        android:id="@+id/fab_group"
         style="@style/FABGroupLayout"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
+        app:layout_anchor="@id/options_fab">
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/other_fab3"
@@ -24,13 +48,13 @@
             android:onClick="otherFab3CLick"
             android:text="Open link"
             android:visibility="gone"
-            app:icon="@drawable/ic_baseline_exit_to_app_24" />
+            app:icon="@drawable/ic_baseline_exit_to_app_24"
+            app:layout_anchor="@id/bottom_appbar" />
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/other_fab2"
             style="@style/FloatingActionButton"
             android:onClick="otherFab2CLick"
-
             android:text="Open link"
             android:visibility="gone"
             app:icon="@drawable/ic_baseline_exit_to_app_24" />
@@ -39,35 +63,33 @@
             android:id="@+id/other_fab1"
             style="@style/FloatingActionButton"
             android:onClick="otherFab1CLick"
-
             android:text="Open link"
             android:visibility="gone"
             app:icon="@drawable/ic_baseline_exit_to_app_24" />
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/app_fab"
-            android:onClick="appFabClick"
             style="@style/FloatingActionButton"
+            android:onClick="appFabClick"
             android:text="Open app"
             android:visibility="gone"
             app:icon="@drawable/mobile_android_alt" />
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/browser_fab"
-            android:onClick="openBrowserClick"
             style="@style/FloatingActionButton"
+            android:onClick="openBrowserClick"
             android:text="Open in browser"
             android:visibility="gone"
             app:icon="@drawable/ic_baseline_open_in_browser_24" />
 
-
-        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-            android:id="@+id/options_fab"
-            style="@style/FloatingActionButton"
-            android:onClick="clickOptions"
-            android:text="Options"
-            app:icon="@drawable/ic_baseline_more_vert_24"
-            app:tint="@color/white" />
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ProgressBar
+        android:id="@+id/loading_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

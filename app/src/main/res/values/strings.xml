@@ -13,4 +13,8 @@
     <string name="instagram">Instagram</string>
     <string name="youtube">Youtube</string>
     <string name="open_link">Open Related Link</string>
+    <string name="refresh">refresh</string>
+    <string name="home">home</string>
+    <string name="fullscreen">Fullscreen</string>
+    <string name="open">Open</string>
 </resources>

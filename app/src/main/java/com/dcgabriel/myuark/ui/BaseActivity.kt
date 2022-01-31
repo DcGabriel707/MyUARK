@@ -3,15 +3,17 @@ package com.dcgabriel.myuark.ui
 import android.content.Intent
 import android.net.Uri
 import android.view.View
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 
 open class BaseActivity : AppCompatActivity() {
     protected val disposables = CompositeDisposable()
-    protected var isFabExtended = false;
+    protected var isFabExtended = false
 
     override fun onDestroy() {
         super.onDestroy()
@@ -49,16 +51,18 @@ open class BaseActivity : AppCompatActivity() {
     }
 
     protected fun showHideFAB(
-        optionsFAB: ExtendedFloatingActionButton,
+        optionsFAB: View,
         fabList: ArrayList<View>
     ) {
         if (!isFabExtended) {
             showView(fabList)
-            optionsFAB.extend()
+            if (optionsFAB is ExtendedFloatingActionButton)
+                optionsFAB.extend()
             isFabExtended = true
         } else {
             hideView(fabList)
-            optionsFAB.shrink()
+            if (optionsFAB is ExtendedFloatingActionButton)
+                optionsFAB.shrink()
             isFabExtended = false
         }
     }

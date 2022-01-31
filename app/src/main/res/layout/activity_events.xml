@@ -19,25 +19,23 @@
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/openAcademicCalendar"
-            style="@style/FloatingActionButton"
+            style="@style/EventsFloatingActionButton"
             android:onClick="clickAcademicCalendar"
             android:text="Academic Calendar"
             android:visibility="gone"
-            app:icon="@drawable/calendar_alt"
-            app:iconTint="@color/white" />
+            app:icon="@drawable/calendar_alt" />
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/openHoliday"
-            style="@style/FloatingActionButton"
+            style="@style/EventsFloatingActionButton"
             android:onClick="clickHoliday"
             android:text="Holiday Schedule"
             android:visibility="gone"
-            app:icon="@drawable/calendar_alt"
-            app:iconTint="@color/white" />
+            app:icon="@drawable/calendar_alt" />
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/openBrowser"
-            style="@style/FloatingActionButton"
+            style="@style/EventsFloatingActionButton"
             android:onClick="clickBrowser"
             android:text="Open in browser"
             android:visibility="gone"
@@ -45,11 +43,10 @@
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/options_fab"
-            style="@style/FloatingActionButton"
+            style="@style/EventsFloatingActionButton"
             android:onClick="clickOptions"
             android:text="Options"
-            app:icon="@drawable/ic_baseline_more_vert_24"
-            app:tint="@color/white" />
+            app:icon="@drawable/ic_baseline_more_vert_24" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,17 +1,30 @@
 package com.dcgabriel.myuark.ui
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper.getMainLooper
+import android.os.Parcel
+import android.os.Parcelable
+import android.util.AttributeSet
+import android.util.Base64
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
+import android.view.ViewGroup
 import android.webkit.WebChromeClient
 import android.webkit.WebSettings
 import android.webkit.WebView
+import android.widget.FrameLayout
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.coordinatorlayout.widget.CoordinatorLayout
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.dcgabriel.myuark.model.Constants
 import com.dcgabriel.myuark.model.tiles.TileItem
 import com.example.myuark.R
@@ -19,6 +32,12 @@ import com.example.myuark.databinding.ActivityWebviewBinding
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxjava3.disposables.CompositeDisposable
+import androidx.core.view.MotionEventCompat
+
+import android.view.MotionEvent
+
+
+
 
 @AndroidEntryPoint
 class WebViewActivity : BaseActivity() {
@@ -45,9 +64,11 @@ class WebViewActivity : BaseActivity() {
         initFAB()
     }
 
+
     private fun initWebView() {
         val webSettings = webView.settings
-        webView.webChromeClient = WebChromeClient()
+        val url = tileItem.tileData.url.toString()
+        webView.webChromeClient = WebClient()
         webView.clearHistory()
         webSettings.cacheMode = WebSettings.LOAD_NO_CACHE
         webSettings.allowContentAccess = true
@@ -56,7 +77,8 @@ class WebViewActivity : BaseActivity() {
         webSettings.setSupportZoom(true)
         webSettings.useWideViewPort = true
         webSettings.loadWithOverviewMode = true
-        webView.loadUrl(tileItem.tileData.url.toString())
+
+        webView.loadUrl(url)
     }
 
     private fun initSubscriptions() {
@@ -92,7 +114,7 @@ class WebViewActivity : BaseActivity() {
     }
 
     private fun setTextIcon(fab: ExtendedFloatingActionButton, url: String) {
-         when {
+        when {
             url.contains("facebook", ignoreCase = true) -> {
                 fab.text = getString(R.string.facebook)
                 fab.icon = AppCompatResources.getDrawable(this, R.drawable.facebook)
@@ -122,24 +144,37 @@ class WebViewActivity : BaseActivity() {
         } else {
             val intent = Intent(Intent.ACTION_VIEW).apply {
                 data = Uri.parse(
-                    "https://play.google.com/store/apps/details?id=$applink")
+                    "https://play.google.com/store/apps/details?id=$applink"
+                )
                 setPackage("com.android.vending")
             }
             startActivity(intent)
         }
     }
 
-    fun clickOptions(view: View) =  showHideFAB(binding.optionsFab, fabList)
+    fun closeWebview(item: MenuItem) = finish()
+    fun refreshWebview(item: MenuItem) = webView.reload()
+    fun clickOptions(view: View) = showHideFAB(binding.optionsFab, fabList)
     fun otherFab1CLick(view: View) = openBrowser(otherLinks[0])
     fun otherFab2CLick(view: View) = openBrowser(otherLinks[1])
     fun otherFab3CLick(view: View) = openBrowser(otherLinks[2])
     fun openBrowserClick(view: View) = openBrowser(webView.url.toString())
-    fun appFabClick(view:View) = openAppIntent(tileItem.tileData.applink)
+    fun appFabClick(view: View) = openAppIntent(tileItem.tileData.applink)
 
     override fun onBackPressed() {
         if (webView.canGoBack())
             webView.goBack()
         else
             super.onBackPressed()
+    }
+
+    inner class WebClient() : WebChromeClient(){
+        override fun onProgressChanged(view: WebView?, newProgress: Int) {
+            if(newProgress == 100)
+                binding.loadingBar.visibility = View.GONE
+            else
+                binding.loadingBar.visibility = View.VISIBLE
+            super.onProgressChanged(view, newProgress)
+        }
     }
 }

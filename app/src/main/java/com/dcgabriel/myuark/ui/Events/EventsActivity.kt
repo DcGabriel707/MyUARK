@@ -93,13 +93,7 @@ class EventsActivity : BaseActivity() {
         }
     }
 
-    fun clickOptions(view: View) {
-
-        showHideFAB(binding.optionsFab, arrayListOf(binding.openAcademicCalendar, binding.openHoliday,binding.openBrowser,))
-
-    }
-
-
+    fun clickOptions(view: View) = showHideFAB(binding.optionsFab, arrayListOf(binding.openAcademicCalendar, binding.openHoliday,binding.openBrowser,))
     fun clickBrowser(view: View) = openBrowser("https://calendars.uark.edu/")
     fun clickAcademicCalendar(view: View) = openBrowser("https://registrar.uark.edu/academic-dates/3-year-academic-calendar/2021-2022-five-year-academic-calendar.php")
     fun clickHoliday(view: View) = openBrowser("https://vcfa.uark.edu/fayetteville-policies-procedures/vcfa/4092.php")
