@@ -28,11 +28,13 @@
 
             <TextView
                 style="@style/CardHeaderTextView"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:textSize="13sp"/>
 
             <TextView
                 style="@style/CardHeaderTextView"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:textSize="12.5sp"/>
         </TextSwitcher>
 
         <TextView

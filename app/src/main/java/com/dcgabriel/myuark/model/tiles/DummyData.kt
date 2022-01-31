@@ -399,7 +399,7 @@ object DummyData {
                         "https://www.instagram.com/uarksuccess/"
                     )
                 ),
-                Action.WEB_LINK,
+                Action.WEB_VIEW,
                 TileItem.Type.ICON_TITLE
             )
         )
@@ -410,8 +410,28 @@ object DummyData {
                 TileItem.Category.STUDENT,
                 1,
                 R.drawable.diploma,
-                TileData("https://www.uark.edu/academics/majors.php"),
-                Action.WEB_LINK,
+                TileData("https://www.uark.edu/academics/majors.php"
+                ),
+                Action.WEB_VIEW,
+                TileItem.Type.ICON_TITLE
+            )
+        )
+
+        allTiles.add(
+            TileItem(
+                2012,
+                "Scholarships",
+                TileItem.Category.STUDENT,
+                1,
+                R.drawable.ic_envelope_open_dollar,
+                TileData("https://scholarships.uark.edu/",
+                    arrayListOf(
+                        "https://uark.academicworks.com/",
+                        "https://scholarships.uark.edu/faq.php",
+                        "https://finaid.uark.edu/"
+                    )
+                ),
+                Action.WEB_VIEW,
                 TileItem.Type.ICON_TITLE
             )
         )
