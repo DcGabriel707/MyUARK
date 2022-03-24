@@ -10,7 +10,7 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable
 
 open class BaseFragment : Fragment()  {
 
-     val disposables = CompositeDisposable()
+    val disposables = CompositeDisposable()
     protected lateinit var adapter: TileAdapter
 
 
@@ -32,7 +32,7 @@ open class BaseFragment : Fragment()  {
             recyclerView: RecyclerView,
             viewHolder: RecyclerView.ViewHolder
         ): Int {
-            val drag = ItemTouchHelper.UP or ItemTouchHelper.DOWN
+            val drag = ItemTouchHelper.UP or ItemTouchHelper.DOWN or ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
             return makeMovementFlags(drag, 0)
         }
 

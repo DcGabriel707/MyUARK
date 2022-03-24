@@ -21,7 +21,8 @@
             android:exported="true" />
         <activity
             android:name="com.dcgabriel.myuark.ui.WebViewActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name="com.dcgabriel.myuark.ui.Main.MainActivity"
             android:exported="true"
