@@ -14,4 +14,10 @@ https://user-images.githubusercontent.com/25855685/159987060-7d5bcdea-7959-4b3c-
 
 https://user-images.githubusercontent.com/25855685/159986416-3641b26f-0bc5-48af-ad21-96c152144c3f.mp4
 
+## Future concepts
+Allows the user to login securely with their uark email through OAuth2. Then use ZXing API to generate QR code for their ID.
+Students can use the app if they forgot their ID cards. Useful for checking in on dining halls, fitness centers, and any events. Cashiers or event hosts would not have to use card readers anymore, which often malfunction on dining halls and create long lines. They can use another phone to scan qr codes.
+
+![image](https://user-images.githubusercontent.com/25855685/191101100-39225836-3514-4896-b40b-9ce0f9429924.png)
+![image](https://user-images.githubusercontent.com/25855685/191101023-89382b0d-6582-4fb7-b9fd-e913543761ca.png)
 
