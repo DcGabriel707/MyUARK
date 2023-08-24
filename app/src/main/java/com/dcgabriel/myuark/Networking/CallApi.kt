@@ -49,7 +49,7 @@ private val eventsSubject: PublishSubject<RssFeed> = PublishSubject.create()
             }
 
             override fun onFailure(call: Call<RssFeed>, t: Throwable) {
-                Log.d("-------------", "events failed" + t.message)
+                Log.d("-------------", "events failed " + t.message)
 
             }
 

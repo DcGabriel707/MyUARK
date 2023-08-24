@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card"
     style="@style/ListCardView"
-    android:layout_height="@dimen/minimized_event_card"
+    android:layout_height="wrap_content"
     android:stateListAnimator="@animator/card_clicked"
     app:cardBackgroundColor="@color/red"
     app:cardElevation="8dp">
@@ -12,13 +12,24 @@
     <androidx.constraintlayout.widget.ConstraintLayout style="@style/CardItemInnerLayout">
 
         <TextView
-            android:id="@+id/header_textview"
+            android:id="@+id/time_textview"
             style="@style/CardHeaderTextView"
+            android:text="11:00 AM"
+            android:layout_margin="0dp"
             android:textAlignment="viewStart"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/header_textview"
+            style="@style/CardHeaderTextView"
+            android:textAlignment="viewStart"
+            android:textColor="@color/white"
+            android:text="This is a title. This is another sentence. The quick brown fox jumps over the lazy dog"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/time_textview" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/image"

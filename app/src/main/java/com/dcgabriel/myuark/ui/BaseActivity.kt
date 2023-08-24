@@ -52,17 +52,20 @@ open class BaseActivity : AppCompatActivity() {
 
     protected fun showHideFAB(
         optionsFAB: View,
-        fabList: ArrayList<View>
+        fabList: ArrayList<View>,
+        background: View
     ) {
         if (!isFabExtended) {
             showView(fabList)
             if (optionsFAB is ExtendedFloatingActionButton)
                 optionsFAB.extend()
+            background.visibility = View.VISIBLE
             isFabExtended = true
         } else {
             hideView(fabList)
             if (optionsFAB is ExtendedFloatingActionButton)
                 optionsFAB.shrink()
+            background.visibility = View.GONE
             isFabExtended = false
         }
     }

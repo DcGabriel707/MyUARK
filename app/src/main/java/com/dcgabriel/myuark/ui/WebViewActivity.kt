@@ -154,12 +154,13 @@ class WebViewActivity : BaseActivity() {
 
     fun closeWebview(item: MenuItem) = finish()
     fun refreshWebview(item: MenuItem) = webView.reload()
-    fun clickOptions(view: View) = showHideFAB(binding.optionsFab, fabList)
+    fun clickOptions(view: View) = showHideFAB(binding.optionsFab, fabList, binding.fabBackground)
     fun otherFab1CLick(view: View) = openBrowser(otherLinks[0])
     fun otherFab2CLick(view: View) = openBrowser(otherLinks[1])
     fun otherFab3CLick(view: View) = openBrowser(otherLinks[2])
     fun openBrowserClick(view: View) = openBrowser(webView.url.toString())
     fun appFabClick(view: View) = openAppIntent(tileItem.tileData.applink)
+    fun fabBackgroundClick(view:View) = clickOptions(view)
 
     override fun onBackPressed() {
         if (webView.canGoBack())

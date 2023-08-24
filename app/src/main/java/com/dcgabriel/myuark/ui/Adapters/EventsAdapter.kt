@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.core.text.HtmlCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.dcgabriel.myuark.model.MyUtils
 import com.dcgabriel.myuark.model.events.*
 import com.dcgabriel.myuark.model.news.NewsArticle
 import com.dcgabriel.myuark.model.tiles.TileItem
@@ -87,6 +88,10 @@ class EventsAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHo
         RecyclerView.ViewHolder(binding.root) {
         fun bindData(item: RssItem) {
             Log.d("---------9rfrf----", "events=" + item.title)
+            binding.timeTextview.text = HtmlCompat.fromHtml(
+                MyUtils.formatToHHMM(item.date.toString()),
+                HtmlCompat.FROM_HTML_MODE_LEGACY
+            )
             binding.headerTextview.text =
                 HtmlCompat.fromHtml(
                     item.title.toString().substringAfter(':'),
