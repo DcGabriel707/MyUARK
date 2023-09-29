@@ -13,84 +13,88 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical" />
-    <View
-        android:id="@+id/fab_background"
-        android:onClick="fabBackgroundClick"
-        android:visibility="gone"
-        android:background="@color/fab_background"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
 
-    <com.google.android.material.bottomappbar.BottomAppBar
-        android:id="@+id/bottom_appbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:backgroundTint="@color/red"
-        android:gravity="bottom"
-        app:fabAlignmentMode="end"
-        app:fabCradleMargin="10dp"
-        app:fabCradleRoundedCornerRadius="20dp"
-        app:fabCradleVerticalOffset="10dp"
-        app:menu="@menu/webview_bottom_appbar_menu" />
+    <include layout="@layout/fragment_info_page"
+        android:id="@+id/bottom_sheet"/>
 
+<!--    <View-->
+<!--        android:id="@+id/fab_background"-->
+<!--        android:onClick="fabBackgroundClick"-->
+<!--        android:visibility="gone"-->
+<!--        android:background="@color/fab_background"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"/>-->
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/options_fab"
-        style="@style/FloatingActionButton"
-        android:onClick="clickOptions"
-        android:src="@drawable/ic_baseline_open_in_browser_24"
-        android:text="@string/open"
-        app:layout_anchor="@id/bottom_appbar"
-        app:tint="@color/white" />
+<!--    <com.google.android.material.bottomappbar.BottomAppBar-->
+<!--        android:id="@+id/bottom_appbar"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="bottom"-->
+<!--        android:backgroundTint="@color/red"-->
+<!--        android:gravity="bottom"-->
+<!--        app:fabAlignmentMode="end"-->
+<!--        app:fabCradleMargin="10dp"-->
+<!--        app:fabCradleRoundedCornerRadius="20dp"-->
+<!--        app:fabCradleVerticalOffset="10dp"-->
+<!--        app:menu="@menu/webview_bottom_appbar_menu" />-->
 
 
-    <LinearLayout
-        style="@style/FABGroupLayout"
-        app:layout_anchor="@id/options_fab">
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:id="@+id/options_fab"-->
+<!--        style="@style/FloatingActionButton"-->
+<!--        android:onClick="clickOptions"-->
+<!--        android:src="@drawable/ic_baseline_open_in_browser_24"-->
+<!--        android:text="@string/open"-->
+<!--        app:layout_anchor="@id/bottom_appbar"-->
+<!--        app:tint="@color/white" />-->
 
-        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-            android:id="@+id/other_fab3"
-            style="@style/FloatingActionButton"
-            android:onClick="otherFab3CLick"
-            android:text="Open link"
-            android:visibility="gone"
-            app:icon="@drawable/ic_baseline_exit_to_app_24"
-            app:layout_anchor="@id/bottom_appbar" />
 
-        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-            android:id="@+id/other_fab2"
-            style="@style/FloatingActionButton"
-            android:onClick="otherFab2CLick"
-            android:text="Open link"
-            android:visibility="gone"
-            app:icon="@drawable/ic_baseline_exit_to_app_24" />
+<!--    <LinearLayout-->
+<!--        style="@style/FABGroupLayout"-->
+<!--        app:layout_anchor="@id/options_fab">-->
 
-        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-            android:id="@+id/other_fab1"
-            style="@style/FloatingActionButton"
-            android:onClick="otherFab1CLick"
-            android:text="Open link"
-            android:visibility="gone"
-            app:icon="@drawable/ic_baseline_exit_to_app_24" />
+<!--        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton-->
+<!--            android:id="@+id/other_fab3"-->
+<!--            style="@style/FloatingActionButton"-->
+<!--            android:onClick="otherFab3CLick"-->
+<!--            android:text="Open link"-->
+<!--            android:visibility="gone"-->
+<!--            app:icon="@drawable/ic_baseline_exit_to_app_24"-->
+<!--            app:layout_anchor="@id/bottom_appbar" />-->
 
-        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-            android:id="@+id/app_fab"
-            style="@style/FloatingActionButton"
-            android:onClick="appFabClick"
-            android:text="Open app"
-            android:visibility="gone"
-            app:icon="@drawable/mobile_android_alt" />
+<!--        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton-->
+<!--            android:id="@+id/other_fab2"-->
+<!--            style="@style/FloatingActionButton"-->
+<!--            android:onClick="otherFab2CLick"-->
+<!--            android:text="Open link"-->
+<!--            android:visibility="gone"-->
+<!--            app:icon="@drawable/ic_baseline_exit_to_app_24" />-->
 
-        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-            android:id="@+id/browser_fab"
-            style="@style/FloatingActionButton"
-            android:onClick="openBrowserClick"
-            android:text="Open in browser"
-            android:visibility="gone"
-            app:icon="@drawable/ic_baseline_open_in_browser_24" />
+<!--        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton-->
+<!--            android:id="@+id/other_fab1"-->
+<!--            style="@style/FloatingActionButton"-->
+<!--            android:onClick="otherFab1CLick"-->
+<!--            android:text="Open link"-->
+<!--            android:visibility="gone"-->
+<!--            app:icon="@drawable/ic_baseline_exit_to_app_24" />-->
 
-    </LinearLayout>
+<!--        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton-->
+<!--            android:id="@+id/app_fab"-->
+<!--            style="@style/FloatingActionButton"-->
+<!--            android:onClick="appFabClick"-->
+<!--            android:text="Open app"-->
+<!--            android:visibility="gone"-->
+<!--            app:icon="@drawable/mobile_android_alt" />-->
+
+<!--        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton-->
+<!--            android:id="@+id/browser_fab"-->
+<!--            style="@style/FloatingActionButton"-->
+<!--            android:onClick="openBrowserClick"-->
+<!--            android:text="Open in browser"-->
+<!--            android:visibility="gone"-->
+<!--            app:icon="@drawable/ic_baseline_open_in_browser_24" />-->
+
+<!--    </LinearLayout>-->
 
     <ProgressBar
         android:id="@+id/loading_bar"

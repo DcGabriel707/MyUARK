@@ -9,6 +9,7 @@ import android.view.ViewGroup
 
 class InfoPageFragment : Fragment() {
 
+    // TODO: -----------may not even need this fragment file. Delete Whenever//////--------------
     companion object {
         fun newInstance() = InfoPageFragment()
     }
