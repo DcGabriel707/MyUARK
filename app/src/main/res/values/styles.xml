@@ -129,13 +129,14 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">19sp</item>
-        <item name="android:layout_margin">8dp</item>
+        <item name="android:layout_margin">16dp</item>
+
     </style>
 
     <style name="InfoPageSecondaryTextView" >
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:layout_margin">8dp</item>
     </style>
 
@@ -146,6 +147,12 @@
         <item name="android:layout_margin">8dp</item>
     </style>
 
+    <style name="InfoPageRecyclerView" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:paddingLeft">@dimen/left_margin_inner_content_info_page</item>
+        <item name="android:paddingRight">@dimen/left_margin_inner_content_info_page</item>
+        <item name="android:clipToPadding">false</item>
+    </style>
 
     <style name="cardSecondaryText" parent="SecondaryText">
         <item name="android:layout_width">wrap_content</item>
@@ -224,14 +231,20 @@
         <item name="android:layout_marginLeft">8dp</item>
         <item name="android:layout_marginRight">8dp</item>
     </style>
-    <style name="ModalBottomSheetDialog" parent="Widget.MaterialComponents.BottomSheet.Modal">
+    <style name="ModalBottomSheetDialog" parent="Widget.Material3.BottomSheet.Modal">
         <item name="backgroundTint">@color/white</item>
         <item name="shapeAppearance">@style/ShapeAppearance.App.LargeComponent</item>
     </style>
 
-    <style name="ShapeAppearance.App.LargeComponent" parent="ShapeAppearance.MaterialComponents.LargeComponent">
+    <style name="ShapeAppearance.App.LargeComponent" parent="ShapeAppearance.Material3.LargeComponent">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">38dp</item>
+    </style>
+
+    <style name="DragHandle" parent="Widget.Material3.BottomSheet.DragHandle">
+        <item name="tint">@color/red</item>
+        <!--Alpha can be added optionally to achieve nice color blend-->
+        <item name="android:alpha">0.3</item>
     </style>
 
 </resources>

@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.dcgabriel.myuark.model.tiles.TileItem
 import com.example.myuark.databinding.InfoFeaturedLinksItemBinding
 import com.example.myuark.databinding.InfoFeedItemBinding
 import com.example.myuark.databinding.InfoSocialLinksItemBinding
@@ -23,6 +24,11 @@ class FeaturedLinksAdapter (context: Context) : RecyclerView.Adapter<RecyclerVie
 
     override fun getItemCount(): Int {
         return items.size
+    }
+
+    fun setData(list: List<String>) {
+        items = list.toMutableList()
+        notifyDataSetChanged()
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {

@@ -9,13 +9,17 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     app:behavior_hideable="false"
-    app:behavior_peekHeight="62dp"
+    android:backgroundTint="@color/lightGray"
+    app:behavior_peekHeight="100dp"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
     tools:context=".InfoPageFragment">
 
+    <com.google.android.material.bottomsheet.BottomSheetDragHandleView
+        android:id="@+id/dragHandle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <ScrollView
-
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -26,8 +30,8 @@
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
-                android:layout_height="62dp"
-                android:layout_margin="8dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
                 android:gravity="center"
                 android:text="This Is The Info Page Title"
                 android:textAlignment="center"
@@ -38,14 +42,15 @@
             <TextView
                 android:id="@+id/textView3"
                 style="@style/InfoPageTextView"
+                android:paddingTop="@dimen/top_margin_header_info_page"
                 android:text="Latest update"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="125dp"
+                style="@style/InfoPageRecyclerView"
+                android:layout_height="175dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView3"
                 tools:listitem="@layout/info_feed_item" />
@@ -53,14 +58,15 @@
             <TextView
                 android:id="@+id/textView4"
                 style="@style/InfoPageTextView"
+                android:paddingTop="@dimen/top_margin_header_info_page"
                 android:text="More updates on:"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView2"
-                android:layout_width="match_parent"
-                android:layout_height="75dp"
+                android:layout_height="95dp"
+                style="@style/InfoPageRecyclerView"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView4"
                 tools:listitem="@layout/info_social_links_item" />
@@ -68,14 +74,15 @@
             <TextView
                 android:id="@+id/textView5"
                 style="@style/InfoPageTextView"
+                android:paddingTop="@dimen/top_margin_header_info_page"
                 android:text="Featured Links"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/recyclerView2" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView3"
-                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                style="@style/InfoPageRecyclerView"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView5"
                 tools:listitem="@layout/info_featured_links_item" />
@@ -83,6 +90,7 @@
             <TextView
                 android:id="@+id/textView6"
                 style="@style/InfoPageTextView"
+                android:paddingTop="@dimen/top_margin_header_info_page"
                 android:text="Contact"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/recyclerView3" />
@@ -91,6 +99,7 @@
             <TextView
                 android:id="@+id/textView7"
                 style="@style/InfoPageSecondaryTextView"
+                android:paddingLeft="@dimen/left_margin_inner_content_info_page"
                 android:text="organizationname@uark.edu"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView6" />
@@ -98,24 +107,22 @@
             <TextView
                 android:id="@+id/textView8"
                 style="@style/InfoPageSecondaryTextView"
+                android:paddingLeft="@dimen/left_margin_inner_content_info_page"
                 android:text="123 Main Street \n Fayetteville, Arkansas"
                 app:layout_constraintStart_toStartOf="parent"
+
                 app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
-            <androidx.cardview.widget.CardView
-                style="@style/RoundButton"
+            <Button
+                android:layout_width="match_parent"
+                android:backgroundTint="@color/lightGray"
+                android:textColor="@color/darkerGray"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView8">
+                app:layout_constraintTop_toBottomOf="@+id/textView8"
+                android:layout_margin="16dp"
+                android:text="Search Directory" />
 
-                <TextView
-                    style="text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:text="Search Directory" />
-            </androidx.cardview.widget.CardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.appcompat.widget.LinearLayoutCompat>
