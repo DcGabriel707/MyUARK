@@ -1,17 +1,24 @@
 package com.dcgabriel.myuark.ui
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.MotionEvent
 import android.view.View
+import android.view.ViewTreeObserver
 import android.webkit.WebChromeClient
 import android.webkit.WebSettings
 import android.webkit.WebView
 import android.widget.LinearLayout
+import android.widget.ScrollView
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.LinearLayoutCompat
+import androidx.core.view.ViewCompat
+import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dcgabriel.myuark.model.Constants
@@ -24,12 +31,14 @@ import com.example.myuark.InfoPageFragment
 import com.example.myuark.R
 import com.example.myuark.databinding.ActivityWebviewBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetBehavior.*
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class WebViewActivity : BaseActivity() {
+class WebViewActivity : BaseActivity(), View.OnTouchListener,
+    ViewTreeObserver.OnScrollChangedListener {
 
     private lateinit var binding: ActivityWebviewBinding
     private lateinit var webView: WebView
@@ -40,12 +49,15 @@ class WebViewActivity : BaseActivity() {
     private lateinit var infoPageFragment: InfoPageFragment
     private lateinit var infoPageBottomSheet: LinearLayoutCompat
     private lateinit var feedList: List<FeedEntry>
-    private lateinit var socialLinksList: List<FeedEntry>
+    private lateinit var socialLinksList: List<String>
     private lateinit var featuredLinksList: List<String>
     private lateinit var feedsAdapter: FeedsAdapter
     private lateinit var socialLinksAdapter: SocialLinksAdapter
     private lateinit var featuredLinksAdapter: FeaturedLinksAdapter
+    private lateinit var scrollView: NestedScrollView
+    private val cardElevation = 6f
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityWebviewBinding.inflate(layoutInflater)
@@ -66,14 +78,16 @@ class WebViewActivity : BaseActivity() {
     private fun initRecyclerViews() {
         feedList = viewModel.getFeeds()
         feedsAdapter = FeedsAdapter(this)
-        socialLinksList = viewModel.getFeeds()
+        socialLinksList = otherLinks
         socialLinksAdapter = SocialLinksAdapter(this)
         featuredLinksList = viewModel.getFeaturedLinks()
         featuredLinksAdapter = FeaturedLinksAdapter(this)
 
-        binding.bottomSheet.recyclerView.layoutManager = LinearLayoutManager(this,RecyclerView.HORIZONTAL,false)
+        binding.bottomSheet.recyclerView.layoutManager =
+            LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
         binding.bottomSheet.recyclerView.adapter = feedsAdapter
-        binding.bottomSheet.recyclerView2.layoutManager = LinearLayoutManager(this,RecyclerView.HORIZONTAL,false)
+        binding.bottomSheet.recyclerView2.layoutManager =
+            LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
         binding.bottomSheet.recyclerView2.adapter = socialLinksAdapter
         binding.bottomSheet.recyclerView3.layoutManager = LinearLayoutManager(this)
         binding.bottomSheet.recyclerView3.adapter = featuredLinksAdapter
@@ -84,16 +98,57 @@ class WebViewActivity : BaseActivity() {
     }
 
     private fun initInfoPage() {
+        scrollView = binding.bottomSheet.scrollView
         infoPageBottomSheet = binding.bottomSheet.infoPageBottomsheet
-        val sheetBehavior = BottomSheetBehavior.from(infoPageBottomSheet)
+        val sheetBehavior = from(infoPageBottomSheet)
+        binding.bottomSheet.textView2.text = tileItem.title
         binding.bottomSheet.textView2.setOnClickListener() {
-            if (sheetBehavior.getState() != BottomSheetBehavior.STATE_EXPANDED) {
-                sheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+            if (sheetBehavior.getState() != STATE_EXPANDED) {
+                sheetBehavior.setState(STATE_EXPANDED);
             } else {
-                sheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                sheetBehavior.setState(STATE_COLLAPSED);
             }
         }
 
+        sheetBehavior.addBottomSheetCallback(object : BottomSheetCallback() {
+            override fun onStateChanged(bottomSheet: View, newState: Int) {
+                when (newState) {
+                    STATE_EXPANDED, STATE_HALF_EXPANDED -> {
+                        //binding.bottomSheet.handleCardview.cardElevation = cardElevation
+                        binding.bottomSheet.handleCardview.radius = 16f
+                    }
+
+                    STATE_COLLAPSED, STATE_HIDDEN -> {
+                        binding.bottomSheet.handleCardview.cardElevation = 0f
+                        binding.bottomSheet.handleCardview.radius = 62f
+                    }
+
+                    else -> {
+                        // Do nothing, only change callback enabled for "stable" states.
+                    }
+                }
+            }
+
+            override fun onSlide(bottomSheet: View, slideOffset: Float) {}
+        })
+
+        scrollView.setOnTouchListener(this)
+        scrollView.viewTreeObserver.addOnScrollChangedListener(this)
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    override fun onTouch(p0: View?, p1: MotionEvent?): Boolean {
+        return false
+    }
+
+    override fun onScrollChanged() {
+        val view = scrollView.getChildAt(scrollView.childCount - 1)
+        val topDetector = scrollView.scrollY
+        val offset = 20 // just to give more space
+        if (topDetector <= offset) {
+            binding.bottomSheet.handleCardview.cardElevation = 0f
+        } else
+            binding.bottomSheet.handleCardview.cardElevation = cardElevation
     }
 
     private fun initWebView() {
@@ -146,33 +201,6 @@ class WebViewActivity : BaseActivity() {
 //        }
 //    }
 
-    private fun setTextIcon(fab: ExtendedFloatingActionButton, url: String) {
-        when {
-            url.contains("facebook", ignoreCase = true) -> {
-                fab.text = getString(R.string.facebook)
-                fab.icon = AppCompatResources.getDrawable(this, R.drawable.facebook)
-            }
-
-            url.contains("twitter", ignoreCase = true) -> {
-                fab.text = getString(R.string.twitter)
-                fab.icon = AppCompatResources.getDrawable(this, R.drawable.twitter)
-            }
-
-            url.contains("instagram", ignoreCase = true) -> {
-                fab.text = getString(R.string.instagram)
-                fab.icon = AppCompatResources.getDrawable(this, R.drawable.instagram)
-            }
-
-            url.contains("youtube", ignoreCase = true) -> {
-                fab.text = getString(R.string.youtube)
-                fab.icon = AppCompatResources.getDrawable(this, R.drawable.youtube)
-            }
-
-            else -> {
-                fab.text = getString(R.string.open_link)
-            }
-        }
-    }
 
     private fun openAppIntent(applink: String?) {
         val intent = packageManager.getLaunchIntentForPackage(applink.toString())

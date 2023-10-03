@@ -6,46 +6,68 @@
     android:id="@+id/info_page_bottomsheet"
     style="@style/ModalBottomSheetDialog"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="600dp"
+    android:backgroundTint="@color/lightGray"
     android:orientation="vertical"
     app:behavior_hideable="false"
-    android:backgroundTint="@color/lightGray"
-    app:behavior_peekHeight="100dp"
+    app:behavior_peekHeight="69dp"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
     tools:context=".InfoPageFragment">
 
-    <com.google.android.material.bottomsheet.BottomSheetDragHandleView
-        android:id="@+id/dragHandle"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/handleCardview"
+        theme="@style/TopRoundCard"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="75dp"
+        android:backgroundTint="@color/lightGray"
+        app:cardCornerRadius="32dp"
+        app:cardElevation="0dp"
+        app:strokeWidth="0dp">
 
-    <ScrollView
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.bottomsheet.BottomSheetDragHandleView
+                android:id="@+id/dragHandle"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:padding="0dp" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:gravity="center"
+                android:paddingBottom="4dp"
+                android:text="This Is The Info Page Title"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </com.google.android.material.card.MaterialCardView>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:paddingBottom="16dp">
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                android:gravity="center"
-                android:text="This Is The Info Page Title"
-                android:textAlignment="center"
-                android:textSize="24sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/textView3"
-                style="@style/InfoPageTextView"
+                style="@style/InfoPageHeaderTextView"
                 android:paddingTop="@dimen/top_margin_header_info_page"
                 android:text="Latest update"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
@@ -57,7 +79,7 @@
 
             <TextView
                 android:id="@+id/textView4"
-                style="@style/InfoPageTextView"
+                style="@style/InfoPageHeaderTextView"
                 android:paddingTop="@dimen/top_margin_header_info_page"
                 android:text="More updates on:"
                 app:layout_constraintStart_toStartOf="parent"
@@ -65,15 +87,16 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView2"
-                android:layout_height="95dp"
                 style="@style/InfoPageRecyclerView"
+                android:layout_height="121dp"
+                android:orientation="horizontal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView4"
                 tools:listitem="@layout/info_social_links_item" />
 
             <TextView
                 android:id="@+id/textView5"
-                style="@style/InfoPageTextView"
+                style="@style/InfoPageHeaderTextView"
                 android:paddingTop="@dimen/top_margin_header_info_page"
                 android:text="Featured Links"
                 app:layout_constraintStart_toStartOf="parent"
@@ -81,48 +104,61 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView3"
-                android:layout_height="wrap_content"
                 style="@style/InfoPageRecyclerView"
+                android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView5"
-                tools:listitem="@layout/info_featured_links_item" />
+                tools:listitem="@layout/info_featured_links_item_middle" />
 
             <TextView
                 android:id="@+id/textView6"
-                style="@style/InfoPageTextView"
+                style="@style/InfoPageHeaderTextView"
                 android:paddingTop="@dimen/top_margin_header_info_page"
                 android:text="Contact"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/recyclerView3" />
 
 
-            <TextView
-                android:id="@+id/textView7"
-                style="@style/InfoPageSecondaryTextView"
-                android:paddingLeft="@dimen/left_margin_inner_content_info_page"
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/email"
+                style="@style/InfoPageCardButton"
+                android:layout_marginLeft="42dp"
+                android:layout_marginTop="@dimen/top_margin_inner_content_info_page"
+                android:layout_marginRight="42dp"
                 android:text="organizationname@uark.edu"
+                android:textAlignment="viewStart"
+                android:theme="@style/TopRoundCard"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
-            <TextView
-                android:id="@+id/textView8"
-                style="@style/InfoPageSecondaryTextView"
-                android:paddingLeft="@dimen/left_margin_inner_content_info_page"
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/address"
+                style="@style/InfoPageCardButton"
+                android:layout_marginLeft="42dp"
+                android:layout_marginRight="42dp"
                 android:text="123 Main Street \n Fayetteville, Arkansas"
+
+                android:textAlignment="viewStart"
+                android:theme="@style/MiddleCard"
+                app:cornerRadius="8dp"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/email" />
 
-                app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-            <Button
+            <com.google.android.material.button.MaterialButton
+                style="@style/InfoPageCardButton"
                 android:layout_width="match_parent"
-                android:backgroundTint="@color/lightGray"
-                android:textColor="@color/darkerGray"
-                android:layout_height="wrap_content"
+                android:layout_marginLeft="42dp"
+                android:layout_marginRight="42dp"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="@color/red"
+                android:stateListAnimator="@animator/card_clicked"
+                android:text="Search Directory"
+                android:textColor="@color/white"
+                android:theme="@style/BottomRoundCard"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView8"
-                android:layout_margin="16dp"
-                android:text="Search Directory" />
+                app:layout_constraintTop_toBottomOf="@+id/address" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 </androidx.appcompat.widget.LinearLayoutCompat>

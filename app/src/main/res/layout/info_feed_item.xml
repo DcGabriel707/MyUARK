@@ -5,8 +5,9 @@
     android:layout_height="match_parent"
     style="@style/Widget.Material3.CardView.Filled"
     android:backgroundTint="@color/white"
-    app:cardCornerRadius="12dp"
-    android:layout_margin="8dp"
+    app:cardCornerRadius="21dp"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
     android:maxWidth="100dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout

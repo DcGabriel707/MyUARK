@@ -1,33 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_height="wrap_content"
     android:layout_width="wrap_content"
-    >
+    android:layout_height="wrap_content">
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardView"
-        style="@style/RoundButton"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:background="@color/blueGray"
-        app:cardCornerRadius="30dp"
+        style="@style/InfoPageCardButton"
+        android:layout_width="75dp"
+        android:elevation="1dp"
+        android:layout_height="75dp"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="37.5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-<ImageView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:src="@drawable/facebook"
-    />
-    </androidx.cardview.widget.CardView>
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeWidth="0dp">
+
+        <ImageView
+            android:id="@+id/icon"
+            android:padding="14dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/facebook_f" />
+    </com.google.android.material.card.MaterialCardView>
 
     <TextView
         android:id="@+id/social_link_textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/facebook"
         android:layout_margin="4dp"
+        android:text="@string/facebook"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView" />
