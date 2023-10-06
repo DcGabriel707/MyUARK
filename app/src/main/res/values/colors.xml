@@ -24,6 +24,7 @@
     <color name="transparentWhite">#D9FFFFFF</color>
     <color name="transparentWhite2">#59FFFFFF</color>
     <color name="fab_background">#CDFFFFFF</color>
+    <color name="lightRed">#FFCDD2</color>
 
 
 </resources>

@@ -1,12 +1,16 @@
 package com.dcgabriel.myuark.ui
 
+import android.animation.LayoutTransition
 import android.annotation.SuppressLint
+import android.app.ActionBar.LayoutParams
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.MotionEvent
 import android.view.View
+import android.view.ViewGroup
 import android.view.ViewTreeObserver
 import android.webkit.WebChromeClient
 import android.webkit.WebSettings
@@ -18,6 +22,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.core.view.ViewCompat
+import androidx.core.view.marginTop
 import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -98,11 +103,14 @@ class WebViewActivity : BaseActivity(), View.OnTouchListener,
     }
 
     private fun initInfoPage() {
+
+
         scrollView = binding.bottomSheet.scrollView
         infoPageBottomSheet = binding.bottomSheet.infoPageBottomsheet
         val sheetBehavior = from(infoPageBottomSheet)
-        binding.bottomSheet.textView2.text = tileItem.title
-        binding.bottomSheet.textView2.setOnClickListener() {
+        sheetBehavior.isDraggable = true
+        binding.bottomSheet.titleTextView.text = tileItem.title
+        binding.bottomSheet.titleTextView.setOnClickListener() {
             if (sheetBehavior.getState() != STATE_EXPANDED) {
                 sheetBehavior.setState(STATE_EXPANDED);
             } else {
@@ -116,6 +124,7 @@ class WebViewActivity : BaseActivity(), View.OnTouchListener,
                     STATE_EXPANDED, STATE_HALF_EXPANDED -> {
                         //binding.bottomSheet.handleCardview.cardElevation = cardElevation
                         binding.bottomSheet.handleCardview.radius = 16f
+
                     }
 
                     STATE_COLLAPSED, STATE_HIDDEN -> {

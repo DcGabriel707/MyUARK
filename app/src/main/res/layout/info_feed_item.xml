@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="325dp"
-    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     style="@style/Widget.Material3.CardView.Filled"
-    android:backgroundTint="@color/white"
-    app:cardCornerRadius="21dp"
+    android:layout_width="335dp"
+    android:layout_height="match_parent"
     android:layout_marginLeft="8dp"
     android:layout_marginRight="8dp"
-    android:maxWidth="100dp">
+    android:backgroundTint="@color/white"
+    android:maxWidth="100dp"
+    app:cardCornerRadius="21dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="14dp">
+
+        <TextView
+            android:id="@+id/feed_date_textview"
+            style="@style/InfoPageSmallTextView"
+            android:text="2 days ago"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/feed_source_textview"
@@ -22,8 +30,7 @@
             android:layout_height="wrap_content"
             android:text="from Facebook"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/feed_message_textview" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
             android:id="@+id/feed_message_textview"
@@ -31,14 +38,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
-            android:maxLines="4"
+            android:maxLines="7"
             android:text="@string/lorem_ipsum"
             android:textAlignment="viewStart"
-            android:textSize="18sp"
+            android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.024" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
