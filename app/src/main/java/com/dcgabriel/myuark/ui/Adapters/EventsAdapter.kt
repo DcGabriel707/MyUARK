@@ -108,7 +108,7 @@ class EventsAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHo
 
         fun setOnClicks(item: RssItem){
             binding.root.setOnClickListener { view ->
-                setVisibility()
+
             }
             binding.openEvent.setOnClickListener{clickOpen.onNext(item)}
             binding.saveEvent.setOnClickListener{clickSave.onNext(item)}

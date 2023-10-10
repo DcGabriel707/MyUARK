@@ -1,17 +1,17 @@
 package com.dcgabriel.myuark.ui.Adapters
 
 import android.content.Context
-import android.graphics.ColorSpace.Model
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.dcgabriel.myuark.model.URLInfo
 import com.example.myuark.databinding.InfoFeaturedLinksItemBottomBinding
 import com.example.myuark.databinding.InfoFeaturedLinksItemMiddleBinding
 import com.example.myuark.databinding.InfoFeaturedLinksItemTopBinding
 
 
 class FeaturedLinksAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    private var items: MutableList<String> = mutableListOf()
+    private var items: MutableList<URLInfo> = mutableListOf()
     private val mContext = context
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -46,8 +46,10 @@ class FeaturedLinksAdapter(context: Context) : RecyclerView.Adapter<RecyclerView
         return items.size
     }
 
-    fun setData(list: List<String>) {
-        items = list.toMutableList()
+    fun setData(list: List<URLInfo>?) {
+        if (list != null) {
+            items = list.toMutableList()
+        }
         notifyDataSetChanged()
     }
 
@@ -64,22 +66,22 @@ class FeaturedLinksAdapter(context: Context) : RecyclerView.Adapter<RecyclerView
 
     inner class FeaturedLinksViewTopHolder(var binding: InfoFeaturedLinksItemTopBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bindData(item: String, position: Int) {
-            binding.card.text = "top"
+        fun bindData(item: URLInfo, position: Int) {
+            binding.card.text = item.title
         }
     }
 
     inner class FeaturedLinksViewMiddleHolder(var binding: InfoFeaturedLinksItemMiddleBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bindData(item: String, position: Int) {
-            binding.card.text = "middle"
+        fun bindData(item: URLInfo, position: Int) {
+            binding.card.text = item.title
         }
     }
 
     inner class FeaturedLinksViewBottomHolder(var binding: InfoFeaturedLinksItemBottomBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bindData(item: String, position: Int) {
-            binding.card.text = "bottom"
+        fun bindData(item: URLInfo, position: Int) {
+            binding.card.text = item.title
         }
     }
 

@@ -9,7 +9,8 @@
     app:cardBackgroundColor="@color/red"
     app:cardElevation="8dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout style="@style/CardItemInnerLayout">
+    <androidx.constraintlayout.motion.widget.MotionLayout style="@style/CardItemInnerLayout"
+        app:layoutDescription="@xml/events_item_scene">
 
         <TextView
             android:id="@+id/time_textview"
@@ -21,12 +22,13 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/header_textview"
             style="@style/CardHeaderTextView"
+            android:text="This is a title. This is another sentence. The quick brown fox jumps over the lazy dog"
             android:textAlignment="viewStart"
             android:textColor="@color/white"
-            android:text="This is a title. This is another sentence. The quick brown fox jumps over the lazy dog"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/time_textview" />
@@ -135,5 +137,5 @@
         </androidx.cardview.widget.CardView>
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.motion.widget.MotionLayout>
 </androidx.cardview.widget.CardView>

@@ -1,28 +1,18 @@
 package com.dcgabriel.myuark.ui
 
-import android.animation.LayoutTransition
 import android.annotation.SuppressLint
-import android.app.ActionBar.LayoutParams
 import android.content.Intent
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.MotionEvent
 import android.view.View
-import android.view.ViewGroup
 import android.view.ViewTreeObserver
 import android.webkit.WebChromeClient
 import android.webkit.WebSettings
 import android.webkit.WebView
-import android.widget.LinearLayout
-import android.widget.ScrollView
-import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.LinearLayoutCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.marginTop
 import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -33,11 +23,8 @@ import com.dcgabriel.myuark.ui.Adapters.FeaturedLinksAdapter
 import com.dcgabriel.myuark.ui.Adapters.FeedsAdapter
 import com.dcgabriel.myuark.ui.Adapters.SocialLinksAdapter
 import com.example.myuark.InfoPageFragment
-import com.example.myuark.R
 import com.example.myuark.databinding.ActivityWebviewBinding
-import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetBehavior.*
-import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -47,15 +34,13 @@ class WebViewActivity : BaseActivity(), View.OnTouchListener,
 
     private lateinit var binding: ActivityWebviewBinding
     private lateinit var webView: WebView
-    private lateinit var otherLinks: ArrayList<String>
+
     private var fabList: ArrayList<View> = arrayListOf()
     private val viewModel: WebViewViewModel by viewModels()
     private lateinit var tileItem: TileItem
     private lateinit var infoPageFragment: InfoPageFragment
     private lateinit var infoPageBottomSheet: LinearLayoutCompat
     private lateinit var feedList: List<FeedEntry>
-    private lateinit var socialLinksList: List<String>
-    private lateinit var featuredLinksList: List<String>
     private lateinit var feedsAdapter: FeedsAdapter
     private lateinit var socialLinksAdapter: SocialLinksAdapter
     private lateinit var featuredLinksAdapter: FeaturedLinksAdapter
@@ -69,8 +54,8 @@ class WebViewActivity : BaseActivity(), View.OnTouchListener,
         setContentView(binding.root)
 
         val tileId = intent.getIntExtra(Constants.EXTRA_TILE_DATA, 0)
-        tileItem = viewModel.queryTile(tileId)!!
-        otherLinks = tileItem.tileData.otherLinks!!
+
+        tileItem = viewModel.setCurrentTile(tileId)!!
 
         webView = binding.webview
         initSubscriptions()
@@ -83,9 +68,7 @@ class WebViewActivity : BaseActivity(), View.OnTouchListener,
     private fun initRecyclerViews() {
         feedList = viewModel.getFeeds()
         feedsAdapter = FeedsAdapter(this)
-        socialLinksList = otherLinks
         socialLinksAdapter = SocialLinksAdapter(this)
-        featuredLinksList = viewModel.getFeaturedLinks()
         featuredLinksAdapter = FeaturedLinksAdapter(this)
 
         binding.bottomSheet.recyclerView.layoutManager =
@@ -98,8 +81,8 @@ class WebViewActivity : BaseActivity(), View.OnTouchListener,
         binding.bottomSheet.recyclerView3.adapter = featuredLinksAdapter
 
         feedsAdapter.setData(feedList)
-        socialLinksAdapter.setData(socialLinksList)
-        featuredLinksAdapter.setData(featuredLinksList)
+        socialLinksAdapter.setData(viewModel.getSocialLinks())
+        featuredLinksAdapter.setData(viewModel.getFeaturedLinks())
     }
 
     private fun initInfoPage() {
@@ -143,6 +126,10 @@ class WebViewActivity : BaseActivity(), View.OnTouchListener,
 
         scrollView.setOnTouchListener(this)
         scrollView.viewTreeObserver.addOnScrollChangedListener(this)
+
+        binding.bottomSheet.email.text = tileItem.tileData.email
+        binding.bottomSheet.address.text = tileItem.tileData.address
+        binding.bottomSheet.phone.text = tileItem.tileData.phone
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -162,7 +149,7 @@ class WebViewActivity : BaseActivity(), View.OnTouchListener,
 
     private fun initWebView() {
         val webSettings = webView.settings
-        val url = tileItem.tileData.url.toString()
+        val url = tileItem.tileData.url!!.url.toString()
         webView.webChromeClient = WebClient()
         webView.clearHistory()
         webSettings.cacheMode = WebSettings.LOAD_NO_CACHE
@@ -230,9 +217,11 @@ class WebViewActivity : BaseActivity(), View.OnTouchListener,
     fun refreshWebview(item: MenuItem) = webView.reload()
 
     //fun clickOptions(view: View) = showHideFAB(binding.optionsFab, fabList, binding.fabBackground)
-    fun otherFab1CLick(view: View) = openBrowser(otherLinks[0])
-    fun otherFab2CLick(view: View) = openBrowser(otherLinks[1])
-    fun otherFab3CLick(view: View) = openBrowser(otherLinks[2])
+
+    //todo remove FAB in the future
+    fun otherFab1CLick(view: View) = openBrowser(viewModel.getFeaturedLinks()?.get(0)!!.url)
+    fun otherFab2CLick(view: View) = openBrowser(viewModel.getFeaturedLinks()?.get(1)!!.url)
+    fun otherFab3CLick(view: View) = openBrowser(viewModel.getFeaturedLinks()?.get(2)!!.url)
     fun openBrowserClick(view: View) = openBrowser(webView.url.toString())
     fun appFabClick(view: View) = openAppIntent(tileItem.tileData.applink)
     //fun fabBackgroundClick(view: View) = clickOptions(view)

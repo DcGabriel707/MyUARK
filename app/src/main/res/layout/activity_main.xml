@@ -10,14 +10,16 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        app:itemActiveIndicatorStyle="@color/lightRed"
+        android:layout_height="68dp"
         android:layout_gravity="bottom"
         android:layout_marginStart="0dp"
         android:layout_marginEnd="0dp"
         android:background="@color/red"
         android:theme="@style/LatoFont"
+        app:itemIconSize="24dp"
         app:itemIconTint="@drawable/nav_selector"
-        app:itemRippleColor="@color/white"
+        app:itemRippleColor="@color/lightRed"
         app:itemTextColor="@color/white"
         app:labelVisibilityMode="selected"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -107,6 +109,5 @@
         android:layout_height="match_parent"
         android:paddingLeft="32dp"
         android:paddingRight="32dp"
-        android:visibility="gone"
-        tools:listitem="@layout/tile_item" />
+        android:visibility="gone" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

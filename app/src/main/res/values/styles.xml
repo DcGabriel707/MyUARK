@@ -48,9 +48,7 @@
 
     <style name="WidgetCardView" parent="ListCardView">
         <item name="cardElevation">14dp</item>
-
-        <item name="cardCornerRadius">8dp</item>
-        <item name="android:layout_height">140dp</item>
+        <item name="android:layout_height">175dp</item>
     </style>
 
 
@@ -174,6 +172,7 @@
         <item name="android:textColor">@color/darkerGray</item>
         <item name="android:textSize">16sp</item>
         <item name="android:text">Frequently Asked Questions</item>
+        <item name="strokeWidth">0dp</item>
     </style>
 
     <style name="cardSecondaryText" parent="SecondaryText">

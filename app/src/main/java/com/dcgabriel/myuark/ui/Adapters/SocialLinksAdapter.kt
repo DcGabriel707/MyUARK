@@ -3,16 +3,13 @@ package com.dcgabriel.myuark.ui.Adapters
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.RecyclerView
-import com.dcgabriel.myuark.model.FeedEntry.FeedEntry
-import com.dcgabriel.myuark.model.tiles.TileItem
+import com.dcgabriel.myuark.model.URLInfo
 import com.example.myuark.R
 import com.example.myuark.databinding.InfoSocialLinksItemBinding
-import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 
 class SocialLinksAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    private var items: MutableList<String> = mutableListOf()
+    private var items: MutableList<URLInfo> = mutableListOf()
     private val mContext = context
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -28,14 +25,15 @@ class SocialLinksAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.V
         return items.size
     }
 
-    fun setData(list: List<String>) {
-        items = list.toMutableList()
-        notifyDataSetChanged()
+    fun setData(list: ArrayList<URLInfo>?) {
+        if (list != null) {
+            items = list.toMutableList()
+        }
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val item = items[position]
-        (holder as SocialLinksViewHolder).bindData(item)
+        (holder as SocialLinksViewHolder).bindData(item.url)
     }
 
 

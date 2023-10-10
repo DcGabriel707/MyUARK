@@ -178,17 +178,30 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/address"
+                android:id="@+id/phone"
                 style="@style/InfoPageCardButton"
                 android:layout_marginLeft="42dp"
                 android:layout_marginRight="42dp"
-                android:text="123 Main Street \n Fayetteville, Arkansas"
+                android:text="123456"
 
                 android:textAlignment="viewStart"
                 android:theme="@style/MiddleCard"
                 app:cornerRadius="8dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/email" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/address"
+                style="@style/InfoPageCardButton"
+                android:layout_marginLeft="42dp"
+                android:layout_marginRight="42dp"
+                android:text="123 Main Street \n Fayetteville, Arkansas"
+                android:layout_height="wrap_content"
+                android:textAlignment="viewStart"
+                android:theme="@style/MiddleCard"
+                app:cornerRadius="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/phone" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/directory_button"

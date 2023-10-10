@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ConstraintSet android:id="@+id/start"
+        android:visibility="gone">
+        <Constraint android:id="@+id/time_textview" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end"
+        android:visibility="visible"
+        android:layout_height="@dimen/minimizedImageSize">
+        <Constraint android:id="@id/time_textview" />
+
+        <Constraint android:id="@+id/header_textview"
+            />
+    </ConstraintSet>
+
+    <Transition
+        app:constraintSetEnd="@id/end"
+        app:constraintSetStart="@+id/start"
+        app:duration="100"
+        app:motionInterpolator="linear">
+        <OnClick
+            app:clickAction="toggle"
+            app:targetId="@id/motion_layout" />
+    </Transition>
+</MotionScene>

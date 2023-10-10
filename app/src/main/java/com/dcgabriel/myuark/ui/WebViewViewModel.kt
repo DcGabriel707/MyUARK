@@ -3,9 +3,9 @@ package com.dcgabriel.myuark.ui
 import androidx.lifecycle.ViewModel
 import com.dcgabriel.myuark.Networking.CallApi
 import com.dcgabriel.myuark.model.FeedEntry.FeedEntry
+import com.dcgabriel.myuark.model.URLInfo
 import com.dcgabriel.myuark.model.events.RssFeed
 import com.dcgabriel.myuark.model.tiles.DummyData
-import com.dcgabriel.myuark.model.tiles.DummyData.getOtherTiles
 import com.dcgabriel.myuark.model.tiles.TileItem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.rxjava3.core.Observable
@@ -13,6 +13,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class WebViewViewModel @Inject constructor(val api: CallApi) : ViewModel() {
+    var currentTileItem: TileItem? = null
+
     //wip: find better way
     init {
         api.callEvents()
@@ -21,7 +23,10 @@ class WebViewViewModel @Inject constructor(val api: CallApi) : ViewModel() {
 
     fun liveEventsData(): Observable<RssFeed> = api.eventsResult()
 
-    fun queryTile(id: Int): TileItem? = DummyData.getTile(id)
+    fun setCurrentTile(id: Int): TileItem? {
+        currentTileItem = DummyData.getTile(id)
+        return currentTileItem
+    }
 
     fun getFeeds(): List<FeedEntry> {
         return listOf(
@@ -43,9 +48,9 @@ class WebViewViewModel @Inject constructor(val api: CallApi) : ViewModel() {
         )
     }
 
-    fun getFeaturedLinks() : List<String> {
-        return listOf(
-            "www.facebook.com", "www.instagram.com", "www.reddit.com", "www.google.com")
+    fun getSocialLinks() : ArrayList<URLInfo>? = currentTileItem?.tileData?.socialLinks
+    fun getFeaturedLinks() : List<URLInfo>? {
+        return currentTileItem?.tileData?.featuredLinks
     }
 
 }
