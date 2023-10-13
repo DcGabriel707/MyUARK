@@ -49,8 +49,7 @@ class WebViewViewModel @Inject constructor(val api: CallApi) : ViewModel() {
     }
 
     fun getSocialLinks() : ArrayList<URLInfo>? = currentTileItem?.tileData?.socialLinks
-    fun getFeaturedLinks() : List<URLInfo>? {
-        return currentTileItem?.tileData?.featuredLinks
-    }
+    fun getFeaturedLinks() : List<URLInfo>? = currentTileItem?.tileData?.featuredLinks
+
 
 }

@@ -545,9 +545,38 @@ object DummyData {
                 TileItem.Type.ICON_TITLE
             )
         )
+
         allTiles.add(
             TileItem(
                 2011,
+                "Blackboard Help for Students",
+                TileItem.Category.STUDENT,
+                1,
+                R.drawable.bb,
+                TileData(
+                    URLInfo("BBHelp","https://bbhelp.uark.edu/"),
+                    arrayListOf(),
+                    arrayListOf(
+                        URLInfo("Blackboard Collaborate", "https://bbhelp.uark.edu/category/blackboard-collaborate/"),
+                        URLInfo("Blackboard Help for College or University Students", "https://help.blackboard.com/"),
+                        URLInfo("Getting Started with Kaltura Capture", "https://bbhelp.uark.edu/getting-started-with-kaltura-capture/"),
+                        URLInfo("Chat with Tech Support", "https://its.uark.edu/chat/index.php?queue=29"),
+                        URLInfo("Blackboard Help for Faculty", "https://tips.uark.edu/"),
+                    ),
+                    null,
+                    null,
+                    "479-575-HELP (4357)",
+                    "bbhelp@uark.edu"
+
+                ),
+                Action.WEB_VIEW,
+                TileItem.Type.ICON_TITLE
+            )
+        )
+
+        allTiles.add(
+            TileItem(
+                2012,
                 "Degree Programs",
                 TileItem.Category.STUDENT,
                 1,
@@ -562,7 +591,7 @@ object DummyData {
 
         allTiles.add(
             TileItem(
-                2012,
+                2013,
                 "Scholarships",
                 TileItem.Category.STUDENT,
                 1,
@@ -580,6 +609,7 @@ object DummyData {
                 TileItem.Type.ICON_TITLE
             )
         )
+
 
 
         //Start of explore tiles

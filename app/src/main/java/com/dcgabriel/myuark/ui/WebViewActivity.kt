@@ -11,6 +11,7 @@ import android.view.ViewTreeObserver
 import android.webkit.WebChromeClient
 import android.webkit.WebSettings
 import android.webkit.WebView
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.core.widget.NestedScrollView
@@ -26,7 +27,7 @@ import com.example.myuark.InfoPageFragment
 import com.example.myuark.databinding.ActivityWebviewBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior.*
 import dagger.hilt.android.AndroidEntryPoint
-
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 
 @AndroidEntryPoint
 class WebViewActivity : BaseActivity(), View.OnTouchListener,
@@ -38,7 +39,7 @@ class WebViewActivity : BaseActivity(), View.OnTouchListener,
     private var fabList: ArrayList<View> = arrayListOf()
     private val viewModel: WebViewViewModel by viewModels()
     private lateinit var tileItem: TileItem
-    private lateinit var infoPageFragment: InfoPageFragment
+    private lateinit var infoPageFragment: InfoPageFragment //todo remove
     private lateinit var infoPageBottomSheet: LinearLayoutCompat
     private lateinit var feedList: List<FeedEntry>
     private lateinit var feedsAdapter: FeedsAdapter
@@ -52,16 +53,13 @@ class WebViewActivity : BaseActivity(), View.OnTouchListener,
         super.onCreate(savedInstanceState)
         binding = ActivityWebviewBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         val tileId = intent.getIntExtra(Constants.EXTRA_TILE_DATA, 0)
-
         tileItem = viewModel.setCurrentTile(tileId)!!
 
-        webView = binding.webview
-        initSubscriptions()
         initWebView()
         initInfoPage()
         initRecyclerViews()
+        initSubscriptions()
         //initFAB()
     }
 
@@ -82,12 +80,16 @@ class WebViewActivity : BaseActivity(), View.OnTouchListener,
 
         feedsAdapter.setData(feedList)
         socialLinksAdapter.setData(viewModel.getSocialLinks())
-        featuredLinksAdapter.setData(viewModel.getFeaturedLinks())
+
+        if ((viewModel.getFeaturedLinks() == null) || viewModel.getFeaturedLinks()!!.isEmpty())
+            binding.bottomSheet.emptyLayout.emptyTextview.visibility = View.VISIBLE
+        else {
+            featuredLinksAdapter.setData(viewModel.getFeaturedLinks())
+            binding.bottomSheet.emptyLayout.emptyTextview.visibility = View.GONE
+        }
     }
 
     private fun initInfoPage() {
-
-
         scrollView = binding.bottomSheet.scrollView
         infoPageBottomSheet = binding.bottomSheet.infoPageBottomsheet
         val sheetBehavior = from(infoPageBottomSheet)
@@ -148,6 +150,7 @@ class WebViewActivity : BaseActivity(), View.OnTouchListener,
     }
 
     private fun initWebView() {
+        webView = binding.webview
         val webSettings = webView.settings
         val url = tileItem.tileData.url!!.url.toString()
         webView.webChromeClient = WebClient()
@@ -164,8 +167,23 @@ class WebViewActivity : BaseActivity(), View.OnTouchListener,
     }
 
     private fun initSubscriptions() {
+        disposables.addAll(
+            featuredLinksAdapter.clickLink()
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe {
+                    openBrowser(it.url)
+                    Toast.makeText(this, "clicked", Toast.LENGTH_SHORT).show()
+                },
+            socialLinksAdapter.clickLink()
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe {
+                    openBrowser(it.url)
+                    Toast.makeText(this, "clicked " + it.url, Toast.LENGTH_SHORT).show()
+                }
+        )
     }
 
+    //todo remove fabs
 //    private fun initFAB() {
 //        if (tileItem.tileData.applink != null) {
 //            fabList.add(binding.appFab)

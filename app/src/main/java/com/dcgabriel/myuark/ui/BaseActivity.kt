@@ -26,6 +26,8 @@ open class BaseActivity : AppCompatActivity() {
         if (intent.resolveActivity(packageManager!!) != null) {
             startActivity(intent)
         }
+
+        //todo add function to allow opening to app instead of browser, if app is available on device.
     }
 
     protected fun showView(viewList: ArrayList<View>) {

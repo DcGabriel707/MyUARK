@@ -45,18 +45,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="65dp"
                 android:gravity="start|center_vertical"
-                android:textColor="@color/red"
                 android:maxWidth="250dp"
                 android:paddingLeft="@dimen/left_margin_inner_content_info_page"
                 android:paddingBottom="4dp"
                 android:text="Title"
                 android:textAlignment="viewStart"
+                android:textColor="@color/red"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/dragHandle" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/refresh_button"
+                style="@style/InfoPageCardButton"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_margin="2dp"
@@ -65,9 +66,8 @@
                 android:paddingLeft="16dp"
                 android:theme="@style/LeftRoundCard"
                 app:icon="@drawable/ic_round_refresh_24"
-                app:iconSize="35dp"
 
-                style="@style/InfoPageCardButton"
+                app:iconSize="35dp"
                 app:iconTint="@color/red"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/open_browser_button"
@@ -75,10 +75,10 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/open_browser_button"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-
                 style="@style/InfoPageCardButton"
+                android:layout_width="60dp"
+
+                android:layout_height="60dp"
                 android:layout_marginLeft="2dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginRight="9dp"
@@ -155,6 +155,15 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView5"
                 tools:listitem="@layout/info_featured_links_item_middle" />
+            <include
+                android:id="@+id/emptyLayout"
+                layout="@layout/empty_list_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@+id/textView6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerView3" />
 
             <TextView
                 android:id="@+id/textView6"
@@ -162,7 +171,7 @@
                 android:paddingTop="@dimen/top_margin_header_info_page"
                 android:text="Contact"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/recyclerView3" />
+                app:layout_constraintTop_toBottomOf="@+id/emptyLayout" />
 
 
             <com.google.android.material.button.MaterialButton
@@ -174,6 +183,7 @@
                 android:text="organizationname@uark.edu"
                 android:textAlignment="viewStart"
                 android:theme="@style/TopRoundCard"
+                app:icon="@drawable/message"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
@@ -183,23 +193,24 @@
                 android:layout_marginLeft="42dp"
                 android:layout_marginRight="42dp"
                 android:text="123456"
-
                 android:textAlignment="viewStart"
                 android:theme="@style/MiddleCard"
                 app:cornerRadius="8dp"
+                app:icon="@drawable/phone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/email" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/address"
                 style="@style/InfoPageCardButton"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="42dp"
                 android:layout_marginRight="42dp"
                 android:text="123 Main Street \n Fayetteville, Arkansas"
-                android:layout_height="wrap_content"
                 android:textAlignment="viewStart"
                 android:theme="@style/MiddleCard"
                 app:cornerRadius="8dp"
+                app:icon="@drawable/building_user"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/phone" />
 

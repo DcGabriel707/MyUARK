@@ -162,11 +162,16 @@
         <item name="android:layout_height">65dp</item>
         <item name="android:layout_marginLeft">@dimen/left_margin_inner_content_info_page</item>
         <item name="android:layout_marginRight">@dimen/left_margin_inner_content_info_page</item>
+        <item name="android:padding">16dp</item>
         <item name="android:foreground">?attr/selectableItemBackground</item>
         <item name="android:clickable">true</item>
         <item name="android:selectable">true</item>
         <item name="android:backgroundTint">@color/white</item>
         <item name="android:elevation">1dp</item>
+        <item name="iconTint">@color/darkerGray</item>
+        <item name="iconSize">21dp</item>
+        <item name="iconGravity">start</item>
+        <item name="iconPadding">23dp</item>
         <item name="cardElevation">1dp</item>
         <item name="android:stateListAnimator">@animator/card_clicked</item>
         <item name="android:textColor">@color/darkerGray</item>

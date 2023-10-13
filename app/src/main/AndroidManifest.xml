@@ -34,6 +34,12 @@
         </activity>
     </application>
     <queries>
+        <!--allows opening links to social media apps-->
+        <package android:name="com.instagram.android" />
+        <package android:name="com.facebook.katana" />
+        <package android:name="com.facebook.lite" />
+        <package android:name="com.google.android.youtube" />
+
         <intent>
             <action android:name="android.intent.action.VIEW" />
             <data android:scheme="https" />
