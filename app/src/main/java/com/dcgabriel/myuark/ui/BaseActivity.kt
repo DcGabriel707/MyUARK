@@ -26,6 +26,8 @@ open class BaseActivity : AppCompatActivity() {
         if (intent.resolveActivity(packageManager!!) != null) {
             startActivity(intent)
         }
+
+        //todo add function to allow opening to app instead of browser, if app is available on device.
     }
 
     protected fun showView(viewList: ArrayList<View>) {
@@ -52,17 +54,20 @@ open class BaseActivity : AppCompatActivity() {
 
     protected fun showHideFAB(
         optionsFAB: View,
-        fabList: ArrayList<View>
+        fabList: ArrayList<View>,
+        background: View
     ) {
         if (!isFabExtended) {
             showView(fabList)
             if (optionsFAB is ExtendedFloatingActionButton)
                 optionsFAB.extend()
+            background.visibility = View.VISIBLE
             isFabExtended = true
         } else {
             hideView(fabList)
             if (optionsFAB is ExtendedFloatingActionButton)
                 optionsFAB.shrink()
+            background.visibility = View.GONE
             isFabExtended = false
         }
     }

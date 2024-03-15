@@ -30,6 +30,7 @@ class TileItem(
         IMAGE_TEXT,
         TEXT,
         WIDGET,
+        STUDENT_ID
     }
     enum class Category {
         CAMPUS,

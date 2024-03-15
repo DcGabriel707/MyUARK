@@ -41,11 +41,9 @@ class NewsActivity : BaseActivity() {
         binding.newsRecyclerview.adapter = adapter
     }
 
-    fun clickOptions(view: View) {
-        showHideFAB(binding.optionsFab, arrayListOf(binding.openBrowserFab, binding.openNewswire,))
-    }
-
+    fun clickOptions(view: View) = showHideFAB(binding.optionsFab, arrayListOf(binding.openBrowserFab, binding.openNewswire,), binding.fabBackground)
     fun clickBrowser(view: android.view.View) = openBrowser("https://news.uark.edu/")
     fun clickNewswire(view: android.view.View) = openBrowser("https://news.uark.edu/email")
+    fun fabBackgroundClick(view: View) = clickOptions(view)
 
 }

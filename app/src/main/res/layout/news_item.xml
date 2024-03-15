@@ -9,7 +9,10 @@
     android:stateListAnimator="@animator/card_clicked"
     app:cardElevation="8dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout style="@style/CardItemInnerLayout">
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/motion_layout"
+        style="@style/CardItemInnerLayout"
+        app:layoutDescription="@xml/news_item_scene">
 
 
         <TextView
@@ -29,8 +32,7 @@
             android:src="@drawable/newspaper"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/header_textview"
-             />
+            app:layout_constraintTop_toBottomOf="@+id/header_textview" />
 
         <TextView
             android:id="@+id/brief_textview"
@@ -44,14 +46,14 @@
         <TextView
             android:id="@+id/description_textview"
             style="@style/cardSecondaryText"
+            android:layout_width="match_parent"
             android:letterSpacing=".03"
-            android:text="This is a brief description of the news"
+            android:text="@string/lorem_ipsum"
             android:textAlignment="viewStart"
-            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/brief_textview" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.motion.widget.MotionLayout>
 </androidx.cardview.widget.CardView>

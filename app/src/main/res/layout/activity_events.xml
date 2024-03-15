@@ -11,6 +11,14 @@
         android:layout_height="match_parent"
         tools:listitem="@layout/events_item" />
 
+    <View
+        android:id="@+id/fab_background"
+        android:onClick="fabBackgroundClick"
+        android:visibility="gone"
+        android:background="@color/fab_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
     <LinearLayout
         android:id="@+id/fab_group"
         style="@style/FABGroupLayout"

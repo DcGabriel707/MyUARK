@@ -17,4 +17,11 @@
     <string name="home">home</string>
     <string name="fullscreen">Fullscreen</string>
     <string name="open">Open</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet. Et ducimus alias in quia iste sed inventore quasi aut voluptas enim ut tempore internos id maxime esse aut ratione voluptas. Ut quos assumenda sed omnis dolorum et perferendis inventore in molestiae quod. Ea consequatur galisum et voluptatem ipsam 33 veniam commodi.</string>
+    <string name="title_activity_student_id">StudentIdActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
 </resources>

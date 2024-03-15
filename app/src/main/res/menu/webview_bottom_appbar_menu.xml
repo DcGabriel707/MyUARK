@@ -15,4 +15,11 @@
         android:icon="@drawable/ic_round_refresh_24"
         android:title="@string/refresh"
         app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/fragment_test_button"
+        android:onClick="refreshWebview"
+        android:icon="@drawable/ic_round_refresh_24"
+        android:title="@string/refresh"
+        app:showAsAction="ifRoom" />
 </menu>

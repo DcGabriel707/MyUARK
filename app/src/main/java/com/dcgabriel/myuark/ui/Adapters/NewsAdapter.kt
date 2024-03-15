@@ -65,28 +65,26 @@ class NewsAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHold
                 .into(binding.image)
             binding.root.setOnClickListener { view ->
                 clickEvents.onNext(item)
-                setVisibility(item)
             }
+
         }
 
         fun setVisibility(item: NewsArticle) {
-            val desc = binding.descriptionTextview
-            val image = binding.image
-            if (desc.visibility == View.GONE) {
-                desc.visibility = View.VISIBLE
-                image.scaleType = ImageView.ScaleType.FIT_START
-                image.layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT
-            }
-            else {
-                desc.visibility = View.GONE
-                image.layoutParams.height = mContext.resources
-                    .getDimensionPixelSize(R.dimen.minimizedImageSize)
-                image.scaleType = ImageView.ScaleType.CENTER_CROP
-            }
+//            val desc = binding.descriptionTextview
+//            val image = binding.image
+//            if (desc.visibility == View.GONE) {
+//                desc.visibility = View.VISIBLE
+//                image.scaleType = ImageView.ScaleType.FIT_START
+//                image.layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT
+//            }
+//            else {
+//                desc.visibility = View.GONE
+//                image.layoutParams.height = mContext.resources
+//                    .getDimensionPixelSize(R.dimen.minimizedImageSize)
+//                image.scaleType = ImageView.ScaleType.CENTER_CROP
+//            }
         }
 
-        fun setVisibility() {
-        }
     }
 
 }

@@ -48,8 +48,9 @@
 
     <style name="WidgetCardView" parent="ListCardView">
         <item name="cardElevation">14dp</item>
-        <item name="android:layout_height">140dp</item>
+        <item name="android:layout_height">175dp</item>
     </style>
+
 
 
     <style name="ImageViewInCard">
@@ -124,6 +125,61 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+
+    <style name="InfoPageTextView" >
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">19sp</item>
+        <item name="android:layout_margin">16dp</item>
+    </style>
+
+    <style name="InfoPageHeaderTextView" parent="InfoPageTextView">
+    </style>
+
+    <style name="InfoPageSecondaryTextView" >
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_margin">8dp</item>
+    </style>
+
+    <style name="InfoPageSmallTextView" >
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:layout_margin">8dp</item>
+    </style>
+
+    <style name="InfoPageRecyclerView" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:paddingTop">@dimen/top_margin_inner_content_info_page</item>
+        <item name="android:paddingLeft">@dimen/left_margin_inner_content_info_page</item>
+        <item name="android:paddingRight">@dimen/left_margin_inner_content_info_page</item>
+        <item name="android:clipToPadding">false</item>
+    </style>
+
+    <style name="InfoPageCardButton" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">65dp</item>
+        <item name="android:layout_marginLeft">@dimen/left_margin_inner_content_info_page</item>
+        <item name="android:layout_marginRight">@dimen/left_margin_inner_content_info_page</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+        <item name="android:selectable">true</item>
+        <item name="android:backgroundTint">@color/white</item>
+        <item name="android:elevation">1dp</item>
+        <item name="iconTint">@color/darkerGray</item>
+        <item name="iconSize">21dp</item>
+        <item name="iconGravity">start</item>
+        <item name="iconPadding">23dp</item>
+        <item name="cardElevation">1dp</item>
+        <item name="android:stateListAnimator">@animator/card_clicked</item>
+        <item name="android:textColor">@color/darkerGray</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:text">Frequently Asked Questions</item>
+        <item name="strokeWidth">0dp</item>
+    </style>
 
     <style name="cardSecondaryText" parent="SecondaryText">
         <item name="android:layout_width">wrap_content</item>
@@ -201,6 +257,53 @@
         <item name="android:layout_marginBottom">4dp</item>
         <item name="android:layout_marginLeft">8dp</item>
         <item name="android:layout_marginRight">8dp</item>
+    </style>
+    <style name="ModalBottomSheetDialog" parent="Widget.Material3.BottomSheet.Modal">
+        <item name="backgroundTint">@color/white</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Material3.Corner.ExtraLarge</item>
+    </style>
+
+
+    <style name="DragHandle" parent="Widget.Material3.BottomSheet.DragHandle">
+        <item name="tint">@color/red</item>
+        <!--Alpha can be added optionally to achieve nice color blend-->
+        <item name="android:alpha">0.3</item>
+    </style>
+
+    <style name="TopRoundCard">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">32dp</item>
+        <item name="cornerSizeTopRight">32dp</item>
+        <item name="cornerSizeBottomLeft">6dp</item>
+        <item name="cornerSizeBottomRight">6dp</item>
+    </style>
+    <style name="MiddleCard">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+
+    <style name="BottomRoundCard" >
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">6dp</item>
+        <item name="cornerSizeTopRight">6dp</item>
+        <item name="cornerSizeBottomLeft">32dp</item>
+        <item name="cornerSizeBottomRight">32dp</item>
+    </style>
+
+    <style name="LeftRoundCard">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">26dp</item>
+        <item name="cornerSizeTopRight">2dp</item>
+        <item name="cornerSizeBottomLeft">26dp</item>
+        <item name="cornerSizeBottomRight">2dp</item>
+    </style>
+
+    <style name="RightRoundCard">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">2dp</item>
+        <item name="cornerSizeTopRight">26dp</item>
+        <item name="cornerSizeBottomLeft">2dp</item>
+        <item name="cornerSizeBottomRight">26dp</item>
     </style>
 
 

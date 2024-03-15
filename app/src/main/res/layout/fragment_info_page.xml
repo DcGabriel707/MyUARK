@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/info_page_bottomsheet"
+    style="@style/ModalBottomSheetDialog"
+    android:layout_width="match_parent"
+    android:layout_height="750dp"
+    android:animateLayoutChanges="true"
+    android:backgroundTint="@color/lightGray"
+    android:orientation="vertical"
+    app:behavior_hideable="false"
+    app:behavior_peekHeight="95dp"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+    tools:context=".InfoPageFragment">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/handleCardview"
+        theme="@style/TopRoundCard"
+        android:layout_width="match_parent"
+        android:layout_height="95dp"
+        android:backgroundTint="@color/lightGray"
+        app:cardCornerRadius="32dp"
+        app:cardElevation="0dp"
+        app:strokeWidth="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/handleLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:orientation="vertical">
+
+            <com.google.android.material.bottomsheet.BottomSheetDragHandleView
+                android:id="@+id/dragHandle"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:padding="0dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/title_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="65dp"
+                android:gravity="start|center_vertical"
+                android:maxWidth="250dp"
+                android:paddingLeft="@dimen/left_margin_inner_content_info_page"
+                android:paddingBottom="4dp"
+                android:text="Title"
+                android:textAlignment="viewStart"
+                android:textColor="@color/red"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dragHandle" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/refresh_button"
+                style="@style/InfoPageCardButton"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_margin="2dp"
+                android:backgroundTint="@color/lightRed"
+                android:foregroundGravity="center"
+                android:paddingLeft="16dp"
+                android:theme="@style/LeftRoundCard"
+                app:icon="@drawable/ic_round_refresh_24"
+
+                app:iconSize="35dp"
+                app:iconTint="@color/red"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/open_browser_button"
+                app:layout_constraintTop_toBottomOf="@+id/dragHandle" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/open_browser_button"
+                style="@style/InfoPageCardButton"
+                android:layout_width="60dp"
+
+                android:layout_height="60dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="9dp"
+                android:layout_marginBottom="2dp"
+                android:backgroundTint="@color/lightRed"
+                android:foregroundGravity="center"
+                android:paddingLeft="8dp"
+                android:theme="@style/RightRoundCard"
+                app:icon="@drawable/ic_baseline_open_in_browser_24"
+                app:iconSize="35dp"
+                app:iconTint="@color/red"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dragHandle" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="16dp">
+
+
+            <TextView
+                android:id="@+id/textView3"
+                style="@style/InfoPageHeaderTextView"
+                android:paddingTop="@dimen/top_margin_header_info_page"
+                android:text="Latest update"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                style="@style/InfoPageRecyclerView"
+                android:layout_height="216dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView3"
+                tools:listitem="@layout/info_feed_item" />
+
+            <TextView
+                android:id="@+id/textView4"
+                style="@style/InfoPageHeaderTextView"
+                android:paddingTop="@dimen/top_margin_header_info_page"
+                android:text="More updates on:"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView2"
+                style="@style/InfoPageRecyclerView"
+                android:layout_height="112dp"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                tools:listitem="@layout/info_social_links_item" />
+
+            <TextView
+                android:id="@+id/textView5"
+                style="@style/InfoPageHeaderTextView"
+                android:paddingTop="@dimen/top_margin_header_info_page"
+                android:text="Featured Links"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerView2" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView3"
+                style="@style/InfoPageRecyclerView"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView5"
+                tools:listitem="@layout/info_featured_links_item_middle" />
+            <include
+                android:id="@+id/emptyLayout"
+                layout="@layout/empty_list_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@+id/textView6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerView3" />
+
+            <TextView
+                android:id="@+id/textView6"
+                style="@style/InfoPageHeaderTextView"
+                android:paddingTop="@dimen/top_margin_header_info_page"
+                android:text="Contact"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/emptyLayout" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/email"
+                style="@style/InfoPageCardButton"
+                android:layout_marginLeft="42dp"
+                android:layout_marginTop="@dimen/top_margin_inner_content_info_page"
+                android:layout_marginRight="42dp"
+                android:text="organizationname@uark.edu"
+                android:textAlignment="viewStart"
+                android:theme="@style/TopRoundCard"
+                app:icon="@drawable/message"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/phone"
+                style="@style/InfoPageCardButton"
+                android:layout_marginLeft="42dp"
+                android:layout_marginRight="42dp"
+                android:text="123456"
+                android:textAlignment="viewStart"
+                android:theme="@style/MiddleCard"
+                app:cornerRadius="8dp"
+                app:icon="@drawable/phone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/email" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/address"
+                style="@style/InfoPageCardButton"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="42dp"
+                android:layout_marginRight="42dp"
+                android:text="123 Main Street \n Fayetteville, Arkansas"
+                android:textAlignment="viewStart"
+                android:theme="@style/MiddleCard"
+                app:cornerRadius="8dp"
+                app:icon="@drawable/building_user"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/phone" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/directory_button"
+                style="@style/InfoPageCardButton"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="42dp"
+                android:layout_marginRight="42dp"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="#FFCDD2"
+                android:stateListAnimator="@animator/card_clicked"
+                android:text="Search Directory"
+                android:textColor="@color/red"
+                android:theme="@style/BottomRoundCard"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/address" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.appcompat.widget.LinearLayoutCompat>

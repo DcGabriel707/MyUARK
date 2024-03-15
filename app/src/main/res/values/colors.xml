@@ -9,7 +9,10 @@
     <color name="white">#FFFFFFFF</color>
     <color name="red">#9D2235</color>
     <color name="darkRed">#611327</color>
+    <color name="lightGray">#F2F2F4</color>
     <color name="gray">#9DC9D5</color>
+    <color name="mediumGray">#C7C8CA</color>
+
     <color name="darkerGray">#655765</color>
     <color name="teal">#3F7F7F</color>
     <color name="blueGray">#2B5269</color>
@@ -20,6 +23,8 @@
     <color name="black_overlay">#66000000</color>
     <color name="transparentWhite">#D9FFFFFF</color>
     <color name="transparentWhite2">#59FFFFFF</color>
+    <color name="fab_background">#CDFFFFFF</color>
+    <color name="lightRed">#FFCDD2</color>
 
 
 </resources>

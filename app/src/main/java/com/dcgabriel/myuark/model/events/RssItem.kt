@@ -10,10 +10,8 @@ class RssItem(
     @field:Element(name = "title")
     var title: String? = null,
 
-
     @field:Element(name = "link")
     var link: String? = null,
-
 
     @field:Element(name = "pubDate")
     var pubDate: String? = null,
@@ -23,9 +21,13 @@ class RssItem(
 
     @field:Element(name = "content")
     var imageContent: ImageContent? = null,
+
+    @field:Element(name = "date",)
+    var date: String? = null,
+
 ) : EventItem() {
     override fun toString(): String {
         return ("RssItem [title=" + title + ", link=" + link + ", pubDate=" + pubDate
-                + ", description=" + description + "]")
+                + ", description=" + description + ", date=" + date + "]")
     }
 }
