@@ -384,6 +384,19 @@ object DummyData {
                 2001,
                 "Courses",
                 TileItem.Category.STUDENT,
+                3,
+                R.drawable.chalkboard_teacher,
+                TileData(URLInfo("","")),
+                Action.APP_VIEW,
+                TileItem.Type.STUDENT_ID,
+                Constants.ACTIVITY_STUDENT_ID
+            )
+        )
+        allTiles.add(
+            TileItem(
+                2001,
+                "Courses",
+                TileItem.Category.STUDENT,
                 1,
                 R.drawable.chalkboard_teacher,
                 TileData(URLInfo("","https://classes.uark.edu/")),

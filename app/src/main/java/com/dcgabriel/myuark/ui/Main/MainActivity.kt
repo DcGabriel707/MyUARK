@@ -20,6 +20,7 @@ import com.dcgabriel.myuark.ui.Adapters.TileAdapter
 import com.dcgabriel.myuark.model.tiles.TileItem
 import com.dcgabriel.myuark.ui.BaseActivity
 import com.dcgabriel.myuark.ui.Events.EventsActivity
+import com.dcgabriel.myuark.ui.Student.StudentIdActivity
 import com.example.myuark.R
 import com.example.myuark.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -121,6 +122,7 @@ class MainActivity : BaseActivity() {
         when (destination) {
             Constants.ACTIVITY_NEWS -> intent = Intent(this, NewsActivity::class.java)
             Constants.ACTIVITY_EVENTS -> intent = Intent(this, EventsActivity::class.java)
+            Constants.ACTIVITY_STUDENT_ID-> intent = Intent(this, StudentIdActivity::class.java)
             else -> intent = Intent(this, NewsActivity::class.java)
         }
 

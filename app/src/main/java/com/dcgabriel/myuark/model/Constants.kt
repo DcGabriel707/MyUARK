@@ -13,4 +13,5 @@ object Constants {
 
     const val ACTIVITY_NEWS = "news_activity"
     const val ACTIVITY_EVENTS = "events_activity"
+    const val ACTIVITY_STUDENT_ID = "student_id_activity"
 }

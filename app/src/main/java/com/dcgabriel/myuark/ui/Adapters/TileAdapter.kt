@@ -16,6 +16,7 @@ import com.dcgabriel.myuark.model.tiles.TileItem.Type.*
 import com.dcgabriel.myuark.ui.Campus.CampusFragment
 import com.example.myuark.databinding.TileIconTitleItemBinding
 import com.example.myuark.databinding.TileLogoItemBinding
+import com.example.myuark.databinding.TileStudentIdItemBinding
 import com.example.myuark.databinding.TileTextItemBinding
 import com.example.myuark.databinding.WidgetItemBinding
 import com.google.android.material.animation.AnimationUtils
@@ -44,12 +45,14 @@ class TileAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHold
         val widgetBinding = WidgetItemBinding.inflate(inflater, parent, false)
         val tileIconTitleItemBinding = TileIconTitleItemBinding.inflate(inflater, parent, false)
         val tileLogoItemBinding = TileLogoItemBinding.inflate(inflater, parent, false)
+        val studentIdItemBinding = TileStudentIdItemBinding.inflate(inflater, parent, false)
 
         return when (viewType) {
             ICON_TITLE.ordinal -> IconTitleViewHolder(tileIconTitleItemBinding)
             TEXT.ordinal -> TextViewHolder(tileTextBinding)
             LOGO.ordinal -> LogoViewHolder(tileLogoItemBinding)
             WIDGET.ordinal -> WidgetViewHolder(widgetBinding)
+            STUDENT_ID.ordinal -> StudentIdViewHolder(studentIdItemBinding)
             else -> LogoViewHolder(tileLogoItemBinding)
         }
     }
@@ -62,6 +65,7 @@ class TileAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHold
             TEXT -> (holder as TextViewHolder).bindData(item)
             LOGO -> (holder as LogoViewHolder).bindData(item)
             WIDGET -> (holder as WidgetViewHolder).bindData(item)
+            STUDENT_ID -> (holder as StudentIdViewHolder).bindData(item)
             else -> (holder as TextViewHolder).bindData(item)
         }
     }
@@ -74,6 +78,7 @@ class TileAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHold
             IMAGE_TEXT -> IMAGE_TEXT.ordinal
             TEXT -> TEXT.ordinal
             WIDGET -> WIDGET.ordinal
+            STUDENT_ID -> STUDENT_ID.ordinal
         }
     }
 
@@ -203,6 +208,15 @@ class TileAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHold
         }
 
         fun setVisibility() {
+        }
+    }
+
+    inner class StudentIdViewHolder(var binding: TileStudentIdItemBinding) :
+    RecyclerView.ViewHolder(binding.root) {
+        fun bindData(item: TileItem) {
+            binding.root.setOnClickListener { view ->
+                clickEvents.onNext(item)
+            }
         }
     }
 
